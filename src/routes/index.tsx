@@ -24,8 +24,7 @@ import {
 import { FormEvent, useState } from "react";
 import { SiPython, SiReact, SiTailwindcss, SiTypescript, SiWhatsapp } from "react-icons/si";
 import heroImage from "@/assets/project-residence.jpg";
-import portraitAsset from "@/assets/bojan-crnic.jpg.asset.json";
-const portrait = portraitAsset.url;
+import portrait from "@/assets/bojan-crnic.jpg";
 import { Button } from "@/components/ui/button";
 import { SiteHeader } from "@/components/site-header";
 import { projects, type ProjectCategory } from "@/lib/projects";
