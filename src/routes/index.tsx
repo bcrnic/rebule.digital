@@ -23,7 +23,7 @@ import {
 } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { SiPython, SiReact, SiTailwindcss, SiTypescript, SiWhatsapp } from "react-icons/si";
-import heroImage from "@/assets/project-residence.jpg";
+import heroImage from "@/assets/hero-rebule.jpg";
 import portrait from "@/assets/bojan-crnic.jpg";
 import { Button } from "@/components/ui/button";
 import { SiteHeader } from "@/components/site-header";
@@ -295,10 +295,10 @@ function HomePage() {
                   <div className="overflow-hidden rounded-2xl bg-muted">
                     <img
                       src={heroImage}
-                      alt="rebule. digital projekat Residence"
+                      alt="rebule. digital — Web studio za lokalne biznise"
                       width={1280}
-                      height={960}
-                      className="aspect-[4/3] w-full object-cover"
+                      height={720}
+                      className="aspect-[16/9] w-full object-cover"
                     />
                   </div>
                   <div className="absolute -bottom-6 -left-6 hidden items-center gap-3 rounded-2xl border border-border/60 bg-card px-5 py-3 shadow-xl md:flex">
@@ -307,9 +307,9 @@ function HomePage() {
                     </div>
                     <div>
                       <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-                        Završen projekat
+                        Web Studio & Sistemi
                       </p>
-                      <p className="text-sm font-semibold text-foreground">Residences 2024</p>
+                      <p className="text-sm font-semibold text-foreground">rebule. digital</p>
                     </div>
                   </div>
                 </div>
