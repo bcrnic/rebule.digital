@@ -31,20 +31,29 @@ import { projects, type ProjectCategory } from "@/lib/projects";
 
 export const Route = createFileRoute("/")({
   head: () => ({
+    links: [{ rel: "canonical", href: "https://rebule.studio" }],
     meta: [
       { title: "rebule. digital — Sajtovi koji donose klijente" },
       {
         name: "description",
         content:
-          "Izrada brzih, modernih sajtova i sistema za zakazivanje za male lokalne firme u Srbiji i regionu.",
+          "Izrada brzih, modernih sajtova i sistema za zakazivanje za male lokalne firme u Srbiji i regionu. Web studio Bojana Crnića.",
+      },
+      {
+        name: "keywords",
+        content:
+          "izrada sajtova, web development beograd, sajtovi za male firme, izrada veb sajta srbija, online zakazivanje termina, web studio, bojan crnic",
       },
       { property: "og:title", content: "rebule. digital — Sajtovi koji donose klijente" },
       {
         property: "og:description",
         content: "Web studio Bojana Crnića za male firme, od ideje do lansiranja.",
       },
+      { property: "og:url", content: "https://rebule.studio" },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://rebule.studio/og-image.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://rebule.studio/og-image.jpg" },
     ],
   }),
   component: HomePage,

@@ -14,7 +14,9 @@ export const Route = createFileRoute("/projekat/$id")({
   },
   head: ({ loaderData }) => {
     const project = loaderData?.project;
+    const url = project ? `https://rebule.studio/projekat/${project.id}` : "https://rebule.studio";
     return {
+      links: [{ rel: "canonical", href: url }],
       meta: [
         {
           title: project
@@ -26,15 +28,24 @@ export const Route = createFileRoute("/projekat/$id")({
           content: project?.description ?? "Detalji portfolio projekta studija rebule. digital.",
         },
         {
+          name: "keywords",
+          content: project
+            ? `${project.title}, ${project.category}, web sajt, studija slucaja, rebule digital, ${project.technologies.join(", ")}`
+            : "portfolio, rebule digital",
+        },
+        {
           property: "og:title",
-          content: project ? `${project.title} — Studija slučaja` : "Portfolio projekat",
+          content: project ? `${project.title} — Studija slučaja | rebule. digital` : "Portfolio projekat",
         },
         {
           property: "og:description",
           content: project?.description ?? "Detalji portfolio projekta.",
         },
+        { property: "og:url", content: url },
         { property: "og:type", content: "article" },
+        { property: "og:image", content: "https://rebule.studio/og-image.jpg" },
         { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:image", content: "https://rebule.studio/og-image.jpg" },
       ],
     };
   },
@@ -64,22 +75,50 @@ function ProjectPage() {
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "CreativeWork",
-    name: project.title,
-    headline: project.title,
-    description: project.description,
-    author: {
-      "@type": "Person",
-      name: "Bojan Crnić",
-      url: "https://rebule.studio",
-    },
-    creator: {
-      "@type": "Organization",
-      name: "rebule. digital",
-      url: "https://rebule.studio",
-    },
-    genre: project.category,
-    keywords: project.technologies.join(", "),
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Početna",
+            item: "https://rebule.studio",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Portfolio",
+            item: "https://rebule.studio/#portfolio",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: project.title,
+            item: `https://rebule.studio/projekat/${project.id}`,
+          },
+        ],
+      },
+      {
+        "@type": "CreativeWork",
+        name: project.title,
+        headline: `${project.title} — ${project.subtitle}`,
+        description: project.description,
+        url: `https://rebule.studio/projekat/${project.id}`,
+        author: {
+          "@type": "Person",
+          name: "Bojan Crnić",
+          url: "https://rebule.studio",
+        },
+        creator: {
+          "@type": "Organization",
+          name: "rebule. digital",
+          url: "https://rebule.studio",
+        },
+        genre: project.category,
+        keywords: project.technologies.join(", "),
+      },
+    ],
   };
 
   return (
