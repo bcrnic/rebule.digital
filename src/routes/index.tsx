@@ -386,69 +386,120 @@ function HomePage() {
                 ),
               )}
             </div>
-            <motion.div layout className="mt-16 grid grid-cols-12 gap-x-5 gap-y-24">
+            <motion.div
+              layout
+              className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-10"
+            >
               {visibleProjects.map((project, index) => (
                 <motion.article
                   layout
                   {...reveal}
                   key={project.id}
-                  className={`${index % 3 === 0 ? "col-span-12 md:col-span-7" : index % 3 === 1 ? "col-span-12 md:col-span-5 md:pt-28" : "col-span-12 md:col-span-6 md:col-start-4"} group`}
+                  className="glass glass-hover group flex flex-col overflow-hidden rounded-[2rem] border border-foreground/10 transition-all duration-300"
                 >
                   <Link
                     to="/projekat/$id"
                     params={{ id: project.id }}
-                    className="block overflow-hidden rounded-[1.75rem] border border-foreground/10 shadow-[0_26px_60px_-32px_color-mix(in_oklab,var(--foreground)_45%,transparent)]"
+                    className="relative block aspect-[16/10] w-full overflow-hidden bg-muted/40"
                   >
                     <img
                       src={project.image}
                       alt={`Prikaz projekta ${project.title}`}
                       loading="lazy"
                       width={1280}
-                      height={900}
-                      className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                      height={800}
+                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
-                  </Link>
-                  <div className="glass mt-5 flex items-start justify-between gap-4 p-6">
-                    <div className="space-y-3">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span className="text-xs font-semibold uppercase text-primary">
-                          {project.category} / 0{index + 1}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                    <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+                      <span className="rounded-full border border-white/20 bg-black/60 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-md">
+                        {project.category}
+                      </span>
+                      {project.metrics?.[0] && (
+                        <span className="rounded-full border border-emerald-400/30 bg-emerald-950/80 px-3 py-1 text-xs font-bold text-emerald-300 backdrop-blur-md">
+                          {project.metrics[0].label}: {project.metrics[0].value}
                         </span>
-                        {project.metrics?.[0] && (
-                          <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-[10px] font-bold text-primary">
-                            {project.metrics[0].label}: {project.metrics[0].value}
+                      )}
+                    </div>
+                  </Link>
+                  <div className="flex flex-1 flex-col justify-between p-7 sm:p-8">
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="text-xs font-semibold uppercase text-primary">
+                          Projekat 0{index + 1}
+                        </span>
+                        {project.year && (
+                          <span className="text-xs font-medium text-muted-foreground">
+                            {project.year}
                           </span>
                         )}
                       </div>
-                      <h3 className="font-display text-3xl font-semibold">{project.title}</h3>
-                      <p className="max-w-lg text-sm leading-relaxed text-muted-foreground">
+                      <h3 className="font-display text-2xl font-bold tracking-tight text-foreground transition-colors group-hover:text-primary sm:text-3xl">
+                        <Link to="/projekat/$id" params={{ id: project.id }}>
+                          {project.title}
+                        </Link>
+                      </h3>
+                      <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
                         {project.description}
                       </p>
-                      <div className="flex flex-wrap gap-1.5 pt-1">
-                        {project.technologies.slice(0, 3).map((tech) => (
+                      <div className="flex flex-wrap gap-1.5 pt-2">
+                        {project.technologies.map((tech) => (
                           <span
                             key={tech}
-                            className="rounded-md bg-foreground/5 px-2 py-0.5 text-[11px] font-medium text-muted-foreground"
+                            className="rounded-lg bg-foreground/5 px-2.5 py-1 text-xs font-medium text-muted-foreground"
                           >
                             {tech}
                           </span>
                         ))}
                       </div>
                     </div>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="shrink-0 rounded-full"
-                      asChild
-                      aria-label={`Pogledaj projekat ${project.title}`}
-                    >
-                      <Link to="/projekat/$id" params={{ id: project.id }}>
-                        <ArrowDownRight />
+                    <div className="mt-6 flex items-center justify-between border-t border-border/50 pt-5">
+                      <Link
+                        to="/projekat/$id"
+                        params={{ id: project.id }}
+                        className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-all group-hover:gap-3"
+                      >
+                        Pogledaj studiju slučaja
+                        <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
                       </Link>
-                    </Button>
+                      <Link
+                        to="/projekat/$id"
+                        params={{ id: project.id }}
+                        className="glass-soft flex size-10 items-center justify-center rounded-full text-foreground transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground"
+                        aria-label={`Pogledaj projekat ${project.title}`}
+                      >
+                        <ArrowDownRight className="size-4" />
+                      </Link>
+                    </div>
                   </div>
                 </motion.article>
               ))}
+
+              {filter === "Svi" && (
+                <motion.article
+                  layout
+                  {...reveal}
+                  className="glass group flex min-h-[420px] flex-col justify-between rounded-[2rem] border border-dashed border-primary/40 p-8 text-center transition-all duration-300 hover:border-primary hover:bg-primary/5 sm:p-10"
+                >
+                  <div className="my-auto space-y-4">
+                    <div className="mx-auto flex size-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110">
+                      <Sparkles className="size-6" />
+                    </div>
+                    <h3 className="font-display text-2xl font-bold sm:text-3xl">
+                      Vaš projekat na ovom mestu?
+                    </h3>
+                    <p className="mx-auto max-w-sm text-sm leading-relaxed text-muted-foreground sm:text-base">
+                      Hajde da zajedno kreiramo moderan, brz sajt koji privlači klijente i donosi
+                      merljive rezultate za vaš biznis.
+                    </p>
+                  </div>
+                  <Button variant="hero" size="lg" className="mt-8 w-full rounded-2xl" asChild>
+                    <a href="#kontakt">
+                      Zakažite besplatan razgovor <ArrowRight className="size-4" />
+                    </a>
+                  </Button>
+                </motion.article>
+              )}
             </motion.div>
           </div>
         </section>
