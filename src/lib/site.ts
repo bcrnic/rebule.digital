@@ -13,11 +13,11 @@ export const FOUNDER = {
 };
 
 export const CONTACT = {
-  email: env.VITE_CONTACT_EMAIL ?? "zdravo@rebule.rs",
+  email: env.VITE_CONTACT_EMAIL ?? "rebule26@gmail.com",
   phone: env.VITE_CONTACT_PHONE ?? "+381643007002",
   phoneLabel: env.VITE_CONTACT_PHONE_LABEL ?? "+381 64 300 7002",
   instagram: env.VITE_INSTAGRAM_URL as string | undefined,
-  city: "Beograd",
+  city: "Novi Sad",
 };
 
 export const WHATSAPP_MESSAGE = "Zdravo Bojane, zainteresovan sam za izradu sajta.";

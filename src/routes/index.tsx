@@ -19,7 +19,7 @@ export const Route = createFileRoute("/")({
       title: SITE_TITLE,
       description: SITE_DESCRIPTION,
       keywords:
-        "izrada sajtova, web development beograd, sajtovi za male firme, izrada veb sajta srbija, online zakazivanje termina, web studio, bojan crnic",
+        "izrada sajtova, web development novi sad, izrada sajtova novi sad, sajtovi za male firme, izrada veb sajta srbija, online zakazivanje termina, web studio, bojan crnic",
     }),
   component: HomePage,
 });
