@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://rebule.studio/sitemap.xml
+Sitemap: https://rebule.rs/sitemap.xml

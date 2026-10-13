@@ -1,17 +1,12 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-const isGhPages = process.env["GITHUB_PAGES"] === "true" || !!process.env["GITHUB_REPOSITORY"];
-const base = isGhPages ? "/rebule.digital" : "";
-
+// Sajt je statičan (prerender) i servira se sa korena domena rebule.rs.
+// Fiksiran preset sprečava da Nitro na Netlify-ju automatski pređe na SSR funkcije;
+// na hosting ide samo .output/public.
 export default defineConfig({
-  vite: {
-    base: base ? `${base}/` : "/",
-  },
+  nitro: { preset: "cloudflare-module" },
   tanstackStart: {
     server: { entry: "server" },
-    router: {
-      basepath: base,
-    },
     prerender: {
       enabled: true,
       crawlLinks: true,

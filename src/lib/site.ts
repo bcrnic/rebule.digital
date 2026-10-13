@@ -1,6 +1,6 @@
 const env = import.meta.env;
 
-export const SITE_URL = (env.VITE_SITE_URL ?? "https://rebule.studio").replace(/\/$/, "");
+export const SITE_URL = (env.VITE_SITE_URL ?? "https://rebule.rs").replace(/\/$/, "");
 export const SITE_NAME = "rebule. digital";
 export const SITE_TITLE = "rebule. digital — Sajtovi koji donose klijente";
 export const SITE_DESCRIPTION =
@@ -13,7 +13,7 @@ export const FOUNDER = {
 };
 
 export const CONTACT = {
-  email: env.VITE_CONTACT_EMAIL ?? "zdravo@rebule.studio",
+  email: env.VITE_CONTACT_EMAIL ?? "zdravo@rebule.rs",
   phone: env.VITE_CONTACT_PHONE ?? "+381643007002",
   phoneLabel: env.VITE_CONTACT_PHONE_LABEL ?? "+381 64 300 7002",
   instagram: env.VITE_INSTAGRAM_URL as string | undefined,
