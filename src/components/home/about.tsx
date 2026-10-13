@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Check } from "lucide-react";
-import portrait from "@/assets/bojan-crnic.jpg";
+import portrait from "@/assets/bojan-crnic.webp";
 import { aboutPoints } from "@/content/home";
 import { reveal } from "@/lib/motion";
 import { SectionTitle } from "./section-title";

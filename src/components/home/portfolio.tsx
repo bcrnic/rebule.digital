@@ -68,8 +68,8 @@ export function Portfolio() {
                   Vaš projekat na ovom mestu?
                 </h3>
                 <p className="mx-auto max-w-sm text-sm leading-relaxed text-muted-foreground sm:text-base">
-                  Hajde da zajedno kreiramo moderan, brz sajt koji privlači klijente i donosi
-                  merljive rezultate za vaš biznis.
+                  Hajde da zajedno kreiramo moderan, brz sajt koji privlači klijente i donosi upite
+                  za vaš biznis.
                 </p>
               </div>
               <Button variant="hero" size="lg" className="mt-8 w-full rounded-2xl" asChild>

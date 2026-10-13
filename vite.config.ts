@@ -18,6 +18,7 @@ export default defineConfig({
       { path: "/projekat/remielectric", prerender: { enabled: true } },
       { path: "/projekat/residence", prerender: { enabled: true } },
       { path: "/projekat/misolutions", prerender: { enabled: true } },
+      { path: "/privatnost", prerender: { enabled: true } },
     ],
   },
 });

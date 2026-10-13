@@ -189,13 +189,13 @@ function ProjectPage() {
         {/* Key Metrics / Highlights */}
         {project.metrics && project.metrics.length > 0 && (
           <section
-            aria-label="Ključni rezultati projekta"
+            aria-label="Ključne karakteristike projekta"
             className="border-y border-border/70 bg-card/40 py-14"
           >
             <div className="mx-auto max-w-[90rem] px-5 lg:px-10">
               <div className="mb-8 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
                 <Sparkles className="size-4" />
-                <span>Ključni pokazatelji i rezultati</span>
+                <span>Ključne karakteristike</span>
               </div>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {project.metrics.map((metric) => (

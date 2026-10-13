@@ -1,8 +1,8 @@
-import misolutionsImage from "@/assets/project-misolutions.jpg";
-import remiImage from "@/assets/project-remielectric.jpg";
-import residenceImage from "@/assets/project-residence.jpg";
-import badbyteImage from "@/assets/project-badbyte.jpg";
-import vojkanImage from "@/assets/project-vojkan.jpg";
+import misolutionsImage from "@/assets/project-misolutions.webp";
+import remiImage from "@/assets/project-remielectric.webp";
+import residenceImage from "@/assets/project-residence.webp";
+import badbyteImage from "@/assets/project-badbyte.webp";
+import vojkanImage from "@/assets/project-vojkan.webp";
 
 export type ProjectCategory = "Zakazivanje" | "Portfolio" | "E-commerce" | "Biznis";
 
@@ -46,9 +46,9 @@ export const projects: Project[] = [
     technologies: ["React", "TypeScript", "Tailwind CSS", "Motion"],
     deliverables: ["UI/UX Dizajn", "Front-end Development", "SEO Optimizacija", "Forma za ponude"],
     metrics: [
-      { label: "Direktni upiti", value: "+60%", hint: "U prvih 60 dana" },
-      { label: "PageSpeed ocena", value: "99/100", hint: "Maksimalna brzina" },
-      { label: "Vreme učitavanja", value: "< 0.7s", hint: "Instant odziv" },
+      { label: "Usluge i cene", value: "Jasna ponuda", hint: "Sve na jednoj strani" },
+      { label: "Optimizovan sajt", value: "Brzina", hint: "Lagan kod i slike" },
+      { label: "Direktni upiti", value: "Forma", hint: "Zahtev za ponudu bez posrednika" },
     ],
     image: badbyteImage,
     url: "https://badbyte.netlify.app/",
@@ -74,9 +74,9 @@ export const projects: Project[] = [
       "Galerija radova",
     ],
     metrics: [
-      { label: "Zakazivanja porukom", value: "70%+", hint: "WhatsApp & Viber" },
-      { label: "Smanjeni pozivi", value: "-45%", hint: "U toku rada" },
-      { label: "Mobilne posete", value: "92%", hint: "Prilagođeno telefonu" },
+      { label: "Zakazivanje termina", value: "Porukom", hint: "WhatsApp, Viber i email" },
+      { label: "Cene unapred", value: "Cenovnik", hint: "Klijentkinje znaju šta biraju" },
+      { label: "Prilagođeno telefonu", value: "Mobilni", hint: "Pregledno na svakom ekranu" },
     ],
     image: vojkanImage,
     url: "https://frizervojkan.rs/",
@@ -102,9 +102,13 @@ export const projects: Project[] = [
       "Lokalni SEO",
     ],
     metrics: [
-      { label: "Hitni pozivi sa sajta", value: "+50%", hint: "Dugme za hitan poziv" },
-      { label: "Google vidljivost", value: "Top 3", hint: "Za lokalne ključne reči" },
-      { label: "Odziv sajta", value: "100%", hint: "Mobilna optimizacija" },
+      {
+        label: "Dugme za hitne slučajeve",
+        value: "Hitan poziv",
+        hint: "Jednim dodirom sa telefona",
+      },
+      { label: "Zakazivanje sa sajta", value: "Pregled", hint: "Forma za besplatan pregled" },
+      { label: "Vidljivost na Google-u", value: "Lokalni SEO", hint: "Za pretrage u Novom Sadu" },
     ],
     image: remiImage,
     url: "https://bcrnic.github.io/remielectric/",
@@ -130,9 +134,9 @@ export const projects: Project[] = [
       "Upit za pojedinačni stan",
     ],
     metrics: [
-      { label: "Pregledi tlocrta", value: "3.5k+", hint: "Mesečno" },
-      { label: "Pripremljeni kupci", value: "85%", hint: "Tačno znaju koji stan žele" },
-      { label: "Dostupnost uživo", value: "Ažurno", hint: "Oznake za prodato/slobodno" },
+      { label: "Svi stanovi na jednom mestu", value: "Katalog", hint: "Cene, kvadratura i sprat" },
+      { label: "Pretraga po strukturi", value: "Filteri", hint: "Po broju soba" },
+      { label: "Dostupnost stanova", value: "Ažurno", hint: "Oznake za prodato/slobodno" },
     ],
     image: residenceImage,
     url: "https://bcrnic.github.io/residence/",
@@ -158,9 +162,9 @@ export const projects: Project[] = [
       "Brending usklađivanje",
     ],
     metrics: [
-      { label: "Konverzija posetilaca", value: "2.4x", hint: "U poređenju sa PDF brošurom" },
-      { label: "Vreme na sajtu", value: "+120%", hint: "Veće angažovanje posetilaca" },
-      { label: "B2B kredibilitet", value: "100%", hint: "Verifikovane preporuke" },
+      { label: "Struktura ponude", value: "3 usluge", hint: "Jasno izdvojene i objašnjene" },
+      { label: "Rezultati klijenata", value: "Studije", hint: "Umesto PDF brošure" },
+      { label: "Poslovni upiti", value: "B2B forma", hint: "Direktan kontakt sa agencijom" },
     ],
     image: misolutionsImage,
     url: "https://bcrnic.github.io/MiSolutions/",

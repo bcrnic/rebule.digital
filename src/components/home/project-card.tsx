@@ -22,7 +22,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
       >
         <img
           src={project.image}
-          alt=""
+          alt={`Prikaz sajta ${project.title}`}
           loading="lazy"
           decoding="async"
           width={1280}

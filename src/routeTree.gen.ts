@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PrivatnostRouteImport } from './routes/privatnost'
 import { Route as ProjekatIdRouteImport } from './routes/projekat.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivatnostRoute = PrivatnostRouteImport.update({
+  id: '/privatnost',
+  path: '/privatnost',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProjekatIdRoute = ProjekatIdRouteImport.update({
@@ -25,27 +31,31 @@ const ProjekatIdRoute = ProjekatIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/privatnost': typeof PrivatnostRoute
   '/projekat/$id': typeof ProjekatIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/privatnost': typeof PrivatnostRoute
   '/projekat/$id': typeof ProjekatIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/privatnost': typeof PrivatnostRoute
   '/projekat/$id': typeof ProjekatIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/projekat/$id'
+  fullPaths: '/' | '/privatnost' | '/projekat/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/projekat/$id'
-  id: '__root__' | '/' | '/projekat/$id'
+  to: '/' | '/privatnost' | '/projekat/$id'
+  id: '__root__' | '/' | '/privatnost' | '/projekat/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PrivatnostRoute: typeof PrivatnostRoute
   ProjekatIdRoute: typeof ProjekatIdRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privatnost': {
+      id: '/privatnost'
+      path: '/privatnost'
+      fullPath: '/privatnost'
+      preLoaderRoute: typeof PrivatnostRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/projekat/$id': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PrivatnostRoute: PrivatnostRoute,
   ProjekatIdRoute: ProjekatIdRoute,
 }
 export const routeTree = rootRouteImport

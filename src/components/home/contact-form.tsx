@@ -1,4 +1,5 @@
 import { useState, type ReactNode } from "react";
+import { Link } from "@tanstack/react-router";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "motion/react";
@@ -125,6 +126,13 @@ export function ContactForm() {
         aria-hidden="true"
         className="absolute -left-[9999px] h-0 w-0 opacity-0"
       />
+      <p className="text-xs leading-relaxed opacity-75 sm:col-span-2">
+        Podatke iz forme koristim samo da bih odgovorio na vaš upit. Više u{" "}
+        <Link to="/privatnost" className="underline hover:opacity-80">
+          politici privatnosti
+        </Link>
+        .
+      </p>
       <div className="flex flex-col items-start gap-4 sm:col-span-2 sm:flex-row sm:items-center">
         <Button
           variant="secondary"

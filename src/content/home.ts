@@ -36,29 +36,29 @@ export const testimonials = [
     name: "Modni Frizer Vojkan",
     role: "Vlasnik frizerskog salona",
     project: "modni-frizer-vojkan",
-    text: "Dobili smo elegantan sajt i sistem gde klijentkinje direktno vide usluge i zakazuju preko WhatsApp-a. Smanjili smo zivkanje tokom šišanja za više od 40%.",
-    highlight: "Preko 70% zakazivanja sada stiže porukom",
+    text: "Dobili smo elegantan sajt i sistem gde klijentkinje direktno vide usluge i zakazuju preko WhatsApp-a. Telefon nas mnogo ređe prekida tokom šišanja.",
+    highlight: "Zakazivanje porukom umesto telefonom",
   },
   {
     name: "REMIELECTRIC",
     role: "Elektroinstalaterski tim",
     project: "remielectric",
     text: "Najbolja investicija za naš posao. Sajt je jasan, brz i ljudi nas odmah zovu za hitne intervencije ili zakazuju besplatan pregled.",
-    highlight: "+50% više poziva preko dugmeta za hitne slučajeve",
+    highlight: "Dugme za hitne pozive na svakoj strani",
   },
   {
     name: "MiSolutions",
     role: "Konsalting i analiza tržišta",
     project: "misolutions",
     text: "Bojan je razumeo tačno šta nam treba. Umesto glomaznog kataloga, dobili smo sajt koji odmah gradi autoritet i donosi ozbiljne B2B upite.",
-    highlight: "2.4x veća konverzija u odnosu na ranije materijale",
+    highlight: "Sajt umesto glomaznog PDF kataloga",
   },
   {
     name: "Badbyte Studio",
     role: "Digital agencija",
     project: "badbyte",
     text: "Izuzetno brza izrada, savremen dizajn i čista komunikacija bez gubljenja vremena. Sve preporuke za saradnju.",
-    highlight: "99/100 brzina na svim testovima",
+    highlight: "Brza izrada i jasna komunikacija",
   },
 ];
 
@@ -81,7 +81,7 @@ export const faqs = [
   {
     question: "Da li će sajt raditi brzo i na mobilnim telefonima?",
     answer:
-      "Da, 100%. Svaki sajt pravim sa 'mobile-first' pristupom, uz maksimalnu optimizaciju brzine (ispod 1 sekunde učitavanja) i prilagođenost svim veličinama ekrana.",
+      "Da. Svaki sajt pravim sa 'mobile-first' pristupom, optimizujem ga za brzo učitavanje i prilagođavam svim veličinama ekrana.",
   },
   {
     question: "Šta se dešava nakon lansiranja sajta?",
