@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { Instagram, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CONTACT, FOUNDER, SITE_NAME } from "@/lib/site";
@@ -12,9 +13,14 @@ export function SiteFooter() {
           </p>
           <p className="mt-1 text-sm text-muted-foreground">Web studio za male firme.</p>
         </div>
-        <p className="text-sm text-muted-foreground">
-          © {new Date().getFullYear()} {SITE_NAME}. Sva prava zadržana.
-        </p>
+        <div className="space-y-1 text-sm text-muted-foreground">
+          <p>
+            © {new Date().getFullYear()} {SITE_NAME}. Sva prava zadržana.
+          </p>
+          <Link to="/privatnost" className="underline transition-colors hover:text-primary">
+            Politika privatnosti
+          </Link>
+        </div>
         <div className="flex gap-2">
           <Button variant="ghost" size="icon" aria-label="LinkedIn profil Bojana Crnića" asChild>
             <a href={FOUNDER.linkedin} target="_blank" rel="noreferrer noopener">

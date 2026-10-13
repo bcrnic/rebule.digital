@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { ArrowRight, Check } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
-import heroImage from "@/assets/hero-rebule.jpg";
+import heroImage from "@/assets/hero-rebule.webp";
 import { Button } from "@/components/ui/button";
 import { whatsappLink } from "@/lib/site";
 
