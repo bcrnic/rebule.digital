@@ -3,7 +3,10 @@ import { ArrowLeft, ArrowRight, CheckCircle2, ExternalLink, Layers, Sparkles } f
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 import { getProject, getAdjacentProjects } from "@/lib/projects";
+import { seo } from "@/lib/seo";
+import { FOUNDER, SITE_NAME, absoluteUrl } from "@/lib/site";
 
 export const Route = createFileRoute("/projekat/$id")({
   loader: ({ params }) => {
@@ -14,40 +17,22 @@ export const Route = createFileRoute("/projekat/$id")({
   },
   head: ({ loaderData }) => {
     const project = loaderData?.project;
-    const url = project ? `https://rebule.studio/projekat/${project.id}` : "https://rebule.studio";
-    return {
-      links: [{ rel: "canonical", href: url }],
-      meta: [
-        {
-          title: project
-            ? `${project.title} — Studija slučaja | rebule. digital`
-            : "Projekat nije pronađen — rebule. digital",
-        },
-        {
-          name: "description",
-          content: project?.description ?? "Detalji portfolio projekta studija rebule. digital.",
-        },
-        {
-          name: "keywords",
-          content: project
-            ? `${project.title}, ${project.category}, web sajt, studija slucaja, rebule digital, ${project.technologies.join(", ")}`
-            : "portfolio, rebule digital",
-        },
-        {
-          property: "og:title",
-          content: project ? `${project.title} — Studija slučaja | rebule. digital` : "Portfolio projekat",
-        },
-        {
-          property: "og:description",
-          content: project?.description ?? "Detalji portfolio projekta.",
-        },
-        { property: "og:url", content: url },
-        { property: "og:type", content: "article" },
-        { property: "og:image", content: "https://rebule.studio/og-image.jpg" },
-        { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:image", content: "https://rebule.studio/og-image.jpg" },
-      ],
-    };
+    if (!project) {
+      return {
+        meta: [
+          { title: `Projekat nije pronađen — ${SITE_NAME}` },
+          { name: "robots", content: "noindex" },
+        ],
+      };
+    }
+    const title = `${project.title} — Studija slučaja | ${SITE_NAME}`;
+    return seo({
+      title,
+      description: project.description,
+      path: `/projekat/${project.id}`,
+      type: "article",
+      keywords: `${project.title}, ${project.category}, web sajt, studija slucaja, rebule digital, ${project.technologies.join(", ")}`,
+    });
   },
   component: ProjectPage,
   notFoundComponent: () => (
@@ -83,37 +68,37 @@ function ProjectPage() {
             "@type": "ListItem",
             position: 1,
             name: "Početna",
-            item: "https://rebule.studio",
+            item: absoluteUrl("/"),
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Portfolio",
-            item: "https://rebule.studio/#portfolio",
+            item: absoluteUrl("/#portfolio"),
           },
           {
             "@type": "ListItem",
             position: 3,
             name: project.title,
-            item: `https://rebule.studio/projekat/${project.id}`,
+            item: absoluteUrl(`/projekat/${project.id}`),
           },
         ],
       },
       {
         "@type": "CreativeWork",
         name: project.title,
-        headline: `${project.title} — ${project.subtitle}`,
+        headline: project.title,
         description: project.description,
-        url: `https://rebule.studio/projekat/${project.id}`,
+        url: absoluteUrl(`/projekat/${project.id}`),
         author: {
           "@type": "Person",
-          name: "Bojan Crnić",
-          url: "https://rebule.studio",
+          name: FOUNDER.name,
+          url: absoluteUrl("/"),
         },
         creator: {
           "@type": "Organization",
-          name: "rebule. digital",
-          url: "https://rebule.studio",
+          name: SITE_NAME,
+          url: absoluteUrl("/"),
         },
         genre: project.category,
         keywords: project.technologies.join(", "),
@@ -127,8 +112,8 @@ function ProjectPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <SiteHeader compact />
-      <main className="pt-28">
+      <SiteHeader />
+      <main id="main" className="pt-28">
         {/* Header & Hero */}
         <section className="mx-auto max-w-[90rem] px-5 pb-16 pt-6 lg:px-10">
           <Button
@@ -416,6 +401,7 @@ function ProjectPage() {
           </div>
         </section>
       </main>
+      <SiteFooter />
     </div>
   );
 }

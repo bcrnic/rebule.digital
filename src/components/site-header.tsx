@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 const navItems = [
   ["Početna", "home"],
   ["Usluge", "usluge"],
+  ["Cene", "cene"],
   ["Portfolio", "portfolio"],
   ["Utisci", "utisci"],
   ["O meni", "o-meni"],
@@ -14,15 +15,20 @@ const navItems = [
   ["Kontakt", "kontakt"],
 ] as const;
 
-export function SiteHeader({ compact = false }: { compact?: boolean }) {
+export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    // Read current theme from documentElement (initialized by head script)
-    const isCurrentlyDark = document.documentElement.classList.contains("dark");
-    setIsDark(isCurrentlyDark);
+    setIsDark(document.documentElement.classList.contains("dark"));
   }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (event: KeyboardEvent) => event.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
 
   const toggleTheme = () => {
     const nextDark = !isDark;
@@ -30,9 +36,6 @@ export function SiteHeader({ compact = false }: { compact?: boolean }) {
     document.documentElement.classList.toggle("dark", nextDark);
     window.localStorage.setItem("tema", nextDark ? "dark" : "light");
   };
-
-  const baseUrl = (import.meta.env.BASE_URL || "/").replace(/\/$/, "");
-  const hrefFor = (anchor: string) => (compact ? `${baseUrl}/#${anchor}` : `#${anchor}`);
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
@@ -47,13 +50,14 @@ export function SiteHeader({ compact = false }: { compact?: boolean }) {
 
         <nav className="hidden items-center gap-7 md:flex" aria-label="Glavna navigacija">
           {navItems.map(([label, anchor]) => (
-            <a
+            <Link
               key={anchor}
-              href={hrefFor(anchor)}
+              to="/"
+              hash={anchor}
               className="text-xs font-semibold uppercase text-muted-foreground transition-colors hover:text-primary"
             >
               {label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -69,7 +73,9 @@ export function SiteHeader({ compact = false }: { compact?: boolean }) {
           </Button>
 
           <Button asChild className="hidden rounded-full sm:inline-flex" size="sm">
-            <a href={hrefFor("kontakt")}>Zakaži konsultacije</a>
+            <Link to="/" hash="kontakt">
+              Zakaži konsultacije
+            </Link>
           </Button>
 
           <Button
@@ -79,6 +85,7 @@ export function SiteHeader({ compact = false }: { compact?: boolean }) {
             onClick={() => setOpen(!open)}
             aria-label={open ? "Zatvori meni" : "Otvori meni"}
             aria-expanded={open}
+            aria-controls="mobile-nav"
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </Button>
@@ -88,6 +95,7 @@ export function SiteHeader({ compact = false }: { compact?: boolean }) {
       <AnimatePresence>
         {open && (
           <motion.div
+            id="mobile-nav"
             initial={{ opacity: 0, y: -10, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.98 }}
@@ -96,21 +104,22 @@ export function SiteHeader({ compact = false }: { compact?: boolean }) {
           >
             <nav className="flex flex-col gap-1" aria-label="Mobilna navigacija">
               {navItems.map(([label, anchor]) => (
-                <a
+                <Link
                   key={anchor}
-                  href={hrefFor(anchor)}
+                  to="/"
+                  hash={anchor}
                   onClick={() => setOpen(false)}
                   className="flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold uppercase tracking-wide text-foreground transition-colors hover:bg-card/70 hover:text-primary"
                 >
                   <span>{label}</span>
-                  <ArrowRight className="size-4 text-muted-foreground" />
-                </a>
+                  <ArrowRight className="size-4 text-muted-foreground" aria-hidden="true" />
+                </Link>
               ))}
               <div className="mt-3 border-t border-border pt-3">
                 <Button asChild className="w-full rounded-xl" size="lg">
-                  <a href={hrefFor("kontakt")} onClick={() => setOpen(false)}>
+                  <Link to="/" hash="kontakt" onClick={() => setOpen(false)}>
                     Zakaži konsultacije <ArrowRight className="size-4" />
-                  </a>
+                  </Link>
                 </Button>
               </div>
             </nav>

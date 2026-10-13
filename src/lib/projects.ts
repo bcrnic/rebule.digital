@@ -79,7 +79,7 @@ export const projects: Project[] = [
       { label: "Mobilne posete", value: "92%", hint: "Prilagođeno telefonu" },
     ],
     image: vojkanImage,
-    url: "https://bcrnic.github.io/modni-frizer-vojkan/",
+    url: "https://frizervojkan.rs/",
   },
   {
     id: "remielectric",

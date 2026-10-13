@@ -35,6 +35,34 @@ Zvanični vebsajt i portfolio studija **rebule. digital** (osnivač Bojan Crnić
    npm run preview
    ```
 
+## 🔧 Skripte
+
+- `npm run lint` — ESLint + Prettier provera
+- `npm run typecheck` — TypeScript provera (`tsc --noEmit`)
+- `npm run check` — lint + typecheck
+- `npm run format` — formatiranje koda
+
+## ⚙️ Konfiguracija
+
+Kopirajte `.env.example` u `.env` i podesite vrednosti. Sve se čita u `src/lib/site.ts`.
+
+| Varijabla                  | Opis                                     |
+| -------------------------- | ---------------------------------------- |
+| `VITE_SITE_URL`            | Javni domen (canonical, OG, JSON-LD)     |
+| `VITE_CONTACT_EMAIL`       | Kontakt email                            |
+| `VITE_CONTACT_PHONE`       | Telefon u međunarodnom formatu (bez `0`) |
+| `VITE_CONTACT_PHONE_LABEL` | Telefon kako se prikazuje                |
+| `VITE_INSTAGRAM_URL`       | Opciono; bez njega se ikona ne prikazuje |
+
+## 🗂️ Struktura
+
+- `src/routes/` — rute (TanStack Router, file-based)
+- `src/components/home/` — sekcije početne stranice
+- `src/content/` — tekstualni sadržaj (usluge, FAQ, utisci)
+- `src/lib/projects.ts` — portfolio projekti
+- `src/lib/site.ts`, `seo.ts`, `schema.ts` — konfiguracija sajta, SEO helper, JSON-LD
+- `src/lib/inquiry.ts` — validacija i slanje kontakt forme
+
 ## 📄 Licenca
 
 © 2026 rebule. digital. Sva prava zadržana.
