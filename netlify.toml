@@ -1,0 +1,6 @@
+[build]
+  command = "npm run build && cp .output/public/index.html .output/public/404.html"
+  publish = ".output/public"
+
+[build.environment]
+  NODE_VERSION = "22"

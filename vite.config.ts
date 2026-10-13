@@ -1,7 +1,10 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-// Sajt se servira sa korena custom domena (rebule.rs), pa nema base putanje.
+// Sajt je statičan (prerender) i servira se sa korena domena rebule.rs.
+// Fiksiran preset sprečava da Nitro na Netlify-ju automatski pređe na SSR funkcije;
+// na hosting ide samo .output/public.
 export default defineConfig({
+  nitro: { preset: "cloudflare-module" },
   tanstackStart: {
     server: { entry: "server" },
     prerender: {

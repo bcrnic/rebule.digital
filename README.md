@@ -54,6 +54,13 @@ Kopirajte `.env.example` u `.env` i podesite vrednosti. Sve se čita u `src/lib/
 | `VITE_CONTACT_PHONE_LABEL` | Telefon kako se prikazuje                |
 | `VITE_INSTAGRAM_URL`       | Opciono; bez njega se ikona ne prikazuje |
 
+## 🌐 Deploy
+
+Sajt hostuje **Netlify** (podešavanja u `netlify.toml`): svaki push na `main` pokreće build,
+a na hosting ide prerenderovan `.output/public`. GitHub Actions (`.github/workflows/ci.yml`)
+proverava lint, typecheck i build na svakom PR-u. Domen `rebule.rs` je registrovan kod Loopie,
+a DNS je na Cloudflare-u.
+
 ## 🗂️ Struktura
 
 - `src/routes/` — rute (TanStack Router, file-based)
