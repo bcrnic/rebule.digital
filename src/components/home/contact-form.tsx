@@ -4,7 +4,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "motion/react";
 import { ArrowRight, Check, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { inquirySchema, projectTypes, submitInquiry, type Inquiry } from "@/lib/inquiry";
+import {
+  INQUIRY_FORM_NAME,
+  inquirySchema,
+  projectTypes,
+  submitInquiry,
+  type Inquiry,
+} from "@/lib/inquiry";
 
 function Field({
   label,
@@ -55,10 +61,15 @@ export function ContactForm() {
 
   return (
     <form
+      name={INQUIRY_FORM_NAME}
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="website"
       onSubmit={onSubmit}
       noValidate
       className="grid gap-5 rounded-[1.75rem] border border-white/25 bg-white/10 p-7 backdrop-blur-2xl sm:grid-cols-2"
     >
+      <input type="hidden" name="form-name" value={INQUIRY_FORM_NAME} />
       <Field label="Ime i prezime *" error={errors.name?.message}>
         <input
           {...register("name")}
