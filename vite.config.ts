@@ -1,17 +1,9 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-const isGhPages = process.env["GITHUB_PAGES"] === "true" || !!process.env["GITHUB_REPOSITORY"];
-const base = isGhPages ? "/rebule.digital" : "";
-
+// Sajt se servira sa korena custom domena (rebule.rs), pa nema base putanje.
 export default defineConfig({
-  vite: {
-    base: base ? `${base}/` : "/",
-  },
   tanstackStart: {
     server: { entry: "server" },
-    router: {
-      basepath: base,
-    },
     prerender: {
       enabled: true,
       crawlLinks: true,
