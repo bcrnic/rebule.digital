@@ -20,7 +20,21 @@ export const inquirySchema = z.object({
 
 export type Inquiry = z.infer<typeof inquirySchema>;
 
+// Ime forme pod kojim Netlify Forms čuva upite (vidi `data-netlify` u contact-form.tsx).
+export const INQUIRY_FORM_NAME = "kontakt";
+
 export async function submitInquiry(inquiry: Inquiry): Promise<void> {
   if (inquiry.website) return;
-  await new Promise((resolve) => setTimeout(resolve, 800));
+
+  const body = new URLSearchParams({ "form-name": INQUIRY_FORM_NAME });
+  for (const [key, value] of Object.entries(inquiry)) {
+    if (value) body.append(key, value);
+  }
+
+  const response = await fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: body.toString(),
+  });
+  if (!response.ok) throw new Error(`Slanje upita nije uspelo (${response.status}).`);
 }
