@@ -1,9 +1,9 @@
 export function renderErrorPage(): string {
   return `<!doctype html>
-<html lang="en">
+<html lang="sr-Latn">
   <head>
     <meta charset="utf-8" />
-    <title>This page didn't load</title>
+    <title>Stranica se nije učitala</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
       body { font: 15px/1.5 system-ui, -apple-system, sans-serif; background: #fafafa; color: #111; display: grid; place-items: center; min-height: 100vh; margin: 0; padding: 1.5rem; }
@@ -18,11 +18,11 @@ export function renderErrorPage(): string {
   </head>
   <body>
     <div class="card">
-      <h1>This page didn't load</h1>
-      <p>Something went wrong on our end. You can try refreshing or head back home.</p>
+      <h1>Stranica se nije učitala</h1>
+      <p>Došlo je do greške na našoj strani. Pokušajte ponovo ili se vratite na početnu.</p>
       <div class="actions">
-        <button class="primary" onclick="location.reload()">Try again</button>
-        <a class="secondary" href="/">Go home</a>
+        <button class="primary" onclick="location.reload()">Pokušaj ponovo</button>
+        <a class="secondary" href="/">Na početnu</a>
       </div>
     </div>
   </body>

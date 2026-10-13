@@ -7,7 +7,10 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import { MotionConfig } from "motion/react";
 import type { ReactNode } from "react";
+import { businessSchema } from "@/lib/schema";
+import { OG_IMAGE, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE } from "@/lib/site";
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -40,10 +43,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
+          Stranica se nije učitala
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
+          Došlo je do greške na našoj strani. Pokušajte ponovo ili se vratite na početnu.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
@@ -53,92 +56,19 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
             }}
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Try again
+            Pokušaj ponovo
           </button>
           <a
             href="/"
             className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
-            Go home
+            Na početnu
           </a>
         </div>
       </div>
     </div>
   );
 }
-
-const businessSchema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "ProfessionalService",
-      "@id": "https://rebule.studio/#organization",
-      name: "rebule. digital",
-      alternateName: "rebule. web studio",
-      url: "https://rebule.studio",
-      description:
-        "Izrada brzih, modernih sajtova i sistema za zakazivanje za male lokalne firme u Srbiji i regionu.",
-      founder: {
-        "@type": "Person",
-        name: "Bojan Crnić",
-        jobTitle: "Full-stack Web Developer",
-        url: "https://www.linkedin.com/in/bojan-crni%C4%87-9b3305142/",
-      },
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Beograd",
-        addressCountry: "RS",
-      },
-      areaServed: ["RS", "BA", "ME", "HR", "Worldwide"],
-      priceRange: "$$",
-      openingHoursSpecification: [
-        {
-          "@type": "OpeningHoursSpecification",
-          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          opens: "09:00",
-          closes: "18:00",
-        },
-      ],
-      hasOfferCatalog: {
-        "@type": "OfferCatalog",
-        name: "Web Development Usluge",
-        itemListElement: [
-          {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: "Sajtovi za male firme i preduzetnike",
-            },
-          },
-          {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: "Sistemi za online zakazivanje termina",
-            },
-          },
-          {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: "Portfolio i prezentacioni sajtovi",
-            },
-          },
-        ],
-      },
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://rebule.studio/#website",
-      url: "https://rebule.studio",
-      name: "rebule. digital",
-      publisher: {
-        "@id": "https://rebule.studio/#organization",
-      },
-      inLanguage: "sr-Latn",
-    },
-  ],
-};
 
 const themeInitScript = `
 (function() {
@@ -159,25 +89,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "rebule. digital — Sajtovi koji donose klijente" },
+      { title: SITE_TITLE },
+      { name: "description", content: SITE_DESCRIPTION },
       {
-        name: "description",
-        content:
-          "Izrada brzih, modernih sajtova i sistema za zakazivanje za male lokalne firme. Web studio Bojana Crnića.",
+        name: "robots",
+        content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
       },
-      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
-      { name: "author", content: "Bojan Crnić — rebule. digital" },
+      { name: "author", content: `Bojan Crnić — ${SITE_NAME}` },
       { name: "theme-color", content: "#2d6a4f" },
-      { property: "og:site_name", content: "rebule. digital" },
-      { property: "og:type", content: "website" },
       { property: "og:locale", content: "sr_RS" },
-      { property: "og:url", content: "https://rebule.studio" },
-      { property: "og:image", content: "https://rebule.studio/og-image.jpg" },
+      { property: "og:image", content: OG_IMAGE },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:image:alt", content: "rebule. digital — Web Studio za lokalne biznise" },
+      { property: "og:image:alt", content: `${SITE_NAME} — Web Studio za lokalne biznise` },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "https://rebule.studio/og-image.jpg" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -190,11 +115,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: `${import.meta.env.BASE_URL}favicon.svg?v=2`, type: "image/svg+xml" },
-      { rel: "icon", href: `${import.meta.env.BASE_URL}favicon-32x32.png?v=2`, type: "image/png", sizes: "32x32" },
-      { rel: "icon", href: `${import.meta.env.BASE_URL}favicon-16x16.png?v=2`, type: "image/png", sizes: "16x16" },
-      { rel: "icon", href: `${import.meta.env.BASE_URL}favicon.ico?v=2`, type: "image/x-icon" },
-      { rel: "apple-touch-icon", href: `${import.meta.env.BASE_URL}apple-touch-icon.png?v=2`, sizes: "180x180" },
+      { rel: "icon", href: `${import.meta.env.BASE_URL}favicon.svg?v=4`, type: "image/svg+xml" },
+      {
+        rel: "icon",
+        href: `${import.meta.env.BASE_URL}favicon-32x32.png?v=4`,
+        type: "image/png",
+        sizes: "32x32",
+      },
+      {
+        rel: "icon",
+        href: `${import.meta.env.BASE_URL}favicon-16x16.png?v=4`,
+        type: "image/png",
+        sizes: "16x16",
+      },
+      { rel: "icon", href: `${import.meta.env.BASE_URL}favicon.ico?v=4`, type: "image/x-icon" },
+      {
+        rel: "apple-touch-icon",
+        href: `${import.meta.env.BASE_URL}apple-touch-icon.png?v=4`,
+        sizes: "180x180",
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -227,8 +166,15 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <MotionConfig reducedMotion="user">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-primary-foreground"
+        >
+          Pređi na sadržaj
+        </a>
+        <Outlet />
+      </MotionConfig>
     </QueryClientProvider>
   );
 }

@@ -1,7 +1,6 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-const isGhPages =
-  process.env.GITHUB_PAGES === "true" || !!process.env.GITHUB_REPOSITORY;
+const isGhPages = process.env["GITHUB_PAGES"] === "true" || !!process.env["GITHUB_REPOSITORY"];
 const base = isGhPages ? "/rebule.digital" : "";
 
 export default defineConfig({
