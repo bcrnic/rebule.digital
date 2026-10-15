@@ -1,9 +1,55 @@
+import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { ArrowRight, Check } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
-import heroImage from "@/assets/hero-rebule.webp";
 import { Button } from "@/components/ui/button";
+import { getProject, type Project } from "@/lib/projects";
 import { whatsappLink } from "@/lib/site";
+
+const featured = getProject("modni-frizer-vojkan") as Project;
+const secondary = getProject("remielectric") as Project;
+
+// Adresa u "address bar"-u: pravi domen klijenta, a za sajtove na deljenom hostingu naziv projekta.
+function addressLabel(project: Project) {
+  const host = project.url ? new URL(project.url).hostname.replace(/^www\./, "") : "";
+  return host && !/\.(github\.io|netlify\.app)$/.test(host) ? host : project.title;
+}
+
+function BrowserWindow({
+  project,
+  priority = false,
+  className = "",
+}: {
+  project: Project;
+  priority?: boolean;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`overflow-hidden rounded-2xl border border-border/70 bg-card shadow-2xl ${className}`}
+    >
+      <div className="flex items-center gap-3 border-b border-border/70 px-4 py-2.5">
+        <div className="flex gap-1.5" aria-hidden="true">
+          <span className="size-2.5 rounded-full bg-foreground/15" />
+          <span className="size-2.5 rounded-full bg-foreground/15" />
+          <span className="size-2.5 rounded-full bg-foreground/15" />
+        </div>
+        <span className="truncate rounded-full bg-muted px-3 py-0.5 text-[11px] font-medium text-muted-foreground">
+          {addressLabel(project)}
+        </span>
+      </div>
+      <img
+        src={project.image}
+        alt={`Sajt ${project.title}, izradio rebule. digital`}
+        width={1440}
+        height={900}
+        decoding="async"
+        {...(priority ? { fetchPriority: "high" as const } : { loading: "lazy" as const })}
+        className="aspect-[16/10] w-full object-cover object-top"
+      />
+    </div>
+  );
+}
 
 export function Hero() {
   return (
@@ -71,30 +117,36 @@ export function Hero() {
               className="pointer-events-none absolute -inset-6 rounded-[2.5rem] bg-primary/20 blur-3xl"
               aria-hidden="true"
             />
-            <div className="relative rounded-3xl border border-border/60 bg-card p-3 shadow-2xl">
-              <div className="overflow-hidden rounded-2xl bg-muted">
-                <img
-                  src={heroImage}
-                  alt="rebule. digital — Web studio za lokalne biznise"
-                  width={1280}
-                  height={720}
-                  fetchPriority="high"
-                  decoding="async"
-                  className="aspect-[16/9] w-full object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-6 -left-6 hidden items-center gap-3 rounded-2xl border border-border/60 bg-card px-5 py-3 shadow-xl md:flex">
+            <Link
+              to="/projekat/$id"
+              params={{ id: featured.id }}
+              aria-label={`Pogledaj projekat ${featured.title}`}
+              className="group relative block pb-10 sm:pb-6 sm:pr-10 sm:pt-10 lg:pt-14"
+            >
+              <BrowserWindow
+                project={secondary}
+                className="absolute right-0 top-0 hidden w-[72%] rotate-3 opacity-90 transition-transform duration-500 group-hover:rotate-[4deg] sm:block"
+              />
+              <BrowserWindow
+                project={featured}
+                priority
+                className="relative w-full transition-transform duration-500 group-hover:-translate-y-1 sm:w-[88%]"
+              />
+              <div className="absolute bottom-0 left-4 flex items-center gap-3 rounded-2xl border border-border/60 bg-card px-4 py-2.5 shadow-xl sm:-bottom-2 sm:-left-6 sm:px-5 sm:py-3">
                 <div className="flex size-10 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <Check className="size-5" />
+                  <Check className="size-5" aria-hidden="true" />
                 </div>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-                    Web Studio & Sistemi
+                    Najnoviji projekat
                   </p>
-                  <p className="text-sm font-semibold text-foreground">rebule. digital</p>
+                  <p className="text-sm font-semibold text-foreground">
+                    {featured.title}
+                    <span className="hidden sm:inline"> · zakazivanje porukom</span>
+                  </p>
                 </div>
               </div>
-            </div>
+            </Link>
           </motion.div>
         </div>
       </div>

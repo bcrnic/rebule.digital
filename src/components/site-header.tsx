@@ -48,7 +48,7 @@ export function SiteHeader() {
           Rebule<span className="text-primary">.</span>&nbsp;Digital
         </Link>
 
-        <nav className="hidden items-center gap-7 md:flex" aria-label="Glavna navigacija">
+        <nav className="hidden items-center gap-7 xl:flex" aria-label="Glavna navigacija">
           {navItems.map(([label, anchor]) => (
             <Link
               key={anchor}
@@ -81,7 +81,7 @@ export function SiteHeader() {
           <Button
             variant="ghost"
             size="icon"
-            className="rounded-full md:hidden"
+            className="rounded-full xl:hidden"
             onClick={() => setOpen(!open)}
             aria-label={open ? "Zatvori meni" : "Otvori meni"}
             aria-expanded={open}
@@ -100,7 +100,7 @@ export function SiteHeader() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.98 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="glass mx-auto mt-2 max-w-[86rem] overflow-hidden rounded-3xl p-5 shadow-2xl md:hidden"
+            className="glass mx-auto mt-2 max-w-[86rem] overflow-hidden rounded-3xl p-5 shadow-2xl xl:hidden"
           >
             <nav className="flex flex-col gap-1" aria-label="Mobilna navigacija">
               {navItems.map(([label, anchor]) => (
