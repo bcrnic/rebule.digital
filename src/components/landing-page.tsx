@@ -7,7 +7,7 @@ import { SiteHeader } from "@/components/site-header";
 import { Button } from "@/components/ui/button";
 import { getLandingPage, landingPages, type LandingPage } from "@/content/landing";
 import { maintenancePlan, pricingPlans } from "@/content/pricing";
-import { getProject } from "@/lib/projects";
+import { getProject, projectSrcSet } from "@/lib/projects";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { seo } from "@/lib/seo";
 import { SITE_URL, absoluteUrl, whatsappLink } from "@/lib/site";
@@ -105,7 +105,7 @@ export function LandingPageView({ path }: { path: string }) {
               <Button
                 variant="ghost"
                 size="lg"
-                className="gap-2 rounded-2xl border border-emerald-500/20 bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500/20 dark:text-emerald-400"
+                className="gap-2 rounded-2xl border border-emerald-500/20 bg-emerald-500/10 text-emerald-800 hover:bg-emerald-500/20 dark:text-emerald-400"
                 asChild
               >
                 <a
@@ -113,7 +113,7 @@ export function LandingPageView({ path }: { path: string }) {
                   target="_blank"
                   rel="noreferrer noopener"
                 >
-                  <SiWhatsapp className="size-4" /> WhatsApp poruka
+                  <SiWhatsapp className="size-4" aria-hidden="true" /> WhatsApp poruka
                 </a>
               </Button>
             </div>
@@ -202,6 +202,8 @@ export function LandingPageView({ path }: { path: string }) {
             >
               <img
                 src={project.image}
+                srcSet={projectSrcSet(project)}
+                sizes="(min-width: 768px) 45vw, 92vw"
                 alt={`Sajt ${project.title}, izradio rebule. digital`}
                 width={1440}
                 height={900}
