@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Menu, Moon, Sun, X } from "lucide-react";
+import { ArrowRight, Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
+import { ThemeSwitch } from "@/components/theme-switch";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
@@ -34,7 +35,11 @@ export function SiteHeader() {
     const nextDark = !isDark;
     setIsDark(nextDark);
     document.documentElement.classList.toggle("dark", nextDark);
-    window.localStorage.setItem("tema", nextDark ? "dark" : "light");
+    try {
+      window.localStorage.setItem("tema", nextDark ? "dark" : "light");
+    } catch {
+      // Privatni režim ili blokiran storage: tema radi, samo se ne pamti.
+    }
   };
 
   return (
@@ -62,15 +67,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={toggleTheme}
-            className="rounded-full"
-            aria-label={isDark ? "Uključi svetlu temu" : "Uključi tamnu temu"}
-          >
-            {isDark ? <Sun className="size-4 text-primary" /> : <Moon className="size-4" />}
-          </Button>
+          <ThemeSwitch isDark={isDark} onToggle={toggleTheme} />
 
           <Button asChild className="hidden rounded-full sm:inline-flex" size="sm">
             <Link to="/" hash="kontakt">

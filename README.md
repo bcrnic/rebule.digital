@@ -1,4 +1,4 @@
-# rebule. digital — Web studio za male firme
+# rebule. digital - Web studio za male firme
 
 Zvanični vebsajt i portfolio studija **rebule. digital** (osnivač Bojan Crnić). Specijalizovan za izradu brzih, modernih sajtova i sistema za zakazivanje za lokalne firme i preduzetnike.
 
@@ -37,10 +37,10 @@ Zvanični vebsajt i portfolio studija **rebule. digital** (osnivač Bojan Crnić
 
 ## 🔧 Skripte
 
-- `npm run lint` — ESLint + Prettier provera
-- `npm run typecheck` — TypeScript provera (`tsc --noEmit`)
-- `npm run check` — lint + typecheck
-- `npm run format` — formatiranje koda
+- `npm run lint` - ESLint + Prettier provera
+- `npm run typecheck` - TypeScript provera (`tsc --noEmit`)
+- `npm run check` - lint + typecheck
+- `npm run format` - formatiranje koda
 
 ## ⚙️ Konfiguracija
 
@@ -63,12 +63,12 @@ a DNS je na Cloudflare-u.
 
 ## 🗂️ Struktura
 
-- `src/routes/` — rute (TanStack Router, file-based)
-- `src/components/home/` — sekcije početne stranice
-- `src/content/` — tekstualni sadržaj (usluge, FAQ, utisci)
-- `src/lib/projects.ts` — portfolio projekti
-- `src/lib/site.ts`, `seo.ts`, `schema.ts` — konfiguracija sajta, SEO helper, JSON-LD
-- `src/lib/inquiry.ts` — validacija i slanje kontakt forme
+- `src/routes/` - rute (TanStack Router, file-based)
+- `src/components/home/` - sekcije početne stranice
+- `src/content/` - tekstualni sadržaj (usluge, FAQ, utisci)
+- `src/lib/projects.ts` - portfolio projekti
+- `src/lib/site.ts`, `seo.ts`, `schema.ts` - konfiguracija sajta, SEO helper, JSON-LD
+- `src/lib/inquiry.ts` - validacija i slanje kontakt forme
 
 ## 📄 Licenca
 

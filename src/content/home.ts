@@ -79,7 +79,7 @@ export const faqs = [
   {
     question: "Koliko košta izrada i da li ima skrivenih troškova?",
     answer:
-      "Sajt kreće od 250 € (jedna strana), 490 € za sajt do 5 strana i 650 € uz zakazivanje porukom. Održavanje je 30 € mesečno. Pre početka saradnje dobijate preciznu ponudu sa fiksnom cenom — nema naknadnih iznenađenja.",
+      "Sajt kreće od 250 € (jedna strana), 490 € za sajt do 5 strana i 650 € uz zakazivanje porukom. Održavanje je 30 € mesečno. Pre početka saradnje dobijate preciznu ponudu sa fiksnom cenom - nema naknadnih iznenađenja.",
   },
   {
     question: "Šta ako nemam spremljen tekst i fotografije?",

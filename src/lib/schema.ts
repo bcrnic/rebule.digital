@@ -33,7 +33,7 @@ export const businessSchema = {
       description: SITE_DESCRIPTION,
       email: CONTACT.email,
       telephone: CONTACT.phone,
-      priceRange: `${Math.min(...prices)}–${Math.max(...prices)} €`,
+      priceRange: `${Math.min(...prices)}-${Math.max(...prices)} €`,
       founder: { "@id": `${SITE_URL}/#founder` },
       address: {
         "@type": "PostalAddress",

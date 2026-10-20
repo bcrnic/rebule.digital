@@ -20,7 +20,7 @@ export const Route = createFileRoute("/projekat/$id")({
     if (!project) {
       return {
         meta: [
-          { title: `Projekat nije pronađen — ${SITE_NAME}` },
+          { title: `Projekat nije pronađen - ${SITE_NAME}` },
           { name: "robots", content: "noindex" },
         ],
       };

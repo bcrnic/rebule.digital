@@ -69,7 +69,7 @@ export const projects: Project[] = [
     description:
       "Sajt za ženski frizerski salon sa 40 godina tradicije, cenovnikom i zakazivanjem termina.",
     problem:
-      "Salon sa dugom tradicijom nije imao sajt — termini su se zakazivali isključivo telefonom i usmeno.",
+      "Salon sa dugom tradicijom nije imao sajt - termini su se zakazivali isključivo telefonom i usmeno.",
     solution:
       "Napravljen je elegantan sajt sa uslugama, cenovnikom, galerijom i zakazivanjem preko WhatsApp-a, Vibera i emaila.",
     result: "Klijentkinje sada vide cene i usluge unapred i zakazuju termin jednom porukom.",
