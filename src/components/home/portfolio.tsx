@@ -25,7 +25,7 @@ export function Portfolio() {
         <SectionTitle
           number="04"
           eyebrow="Odabrani radovi"
-          title="Rezultati, ne samo lepe stranice."
+          title="Sajtovi koje sam napravio: rezultati, ne samo lepe stranice."
         />
         <div
           role="group"

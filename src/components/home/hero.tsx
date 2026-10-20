@@ -68,11 +68,12 @@ export function Hero() {
                 rebule. digital © {new Date().getFullYear()}
               </span>
               <h1 className="font-display text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-                Sajtovi koji donose <span className="text-primary">klijente.</span>
+                Izrada sajtova za male firme u <span className="text-primary">Novom Sadu.</span>
               </h1>
               <p className="max-w-md text-lg leading-relaxed text-muted-foreground sm:text-xl">
-                rebule. digital — web studio Bojana Crnića. Pravim brze, jasne i moderne sajtove za
-                male firme, od ideje do lansiranja.
+                Sajtovi koji donose klijente. rebule. digital je web studio Bojana Crnića: pravim
+                brze, jasne i moderne sajtove za firme iz Novog Sada, Vojvodine i cele Srbije, od
+                ideje do lansiranja.
               </p>
             </div>
             <div className="flex flex-wrap gap-4">
@@ -117,36 +118,43 @@ export function Hero() {
               className="pointer-events-none absolute -inset-6 rounded-[2.5rem] bg-primary/20 blur-3xl"
               aria-hidden="true"
             />
-            <Link
-              to="/projekat/$id"
-              params={{ id: featured.id }}
-              aria-label={`Pogledaj projekat ${featured.title}`}
-              className="group relative block pb-10 sm:pb-6 sm:pr-10 sm:pt-10 lg:pt-14"
-            >
-              <BrowserWindow
-                project={secondary}
-                className="absolute right-0 top-0 hidden w-[72%] rotate-3 opacity-90 transition-transform duration-500 group-hover:rotate-[4deg] sm:block"
-              />
-              <BrowserWindow
-                project={featured}
-                priority
-                className="relative w-full transition-transform duration-500 group-hover:-translate-y-1 sm:w-[88%]"
-              />
-              <div className="absolute bottom-0 left-4 flex items-center gap-3 rounded-2xl border border-border/60 bg-card px-4 py-2.5 shadow-xl sm:-bottom-2 sm:-left-6 sm:px-5 sm:py-3">
-                <div className="flex size-10 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <Check className="size-5" aria-hidden="true" />
+            <div className="relative pb-10 sm:pb-6 sm:pr-10 sm:pt-10 lg:pt-14">
+              {/* Svaki prozor vodi na svoju studiju slučaja. */}
+              <Link
+                to="/projekat/$id"
+                params={{ id: secondary.id }}
+                aria-label={`Pogledaj projekat ${secondary.title}`}
+                className="absolute right-0 top-0 hidden w-[72%] rotate-3 opacity-90 transition-transform duration-500 hover:rotate-[4deg] sm:block"
+              >
+                <BrowserWindow project={secondary} />
+              </Link>
+              <Link
+                to="/projekat/$id"
+                params={{ id: featured.id }}
+                aria-label={`Pogledaj projekat ${featured.title}`}
+                className="group relative block"
+              >
+                <BrowserWindow
+                  project={featured}
+                  priority
+                  className="relative w-full transition-transform duration-500 group-hover:-translate-y-1 sm:w-[88%]"
+                />
+                <div className="absolute bottom-0 left-4 flex items-center gap-3 rounded-2xl border border-border/60 bg-card px-4 py-2.5 shadow-xl sm:-bottom-2 sm:-left-6 sm:px-5 sm:py-3">
+                  <div className="flex size-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <Check className="size-5" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                      Najnoviji projekat
+                    </p>
+                    <p className="text-sm font-semibold text-foreground">
+                      {featured.title}
+                      <span className="hidden sm:inline"> · zakazivanje porukom</span>
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-                    Najnoviji projekat
-                  </p>
-                  <p className="text-sm font-semibold text-foreground">
-                    {featured.title}
-                    <span className="hidden sm:inline"> · zakazivanje porukom</span>
-                  </p>
-                </div>
-              </div>
-            </Link>
+              </Link>
+            </div>
           </motion.div>
         </div>
       </div>

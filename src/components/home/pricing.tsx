@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { ArrowRight, CalendarClock, Check, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -5,14 +6,25 @@ import { maintenancePlan, pricingNotes, pricingPlans } from "@/content/pricing";
 import { reveal } from "@/lib/motion";
 import { SectionTitle } from "./section-title";
 
-export function Pricing() {
+type PricingProps = {
+  number?: string;
+  title?: string;
+  /** Na početnoj ide link ka zasebnoj stranici sa cenama. */
+  showMoreLink?: boolean;
+};
+
+export function Pricing({
+  number = "03",
+  title = "Cene izrade sajta: jasni paketi, bez skrivenih troškova.",
+  showMoreLink = false,
+}: PricingProps) {
   return (
     <section id="cene" className="scroll-mt-20 py-24 sm:py-36">
       <div className="mx-auto max-w-[90rem] px-5 lg:px-10">
         <SectionTitle
-          number="03"
+          number={number}
           eyebrow="Cene"
-          title="Jasne cene, bez skrivenih troškova."
+          title={title}
           text="Fiksna cena dogovorena unapred. Izaberite paket koji odgovara vašem poslu, a ostalo rešavamo na razgovoru."
         />
 
@@ -50,9 +62,9 @@ export function Pricing() {
                 className="mt-10 w-full rounded-2xl"
                 asChild
               >
-                <a href="#kontakt">
+                <Link to="/" hash="kontakt">
                   Zatraži ponudu <ArrowRight className="size-4" />
-                </a>
+                </Link>
               </Button>
             </motion.article>
           ))}
@@ -102,6 +114,14 @@ export function Pricing() {
             <li key={note}>{note}</li>
           ))}
         </ul>
+        {showMoreLink && (
+          <Link
+            to="/cene-izrade-sajta"
+            className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary underline-offset-4 hover:underline"
+          >
+            Šta je uključeno u cenu izrade sajta <ArrowRight className="size-4" />
+          </Link>
+        )}
       </div>
     </section>
   );

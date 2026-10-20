@@ -19,6 +19,12 @@ export default defineConfig({
       { path: "/projekat/residence", prerender: { enabled: true } },
       { path: "/projekat/misolutions", prerender: { enabled: true } },
       { path: "/privatnost", prerender: { enabled: true } },
+      { path: "/izrada-sajtova-novi-sad", prerender: { enabled: true } },
+      { path: "/cene-izrade-sajta", prerender: { enabled: true } },
+      { path: "/online-zakazivanje-termina", prerender: { enabled: true } },
+      { path: "/sajt-za-frizerski-salon", prerender: { enabled: true } },
+      { path: "/sajt-za-majstore", prerender: { enabled: true } },
+      { path: "/odrzavanje-sajta", prerender: { enabled: true } },
     ],
   },
 });

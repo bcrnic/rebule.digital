@@ -10,7 +10,13 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CeneIzradeSajtaRouteImport } from './routes/cene-izrade-sajta'
+import { Route as IzradaSajtovaNoviSadRouteImport } from './routes/izrada-sajtova-novi-sad'
+import { Route as OdrzavanjeSajtaRouteImport } from './routes/odrzavanje-sajta'
+import { Route as OnlineZakazivanjeTerminaRouteImport } from './routes/online-zakazivanje-termina'
 import { Route as PrivatnostRouteImport } from './routes/privatnost'
+import { Route as SajtZaFrizerskiSalonRouteImport } from './routes/sajt-za-frizerski-salon'
+import { Route as SajtZaMajstoreRouteImport } from './routes/sajt-za-majstore'
 import { Route as ProjekatIdRouteImport } from './routes/projekat.$id'
 
 const IndexRoute = IndexRouteImport.update({
@@ -18,9 +24,40 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CeneIzradeSajtaRoute = CeneIzradeSajtaRouteImport.update({
+  id: '/cene-izrade-sajta',
+  path: '/cene-izrade-sajta',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IzradaSajtovaNoviSadRoute = IzradaSajtovaNoviSadRouteImport.update({
+  id: '/izrada-sajtova-novi-sad',
+  path: '/izrada-sajtova-novi-sad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OdrzavanjeSajtaRoute = OdrzavanjeSajtaRouteImport.update({
+  id: '/odrzavanje-sajta',
+  path: '/odrzavanje-sajta',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OnlineZakazivanjeTerminaRoute =
+  OnlineZakazivanjeTerminaRouteImport.update({
+    id: '/online-zakazivanje-termina',
+    path: '/online-zakazivanje-termina',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const PrivatnostRoute = PrivatnostRouteImport.update({
   id: '/privatnost',
   path: '/privatnost',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SajtZaFrizerskiSalonRoute = SajtZaFrizerskiSalonRouteImport.update({
+  id: '/sajt-za-frizerski-salon',
+  path: '/sajt-za-frizerski-salon',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SajtZaMajstoreRoute = SajtZaMajstoreRouteImport.update({
+  id: '/sajt-za-majstore',
+  path: '/sajt-za-majstore',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProjekatIdRoute = ProjekatIdRouteImport.update({
@@ -31,31 +68,83 @@ const ProjekatIdRoute = ProjekatIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/cene-izrade-sajta': typeof CeneIzradeSajtaRoute
+  '/izrada-sajtova-novi-sad': typeof IzradaSajtovaNoviSadRoute
+  '/odrzavanje-sajta': typeof OdrzavanjeSajtaRoute
+  '/online-zakazivanje-termina': typeof OnlineZakazivanjeTerminaRoute
   '/privatnost': typeof PrivatnostRoute
+  '/sajt-za-frizerski-salon': typeof SajtZaFrizerskiSalonRoute
+  '/sajt-za-majstore': typeof SajtZaMajstoreRoute
   '/projekat/$id': typeof ProjekatIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/cene-izrade-sajta': typeof CeneIzradeSajtaRoute
+  '/izrada-sajtova-novi-sad': typeof IzradaSajtovaNoviSadRoute
+  '/odrzavanje-sajta': typeof OdrzavanjeSajtaRoute
+  '/online-zakazivanje-termina': typeof OnlineZakazivanjeTerminaRoute
   '/privatnost': typeof PrivatnostRoute
+  '/sajt-za-frizerski-salon': typeof SajtZaFrizerskiSalonRoute
+  '/sajt-za-majstore': typeof SajtZaMajstoreRoute
   '/projekat/$id': typeof ProjekatIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/cene-izrade-sajta': typeof CeneIzradeSajtaRoute
+  '/izrada-sajtova-novi-sad': typeof IzradaSajtovaNoviSadRoute
+  '/odrzavanje-sajta': typeof OdrzavanjeSajtaRoute
+  '/online-zakazivanje-termina': typeof OnlineZakazivanjeTerminaRoute
   '/privatnost': typeof PrivatnostRoute
+  '/sajt-za-frizerski-salon': typeof SajtZaFrizerskiSalonRoute
+  '/sajt-za-majstore': typeof SajtZaMajstoreRoute
   '/projekat/$id': typeof ProjekatIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/privatnost' | '/projekat/$id'
+  fullPaths:
+    | '/'
+    | '/cene-izrade-sajta'
+    | '/izrada-sajtova-novi-sad'
+    | '/odrzavanje-sajta'
+    | '/online-zakazivanje-termina'
+    | '/privatnost'
+    | '/sajt-za-frizerski-salon'
+    | '/sajt-za-majstore'
+    | '/projekat/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/privatnost' | '/projekat/$id'
-  id: '__root__' | '/' | '/privatnost' | '/projekat/$id'
+  to:
+    | '/'
+    | '/cene-izrade-sajta'
+    | '/izrada-sajtova-novi-sad'
+    | '/odrzavanje-sajta'
+    | '/online-zakazivanje-termina'
+    | '/privatnost'
+    | '/sajt-za-frizerski-salon'
+    | '/sajt-za-majstore'
+    | '/projekat/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/cene-izrade-sajta'
+    | '/izrada-sajtova-novi-sad'
+    | '/odrzavanje-sajta'
+    | '/online-zakazivanje-termina'
+    | '/privatnost'
+    | '/sajt-za-frizerski-salon'
+    | '/sajt-za-majstore'
+    | '/projekat/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CeneIzradeSajtaRoute: typeof CeneIzradeSajtaRoute
+  IzradaSajtovaNoviSadRoute: typeof IzradaSajtovaNoviSadRoute
+  OdrzavanjeSajtaRoute: typeof OdrzavanjeSajtaRoute
+  OnlineZakazivanjeTerminaRoute: typeof OnlineZakazivanjeTerminaRoute
   PrivatnostRoute: typeof PrivatnostRoute
+  SajtZaFrizerskiSalonRoute: typeof SajtZaFrizerskiSalonRoute
+  SajtZaMajstoreRoute: typeof SajtZaMajstoreRoute
   ProjekatIdRoute: typeof ProjekatIdRoute
 }
 
@@ -68,11 +157,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cene-izrade-sajta': {
+      id: '/cene-izrade-sajta'
+      path: '/cene-izrade-sajta'
+      fullPath: '/cene-izrade-sajta'
+      preLoaderRoute: typeof CeneIzradeSajtaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/izrada-sajtova-novi-sad': {
+      id: '/izrada-sajtova-novi-sad'
+      path: '/izrada-sajtova-novi-sad'
+      fullPath: '/izrada-sajtova-novi-sad'
+      preLoaderRoute: typeof IzradaSajtovaNoviSadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/odrzavanje-sajta': {
+      id: '/odrzavanje-sajta'
+      path: '/odrzavanje-sajta'
+      fullPath: '/odrzavanje-sajta'
+      preLoaderRoute: typeof OdrzavanjeSajtaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/online-zakazivanje-termina': {
+      id: '/online-zakazivanje-termina'
+      path: '/online-zakazivanje-termina'
+      fullPath: '/online-zakazivanje-termina'
+      preLoaderRoute: typeof OnlineZakazivanjeTerminaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/privatnost': {
       id: '/privatnost'
       path: '/privatnost'
       fullPath: '/privatnost'
       preLoaderRoute: typeof PrivatnostRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sajt-za-frizerski-salon': {
+      id: '/sajt-za-frizerski-salon'
+      path: '/sajt-za-frizerski-salon'
+      fullPath: '/sajt-za-frizerski-salon'
+      preLoaderRoute: typeof SajtZaFrizerskiSalonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sajt-za-majstore': {
+      id: '/sajt-za-majstore'
+      path: '/sajt-za-majstore'
+      fullPath: '/sajt-za-majstore'
+      preLoaderRoute: typeof SajtZaMajstoreRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/projekat/$id': {
@@ -87,7 +218,13 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CeneIzradeSajtaRoute: CeneIzradeSajtaRoute,
+  IzradaSajtovaNoviSadRoute: IzradaSajtovaNoviSadRoute,
+  OdrzavanjeSajtaRoute: OdrzavanjeSajtaRoute,
+  OnlineZakazivanjeTerminaRoute: OnlineZakazivanjeTerminaRoute,
   PrivatnostRoute: PrivatnostRoute,
+  SajtZaFrizerskiSalonRoute: SajtZaFrizerskiSalonRoute,
+  SajtZaMajstoreRoute: SajtZaMajstoreRoute,
   ProjekatIdRoute: ProjekatIdRoute,
 }
 export const routeTree = rootRouteImport

@@ -15,6 +15,10 @@ export type ProjectMetric = {
 export type Project = {
   id: string;
   title: string;
+  /** Niša za H1 i title studije slučaja: „Sajt za …“. */
+  niche: string;
+  /** Stranica usluge na koju studija linkuje, ako postoji. */
+  servicePath?: string;
   category: ProjectCategory;
   client?: string;
   year?: string;
@@ -33,6 +37,7 @@ export const projects: Project[] = [
   {
     id: "badbyte",
     title: "Badbyte",
+    niche: "Sajt za web studio",
     category: "Biznis",
     client: "Badbyte Studio",
     year: "2024",
@@ -56,6 +61,8 @@ export const projects: Project[] = [
   {
     id: "modni-frizer-vojkan",
     title: "Modni Frizer Vojkan",
+    niche: "Sajt za frizerski salon",
+    servicePath: "/sajt-za-frizerski-salon",
     category: "Zakazivanje",
     client: "Salon Vojkan",
     year: "2024",
@@ -84,6 +91,8 @@ export const projects: Project[] = [
   {
     id: "remielectric",
     title: "REMIELECTRIC",
+    niche: "Sajt za elektroinstalatere",
+    servicePath: "/sajt-za-majstore",
     category: "Zakazivanje",
     client: "REMIELECTRIC Novi Sad",
     year: "2024",
@@ -116,6 +125,7 @@ export const projects: Project[] = [
   {
     id: "residence",
     title: "Residence",
+    niche: "Sajt za prodaju stanova",
     category: "E-commerce",
     client: "Investitor Residence",
     year: "2024",
@@ -144,6 +154,7 @@ export const projects: Project[] = [
   {
     id: "misolutions",
     title: "MiSolutions",
+    niche: "Sajt za konsultantsku agenciju",
     category: "Biznis",
     client: "MiSolutions Konsalting",
     year: "2024",
