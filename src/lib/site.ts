@@ -2,9 +2,9 @@ const env = import.meta.env;
 
 export const SITE_URL = (env.VITE_SITE_URL ?? "https://rebule.rs").replace(/\/$/, "");
 export const SITE_NAME = "rebule. digital";
-export const SITE_TITLE = "rebule. digital — Sajtovi koji donose klijente";
+export const SITE_TITLE = "Izrada sajtova Novi Sad za male firme | rebule. digital";
 export const SITE_DESCRIPTION =
-  "Izrada brzih, modernih sajtova i sistema za zakazivanje za male lokalne firme u Srbiji i regionu. Web studio Bojana Crnića.";
+  "Izrada sajtova u Novom Sadu za male firme: brzi, moderni sajtovi i zakazivanje termina, fiksna cena unapred. Web studio Bojana Crnića.";
 export const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 
 export const FOUNDER = {

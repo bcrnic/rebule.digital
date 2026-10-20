@@ -1,11 +1,23 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { landingPages } from "@/content/landing";
 import { CONTACT, FOUNDER, SITE_NAME } from "@/lib/site";
 
 export function SiteFooter() {
   return (
     <footer className="px-5 py-10 lg:px-10">
+      <nav aria-label="Usluge" className="mx-auto mb-6 max-w-[90rem] px-2">
+        <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+          {landingPages.map((page) => (
+            <li key={page.path}>
+              <Link to={page.path} className="transition-colors hover:text-primary">
+                {page.navLabel}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
       <div className="glass mx-auto flex max-w-[90rem] flex-col gap-7 p-7 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="font-display text-lg font-extrabold uppercase">

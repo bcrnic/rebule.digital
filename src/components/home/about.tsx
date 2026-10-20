@@ -12,7 +12,7 @@ export function About() {
         <SectionTitle
           number="06"
           eyebrow="O meni"
-          title="Mali studio. Direktna saradnja. Velika pažnja."
+          title="Web developer iz Novog Sada. Direktna saradnja, velika pažnja."
         />
         <div className="mt-20 grid grid-cols-12 gap-6">
           <motion.div {...reveal} className="col-span-12 md:col-span-5">

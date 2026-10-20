@@ -10,6 +10,8 @@ import { Technologies } from "@/components/home/technologies";
 import { Testimonials } from "@/components/home/testimonials";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { faqs } from "@/content/home";
+import { faqSchema } from "@/lib/schema";
 import { seo } from "@/lib/seo";
 import { SITE_DESCRIPTION, SITE_TITLE } from "@/lib/site";
 
@@ -18,8 +20,6 @@ export const Route = createFileRoute("/")({
     seo({
       title: SITE_TITLE,
       description: SITE_DESCRIPTION,
-      keywords:
-        "izrada sajtova, web development novi sad, izrada sajtova novi sad, sajtovi za male firme, izrada veb sajta srbija, online zakazivanje termina, web studio, bojan crnic",
     }),
   component: HomePage,
 });
@@ -27,12 +27,18 @@ export const Route = createFileRoute("/")({
 function HomePage() {
   return (
     <div className="min-h-screen overflow-hidden bg-background text-foreground">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({ "@context": "https://schema.org", ...faqSchema(faqs) }),
+        }}
+      />
       <SiteHeader />
       <main id="main">
         <Hero />
         <Technologies />
         <Services />
-        <Pricing />
+        <Pricing showMoreLink />
         <Portfolio />
         <Testimonials />
         <About />

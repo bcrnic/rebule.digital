@@ -1,15 +1,22 @@
 import { CalendarCheck, Code2, Globe2, RefreshCw } from "lucide-react";
 import { SiPython, SiReact, SiTailwindcss, SiTypescript } from "react-icons/si";
 
-export const services = [
+export const services: {
+  icon: typeof Globe2;
+  title: string;
+  path?: string;
+  text: string;
+}[] = [
   {
     icon: Globe2,
     title: "Sajtovi za male firme",
+    path: "/izrada-sajtova-novi-sad",
     text: "Jasna ponuda, profesionalan utisak i više pravih upita za vaš posao.",
   },
   {
     icon: CalendarCheck,
     title: "Zakazivanje termina",
+    path: "/online-zakazivanje-termina",
     text: "Jednostavna rezervacija koja štedi vreme vama i vašim klijentima.",
   },
   {
@@ -20,6 +27,7 @@ export const services = [
   {
     icon: RefreshCw,
     title: "Održavanje i razvoj",
+    path: "/odrzavanje-sajta",
     text: "Pouzdane izmene, nadogradnje i podrška i nakon lansiranja sajta.",
   },
 ];

@@ -25,7 +25,7 @@ export const Route = createFileRoute("/projekat/$id")({
         ],
       };
     }
-    const title = `${project.title} — Studija slučaja | ${SITE_NAME}`;
+    const title = `${project.niche}: ${project.title} | ${SITE_NAME}`;
     return seo({
       title,
       description: project.description,
@@ -153,6 +153,9 @@ function ProjectPage() {
 
             <div className="col-span-12 md:col-span-9">
               <h1 className="font-display text-5xl font-semibold leading-[1.04] tracking-tight sm:text-7xl lg:text-8xl">
+                <span className="block text-2xl font-medium text-muted-foreground sm:text-3xl">
+                  {project.niche}:
+                </span>
                 {project.title}
               </h1>
               <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
@@ -302,6 +305,14 @@ function ProjectPage() {
                   {project.result}
                 </p>
               </div>
+              {project.servicePath && (
+                <Link
+                  to={project.servicePath}
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary underline-offset-4 hover:underline"
+                >
+                  Više o usluzi: {project.niche.toLowerCase()} <ArrowRight className="size-4" />
+                </Link>
+              )}
             </div>
           </div>
         </section>
@@ -390,7 +401,7 @@ function ProjectPage() {
                 Želite sličan sajt za vaš biznis?
               </h2>
               <p className="mt-3 max-w-xl text-lg opacity-80">
-                Pošaljite kratak upit i dobićete analizu i predlog rešenja u roku od 24 časa.
+                Pošaljite kratak upit i odgovoriću u roku od jednog radnog dana sa prvim predlogom.
               </p>
             </div>
             <Button variant="secondary" size="lg" className="rounded-2xl shadow-xl" asChild>
