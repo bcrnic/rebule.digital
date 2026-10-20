@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { getProject, getAdjacentProjects } from "@/lib/projects";
+import { getProject, getAdjacentProjects, projectSrcSet } from "@/lib/projects";
 import { seo } from "@/lib/seo";
 import { FOUNDER, SITE_NAME, absoluteUrl } from "@/lib/site";
 
@@ -20,7 +20,7 @@ export const Route = createFileRoute("/projekat/$id")({
     if (!project) {
       return {
         meta: [
-          { title: `Projekat nije pronađen — ${SITE_NAME}` },
+          { title: `Projekat nije pronađen - ${SITE_NAME}` },
           { name: "robots", content: "noindex" },
         ],
       };
@@ -181,6 +181,8 @@ function ProjectPage() {
           <div className="relative mt-14 overflow-hidden rounded-[2rem] border border-foreground/10 bg-card shadow-[0_30px_70px_-40px_color-mix(in_oklab,var(--foreground)_50%,transparent)]">
             <img
               src={project.image}
+              srcSet={projectSrcSet(project)}
+              sizes="(min-width: 1440px) 1360px, 94vw"
               alt={`Prikaz projekta ${project.title}`}
               width={1440}
               height={900}
@@ -338,7 +340,8 @@ function ProjectPage() {
                 </div>
                 <div className="mt-6 flex items-center gap-4">
                   <img
-                    src={prevProject.image}
+                    src={prevProject.imageSmall}
+                    loading="lazy"
                     alt={prevProject.title}
                     width={80}
                     height={60}
@@ -374,7 +377,8 @@ function ProjectPage() {
                     </p>
                   </div>
                   <img
-                    src={nextProject.image}
+                    src={nextProject.imageSmall}
+                    loading="lazy"
                     alt={nextProject.title}
                     width={80}
                     height={60}

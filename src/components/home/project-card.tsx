@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { ArrowDownRight, ArrowRight } from "lucide-react";
-import type { Project } from "@/lib/projects";
+import { projectSrcSet, type Project } from "@/lib/projects";
 import { reveal } from "@/lib/motion";
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
@@ -22,6 +22,8 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
       >
         <img
           src={project.image}
+          srcSet={projectSrcSet(project)}
+          sizes="(min-width: 768px) 45vw, 92vw"
           alt={`Prikaz sajta ${project.title}`}
           loading="lazy"
           decoding="async"
@@ -74,6 +76,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           <Link
             to="/projekat/$id"
             params={{ id: project.id }}
+            aria-label={`Pogledaj studiju slučaja: ${project.title}`}
             className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-all group-hover:gap-3"
           >
             Pogledaj studiju slučaja

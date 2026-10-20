@@ -7,7 +7,7 @@ import { SiteHeader } from "@/components/site-header";
 import { seo } from "@/lib/seo";
 import { CONTACT, FOUNDER, SITE_NAME } from "@/lib/site";
 
-const LAST_UPDATED = "13. oktobar 2026.";
+const LAST_UPDATED = "20. oktobar 2026.";
 
 export const Route = createFileRoute("/privatnost")({
   head: () =>
@@ -107,9 +107,8 @@ function PrivacyPage() {
               izbor svetle ili tamne teme.
             </p>
             <p>
-              Fontovi se učitavaju sa Google Fonts servisa, pa Google pri tom vidi vašu IP adresu.
-              Klikom na dugme za WhatsApp prelazite na WhatsApp, gde važe njihova pravila
-              privatnosti.
+              Fontovi se učitavaju sa samog sajta, bez spoljnih servisa. Klikom na dugme za WhatsApp
+              prelazite na WhatsApp, gde važe njihova pravila privatnosti.
             </p>
           </Section>
 

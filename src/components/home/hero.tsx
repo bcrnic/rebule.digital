@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { ArrowRight, Check } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import { Button } from "@/components/ui/button";
-import { getProject, type Project } from "@/lib/projects";
+import { getProject, projectSrcSet, type Project } from "@/lib/projects";
 import { whatsappLink } from "@/lib/site";
 
 const featured = getProject("modni-frizer-vojkan") as Project;
@@ -40,6 +40,8 @@ function BrowserWindow({
       </div>
       <img
         src={project.image}
+        srcSet={projectSrcSet(project)}
+        sizes="(min-width: 1024px) 40vw, 92vw"
         alt={`Sajt ${project.title}, izradio rebule. digital`}
         width={1440}
         height={900}
@@ -56,14 +58,11 @@ export function Hero() {
     <section id="home" className="relative flex min-h-[94svh] items-center overflow-hidden pt-28">
       <div className="relative z-10 mx-auto w-full max-w-[90rem] px-5 py-10 lg:px-10">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-24">
-          <motion.div
-            initial={{ opacity: 0, y: 35 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85 }}
-            className="flex flex-col gap-8"
-          >
+          {/* Bez ulazne animacije: naslov je najveći element (LCP) i mora biti vidljiv odmah,
+              a ne tek kad se učita JavaScript. */}
+          <div className="flex flex-col gap-8">
             <div className="space-y-6">
-              <span className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/15 bg-primary/8 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-primary">
+              <span className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/15 bg-primary/8 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-foreground/80">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                 rebule. digital © {new Date().getFullYear()}
               </span>
@@ -98,15 +97,15 @@ export function Hero() {
               <Button
                 variant="ghost"
                 size="lg"
-                className="gap-2 rounded-2xl border border-emerald-500/20 bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500/20 dark:text-emerald-400"
+                className="gap-2 rounded-2xl border border-emerald-500/20 bg-emerald-500/10 text-emerald-800 hover:bg-emerald-500/20 dark:text-emerald-400"
                 asChild
               >
                 <a href={whatsappLink()} target="_blank" rel="noreferrer noopener">
-                  <SiWhatsapp className="size-4" /> WhatsApp poruka
+                  <SiWhatsapp className="size-4" aria-hidden="true" /> WhatsApp poruka
                 </a>
               </Button>
             </div>
-          </motion.div>
+          </div>
 
           <motion.div
             initial={{ opacity: 0, y: 40 }}

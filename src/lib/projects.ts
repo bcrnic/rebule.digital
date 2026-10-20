@@ -1,8 +1,13 @@
 import misolutionsImage from "@/assets/project-misolutions.webp";
+import misolutionsImageSmall from "@/assets/project-misolutions-800.webp";
 import remiImage from "@/assets/project-remielectric.webp";
+import remiImageSmall from "@/assets/project-remielectric-800.webp";
 import residenceImage from "@/assets/project-residence.webp";
+import residenceImageSmall from "@/assets/project-residence-800.webp";
 import badbyteImage from "@/assets/project-badbyte.webp";
+import badbyteImageSmall from "@/assets/project-badbyte-800.webp";
 import vojkanImage from "@/assets/project-vojkan.webp";
+import vojkanImageSmall from "@/assets/project-vojkan-800.webp";
 
 export type ProjectCategory = "Zakazivanje" | "Portfolio" | "E-commerce" | "Biznis";
 
@@ -30,6 +35,10 @@ export type Project = {
   deliverables?: string[];
   metrics?: ProjectMetric[];
   image: string;
+  /** Ista slika, 800px široka, za telefon i manje prikaze. */
+  imageSmall: string;
+  /** Širina originalne slike u px. */
+  imageWidth?: number;
   url?: string;
 };
 
@@ -56,6 +65,7 @@ export const projects: Project[] = [
       { label: "Direktni upiti", value: "Forma", hint: "Zahtev za ponudu bez posrednika" },
     ],
     image: badbyteImage,
+    imageSmall: badbyteImageSmall,
     url: "https://badbyte.netlify.app/",
   },
   {
@@ -69,7 +79,7 @@ export const projects: Project[] = [
     description:
       "Sajt za ženski frizerski salon sa 40 godina tradicije, cenovnikom i zakazivanjem termina.",
     problem:
-      "Salon sa dugom tradicijom nije imao sajt — termini su se zakazivali isključivo telefonom i usmeno.",
+      "Salon sa dugom tradicijom nije imao sajt - termini su se zakazivali isključivo telefonom i usmeno.",
     solution:
       "Napravljen je elegantan sajt sa uslugama, cenovnikom, galerijom i zakazivanjem preko WhatsApp-a, Vibera i emaila.",
     result: "Klijentkinje sada vide cene i usluge unapred i zakazuju termin jednom porukom.",
@@ -86,6 +96,7 @@ export const projects: Project[] = [
       { label: "Prilagođeno telefonu", value: "Mobilni", hint: "Pregledno na svakom ekranu" },
     ],
     image: vojkanImage,
+    imageSmall: vojkanImageSmall,
     url: "https://frizervojkan.rs/",
   },
   {
@@ -120,6 +131,7 @@ export const projects: Project[] = [
       { label: "Vidljivost na Google-u", value: "Lokalni SEO", hint: "Za pretrage u Novom Sadu" },
     ],
     image: remiImage,
+    imageSmall: remiImageSmall,
     url: "https://bcrnic.github.io/remielectric/",
   },
   {
@@ -149,6 +161,8 @@ export const projects: Project[] = [
       { label: "Dostupnost stanova", value: "Ažurno", hint: "Oznake za prodato/slobodno" },
     ],
     image: residenceImage,
+    imageWidth: 1280,
+    imageSmall: residenceImageSmall,
     url: "https://bcrnic.github.io/residence/",
   },
   {
@@ -178,6 +192,7 @@ export const projects: Project[] = [
       { label: "Poslovni upiti", value: "B2B forma", hint: "Direktan kontakt sa agencijom" },
     ],
     image: misolutionsImage,
+    imageSmall: misolutionsImageSmall,
     url: "https://bcrnic.github.io/MiSolutions/",
   },
 ];
@@ -201,4 +216,9 @@ export function getAdjacentProjects(id: string): { prevProject: Project; nextPro
     prevProject: (projects[prevIndex] ?? fallback) as Project,
     nextProject: (projects[nextIndex] ?? fallback) as Project,
   };
+}
+
+/** srcset za projektnu sliku: telefon dobija 800px verziju, veći ekrani original. */
+export function projectSrcSet(project: Project) {
+  return `${project.imageSmall} 800w, ${project.image} ${project.imageWidth ?? 1440}w`;
 }
