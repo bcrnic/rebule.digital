@@ -28,6 +28,8 @@ export type Project = {
   client?: string;
   year?: string;
   description: string;
+  /** Opis za Google (do ~155 karaktera); ako ga nema, koristi se description. */
+  seoDescription?: string;
   problem: string;
   solution: string;
   result: string;
@@ -50,6 +52,8 @@ export const projects: Project[] = [
     category: "Biznis",
     client: "Badbyte Studio",
     year: "2024",
+    seoDescription:
+      "Studija slučaja: sajt za web development studio iz Novog Sada sa jasnom ponudom, cenama, utiscima klijenata i formom za zahtev za ponudu.",
     description:
       "Sajt za web development studio iz Novog Sada sa jasnom ponudom, cenama i pozivom na akciju.",
     problem:
@@ -76,6 +80,8 @@ export const projects: Project[] = [
     category: "Zakazivanje",
     client: "Salon Vojkan",
     year: "2024",
+    seoDescription:
+      "Studija slučaja: sajt za ženski frizerski salon u Novom Sadu sa 40 godina tradicije. Cenovnik, galerija i zakazivanje termina porukom.",
     description:
       "Sajt za ženski frizerski salon sa 40 godina tradicije, cenovnikom i zakazivanjem termina.",
     problem:
@@ -107,6 +113,8 @@ export const projects: Project[] = [
     category: "Zakazivanje",
     client: "REMIELECTRIC Novi Sad",
     year: "2024",
+    seoDescription:
+      "Studija slučaja: sajt za elektroinstalatere iz Novog Sada sa pregledom usluga, dugmetom za hitan poziv i zakazivanjem besplatnog pregleda.",
     description:
       "Sajt za elektro instalatere iz Novog Sada sa jasnim uslugama i zakazivanjem besplatnog pregleda.",
     problem:
@@ -141,6 +149,8 @@ export const projects: Project[] = [
     category: "E-commerce",
     client: "Investitor Residence",
     year: "2024",
+    seoDescription:
+      "Studija slučaja: prodajni sajt za investitora sa katalogom stanova, cenama, tlocrtima, filterima po strukturi i oznakom slobodnih stanova.",
     description:
       "Prodajni sajt za investitora sa katalogom stanova, filterima po strukturi i statusom dostupnosti.",
     problem:
@@ -172,6 +182,8 @@ export const projects: Project[] = [
     category: "Biznis",
     client: "MiSolutions Konsalting",
     year: "2024",
+    seoDescription:
+      "Studija slučaja: prezentacioni sajt konsultantske agencije za istraživanje tržišta, sa jasnom ponudom, rezultatima i B2B kontakt formom.",
     description:
       "Prezentacioni sajt konsultantske agencije za istraživanje tržišta i rast prodaje.",
     problem:

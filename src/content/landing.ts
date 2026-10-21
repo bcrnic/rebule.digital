@@ -36,7 +36,7 @@ export type LandingPage = {
 export const landingPages: LandingPage[] = [
   {
     path: "/izrada-sajtova-novi-sad",
-    seoTitle: "Izrada sajtova Novi Sad za male firme | rebule.",
+    seoTitle: "Izrada sajtova Novi Sad za male firme | rebule. digital",
     seoDescription:
       "Izrada brzih, modernih sajtova za male firme u Novom Sadu i Vojvodini. Fiksna cena unapred, izrada za 7 do 14 radnih dana, direktan rad sa developerom.",
     navLabel: "Izrada sajtova Novi Sad",
@@ -98,7 +98,7 @@ export const landingPages: LandingPage[] = [
   },
   {
     path: "/cene-izrade-sajta",
-    seoTitle: "Cena izrade sajta: paketi i šta je uključeno | rebule.",
+    seoTitle: "Cena izrade sajta: paketi i šta dobijate | rebule. digital",
     seoDescription:
       "Koliko košta izrada sajta za malu firmu: paketi Start, Biznis i Zakazivanje, održavanje i šta je uključeno. Fiksna cena unapred, bez skrivenih troškova.",
     navLabel: "Cene izrade sajta",
@@ -152,7 +152,7 @@ export const landingPages: LandingPage[] = [
   },
   {
     path: "/online-zakazivanje-termina",
-    seoTitle: "Online zakazivanje termina na sajtu | rebule.",
+    seoTitle: "Online zakazivanje termina na sajtu | rebule. digital",
     seoDescription:
       "Sajt sa zakazivanjem termina porukom ili kalendarom slobodnih termina, za salone, ordinacije, trenere i servise. Fiksna cena dogovorena unapred.",
     navLabel: "Online zakazivanje termina",
@@ -213,7 +213,7 @@ export const landingPages: LandingPage[] = [
   },
   {
     path: "/sajt-za-frizerski-salon",
-    seoTitle: "Sajt za frizerski i kozmetički salon | rebule.",
+    seoTitle: "Sajt za frizerski i kozmetički salon | rebule. digital",
     seoDescription:
       "Sajt za frizerski ili kozmetički salon: cenovnik, galerija i zakazivanje termina porukom preko WhatsApp-a i Vibera. Izrada za 7 do 14 radnih dana.",
     navLabel: "Sajt za frizerski salon",
@@ -274,7 +274,7 @@ export const landingPages: LandingPage[] = [
   },
   {
     path: "/sajt-za-majstore",
-    seoTitle: "Sajt za majstore, električare i zanatlije | rebule.",
+    seoTitle: "Sajt za majstore, električare i zanatlije | rebule. digital",
     seoDescription:
       "Sajt za električare, vodoinstalatere i druge majstore: jasne usluge, dugme za hitan poziv i forma za zakazivanje pregleda. Izrada za 7 do 14 radnih dana.",
     navLabel: "Sajt za majstore",
@@ -334,7 +334,7 @@ export const landingPages: LandingPage[] = [
   },
   {
     path: "/odrzavanje-sajta",
-    seoTitle: "Održavanje sajta: hosting, izmene i podrška | rebule.",
+    seoTitle: "Održavanje sajta: hosting i izmene | rebule. digital",
     seoDescription:
       "Mesečno održavanje sajta za male firme: hosting i SSL, backup, praćenje dostupnosti i izmene sadržaja. Bez brige o tehničkim stvarima.",
     navLabel: "Održavanje sajta",
