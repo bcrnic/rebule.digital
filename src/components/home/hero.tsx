@@ -70,9 +70,8 @@ export function Hero() {
                 Izrada sajtova za male firme u <span className="text-primary">Novom Sadu.</span>
               </h1>
               <p className="max-w-md text-lg leading-relaxed text-muted-foreground sm:text-xl">
-                Sajtovi koji donose klijente. rebule. digital je web studio Bojana Crnića: pravim
-                brze, jasne i moderne sajtove za firme iz Novog Sada, Vojvodine i cele Srbije, od
-                ideje do lansiranja.
+                Sajtovi koji donose klijente. Web studio Bojana Crnića: pravim brze, jasne i moderne
+                sajtove za firme iz Novog Sada, Vojvodine i cele Srbije, od ideje do lansiranja.
               </p>
             </div>
             <div className="flex flex-wrap gap-4">

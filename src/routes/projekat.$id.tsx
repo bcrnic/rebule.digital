@@ -28,7 +28,7 @@ export const Route = createFileRoute("/projekat/$id")({
     const title = `${project.niche}: ${project.title} | ${SITE_NAME}`;
     return seo({
       title,
-      description: project.description,
+      description: project.seoDescription ?? project.description,
       path: `/projekat/${project.id}`,
       type: "article",
       keywords: `${project.title}, ${project.category}, web sajt, studija slucaja, rebule digital, ${project.technologies.join(", ")}`,
