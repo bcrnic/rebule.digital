@@ -2,7 +2,8 @@ import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { ArrowRight, CalendarClock, Check, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { maintenancePlan, pricingNotes, pricingPlans } from "@/content/pricing";
+import { getPricingContent } from "@/content/pricing";
+import { useLocale, useSectionIds, useUi } from "@/lib/i18n";
 import { reveal } from "@/lib/motion";
 import { SectionTitle } from "./section-title";
 
@@ -13,20 +14,20 @@ type PricingProps = {
   showMoreLink?: boolean;
 };
 
-export function Pricing({
-  number = "03",
-  title = "Cene izrade sajta: jasni paketi, bez skrivenih troškova.",
-  showMoreLink = false,
-}: PricingProps) {
+export function Pricing({ number = "03", title, showMoreLink = false }: PricingProps) {
+  const locale = useLocale();
+  const t = useUi().pricing;
+  const ids = useSectionIds();
+  const home = locale === "en" ? "/en" : "/";
+  const {
+    plans: pricingPlans,
+    maintenance: maintenancePlan,
+    notes: pricingNotes,
+  } = getPricingContent(locale);
   return (
-    <section id="cene" className="scroll-mt-20 py-24 sm:py-36">
+    <section id={ids.pricing} className="scroll-mt-20 py-24 sm:py-36">
       <div className="mx-auto max-w-[90rem] px-5 lg:px-10">
-        <SectionTitle
-          number={number}
-          eyebrow="Cene"
-          title={title}
-          text="Fiksna cena dogovorena unapred. Izaberite paket koji odgovara vašem poslu, a ostalo rešavamo na razgovoru."
-        />
+        <SectionTitle number={number} eyebrow={t.eyebrow} title={title ?? t.title} text={t.text} />
 
         <div className="mt-16 grid gap-6 lg:grid-cols-3">
           {pricingPlans.map((plan) => (
@@ -41,11 +42,11 @@ export function Pricing({
                 <h3 className="font-display text-2xl font-semibold">{plan.name}</h3>
                 {plan.featured && (
                   <span className="rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">
-                    Najpopularnije
+                    {t.popular}
                   </span>
                 )}
               </div>
-              <p className="mt-6 text-sm text-muted-foreground">od</p>
+              <p className="mt-6 text-sm text-muted-foreground">{t.from}</p>
               <p className="font-display text-5xl font-semibold tracking-tight">{plan.price}</p>
               <p className="mt-4 leading-relaxed text-muted-foreground">{plan.description}</p>
               <ul className="mt-8 grid flex-1 content-start gap-3 text-sm">
@@ -62,8 +63,8 @@ export function Pricing({
                 className="mt-10 w-full rounded-2xl"
                 asChild
               >
-                <Link to="/" hash="kontakt">
-                  Zatraži ponudu <ArrowRight className="size-4" />
+                <Link to={home} hash={ids.contact}>
+                  {t.requestQuote} <ArrowRight className="size-4" />
                 </Link>
               </Button>
             </motion.article>
@@ -76,13 +77,10 @@ export function Pricing({
               <span className="glass-soft flex size-11 items-center justify-center rounded-full text-primary">
                 <CalendarClock className="size-5" aria-hidden="true" />
               </span>
-              <h3 className="font-display text-xl font-semibold">Zakazivanje sa kalendarom</h3>
+              <h3 className="font-display text-xl font-semibold">{t.calendarTitle}</h3>
             </div>
-            <p className="leading-relaxed text-muted-foreground">
-              Klijenti biraju slobodan termin direktno na sajtu. Ovo je zaseban projekat, pa se cena
-              određuje po ponudi prema vašim pravilima rada.
-            </p>
-            <p className="font-display text-2xl font-semibold">Po ponudi</p>
+            <p className="leading-relaxed text-muted-foreground">{t.calendarText}</p>
+            <p className="font-display text-2xl font-semibold">{t.onRequest}</p>
           </motion.article>
 
           <motion.article {...reveal} className="glass flex flex-col gap-5 p-8">
@@ -119,7 +117,7 @@ export function Pricing({
             to="/cene-izrade-sajta"
             className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary underline-offset-4 hover:underline"
           >
-            Šta je uključeno u cenu izrade sajta <ArrowRight className="size-4" />
+            {t.moreLink} <ArrowRight className="size-4" />
           </Link>
         )}
       </div>

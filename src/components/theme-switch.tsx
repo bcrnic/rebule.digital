@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useUi } from "@/lib/i18n";
 
 type ThemeSwitchProps = {
   isDark: boolean;
@@ -11,6 +12,7 @@ type ThemeSwitchProps = {
  * na veličinu ostalih dugmadi u headeru.
  */
 export function ThemeSwitch({ isDark, onToggle }: ThemeSwitchProps) {
+  const t = useUi().theme;
   // Bez animacije dok se ne učita stvarna tema, da prekidač ne "odleti" pri otvaranju stranice.
   const [ready, setReady] = useState(false);
   useEffect(() => {
@@ -25,7 +27,7 @@ export function ThemeSwitch({ isDark, onToggle }: ThemeSwitchProps) {
           type="checkbox"
           checked={isDark}
           onChange={onToggle}
-          aria-label={isDark ? "Uključi svetlu temu" : "Uključi tamnu temu"}
+          aria-label={isDark ? t.toLight : t.toDark}
         />
         <span className="switch-bg" aria-hidden="true">
           <span className="sky-vault">

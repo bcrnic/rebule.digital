@@ -1,24 +1,25 @@
 import { motion } from "motion/react";
 import { Check } from "lucide-react";
 import portrait from "@/assets/bojan-crnic.webp";
-import { aboutPoints } from "@/content/home";
+import { getHomeContent } from "@/content/home";
+import { useLocale, useSectionIds, useUi } from "@/lib/i18n";
 import { reveal } from "@/lib/motion";
 import { SectionTitle } from "./section-title";
 
 export function About() {
+  const locale = useLocale();
+  const t = useUi().about;
+  const ids = useSectionIds();
+  const { aboutPoints } = getHomeContent(locale);
   return (
-    <section id="o-meni" className="scroll-mt-20 bg-surface/40 py-24 sm:py-36">
+    <section id={ids.about} className="scroll-mt-20 bg-surface/40 py-24 sm:py-36">
       <div className="mx-auto max-w-[90rem] px-5 lg:px-10">
-        <SectionTitle
-          number="06"
-          eyebrow="O meni"
-          title="Web developer iz Novog Sada. Direktna saradnja, velika pažnja."
-        />
+        <SectionTitle number="06" eyebrow={t.eyebrow} title={t.title} />
         <div className="mt-20 grid grid-cols-12 gap-6">
           <motion.div {...reveal} className="col-span-12 md:col-span-5">
             <img
               src={portrait}
-              alt="Bojan Crnić, osnivač studija rebule. digital"
+              alt={t.portraitAlt}
               loading="lazy"
               decoding="async"
               width={900}
@@ -31,18 +32,10 @@ export function About() {
             className="col-span-12 flex flex-col justify-between md:col-span-6 md:col-start-7"
           >
             <div>
-              <p className="font-display text-3xl font-semibold sm:text-5xl">
-                Zdravo, ja sam Bojan.
-              </p>
+              <p className="font-display text-3xl font-semibold sm:text-5xl">{t.hello}</p>
               <div className="mt-8 max-w-xl space-y-5 text-lg leading-relaxed text-muted-foreground">
-                <p>
-                  Full-stack developer i osnivač studija rebule. digital. Pomažem malim firmama da
-                  dobiju sajt koji im donosi klijente.
-                </p>
-                <p>
-                  Radim direktno sa vlasnicima, bez posrednika i dugih procesa. To znači bržu
-                  komunikaciju, jasne rokove i rešenje prilagođeno vašem poslu.
-                </p>
+                <p>{t.p1}</p>
+                <p>{t.p2}</p>
               </div>
             </div>
             <ul className="mt-12 grid gap-3 sm:grid-cols-2">

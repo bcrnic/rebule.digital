@@ -1,12 +1,16 @@
 import { CalendarCheck, Code2, Globe2, RefreshCw } from "lucide-react";
 import { SiPython, SiReact, SiTailwindcss, SiTypescript } from "react-icons/si";
+import type { Locale } from "@/lib/i18n";
+import { aboutPointsEn, faqsEn, servicesEn, testimonialsEn } from "./home.en";
 
-export const services: {
+export type Service = {
   icon: typeof Globe2;
   title: string;
   path?: string;
   text: string;
-}[] = [
+};
+
+export const services: Service[] = [
   {
     icon: Globe2,
     title: "Sajtovi za male firme",
@@ -104,3 +108,15 @@ export const aboutPoints = [
   "Mobilni pristup",
   "Podrška nakon lansiranja",
 ];
+
+/** Sadržaj početne za dati jezik; srpski je gore, engleski u home.en.ts. */
+export function getHomeContent(locale: Locale) {
+  return locale === "en"
+    ? {
+        services: servicesEn,
+        testimonials: testimonialsEn,
+        faqs: faqsEn,
+        aboutPoints: aboutPointsEn,
+      }
+    : { services, testimonials, faqs, aboutPoints };
+}

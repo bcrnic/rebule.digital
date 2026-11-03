@@ -17,7 +17,10 @@ import { Route as OnlineZakazivanjeTerminaRouteImport } from './routes/online-za
 import { Route as PrivatnostRouteImport } from './routes/privatnost'
 import { Route as SajtZaFrizerskiSalonRouteImport } from './routes/sajt-za-frizerski-salon'
 import { Route as SajtZaMajstoreRouteImport } from './routes/sajt-za-majstore'
+import { Route as EnIndexRouteImport } from './routes/en/index'
+import { Route as EnPrivacyRouteImport } from './routes/en/privacy'
 import { Route as ProjekatIdRouteImport } from './routes/projekat.$id'
+import { Route as EnProjectIdRouteImport } from './routes/en/project.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -60,9 +63,24 @@ const SajtZaMajstoreRoute = SajtZaMajstoreRouteImport.update({
   path: '/sajt-za-majstore',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnIndexRoute = EnIndexRouteImport.update({
+  id: '/en/',
+  path: '/en/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnPrivacyRoute = EnPrivacyRouteImport.update({
+  id: '/en/privacy',
+  path: '/en/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProjekatIdRoute = ProjekatIdRouteImport.update({
   id: '/projekat/$id',
   path: '/projekat/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnProjectIdRoute = EnProjectIdRouteImport.update({
+  id: '/en/project/$id',
+  path: '/en/project/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -75,7 +93,10 @@ export interface FileRoutesByFullPath {
   '/privatnost': typeof PrivatnostRoute
   '/sajt-za-frizerski-salon': typeof SajtZaFrizerskiSalonRoute
   '/sajt-za-majstore': typeof SajtZaMajstoreRoute
+  '/en/privacy': typeof EnPrivacyRoute
   '/projekat/$id': typeof ProjekatIdRoute
+  '/en/': typeof EnIndexRoute
+  '/en/project/$id': typeof EnProjectIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -86,7 +107,10 @@ export interface FileRoutesByTo {
   '/privatnost': typeof PrivatnostRoute
   '/sajt-za-frizerski-salon': typeof SajtZaFrizerskiSalonRoute
   '/sajt-za-majstore': typeof SajtZaMajstoreRoute
+  '/en/privacy': typeof EnPrivacyRoute
   '/projekat/$id': typeof ProjekatIdRoute
+  '/en': typeof EnIndexRoute
+  '/en/project/$id': typeof EnProjectIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -98,7 +122,10 @@ export interface FileRoutesById {
   '/privatnost': typeof PrivatnostRoute
   '/sajt-za-frizerski-salon': typeof SajtZaFrizerskiSalonRoute
   '/sajt-za-majstore': typeof SajtZaMajstoreRoute
+  '/en/privacy': typeof EnPrivacyRoute
   '/projekat/$id': typeof ProjekatIdRoute
+  '/en/': typeof EnIndexRoute
+  '/en/project/$id': typeof EnProjectIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -111,7 +138,10 @@ export interface FileRouteTypes {
     | '/privatnost'
     | '/sajt-za-frizerski-salon'
     | '/sajt-za-majstore'
+    | '/en/privacy'
     | '/projekat/$id'
+    | '/en/'
+    | '/en/project/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -122,7 +152,10 @@ export interface FileRouteTypes {
     | '/privatnost'
     | '/sajt-za-frizerski-salon'
     | '/sajt-za-majstore'
+    | '/en/privacy'
     | '/projekat/$id'
+    | '/en'
+    | '/en/project/$id'
   id:
     | '__root__'
     | '/'
@@ -133,7 +166,10 @@ export interface FileRouteTypes {
     | '/privatnost'
     | '/sajt-za-frizerski-salon'
     | '/sajt-za-majstore'
+    | '/en/privacy'
     | '/projekat/$id'
+    | '/en/'
+    | '/en/project/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -145,7 +181,10 @@ export interface RootRouteChildren {
   PrivatnostRoute: typeof PrivatnostRoute
   SajtZaFrizerskiSalonRoute: typeof SajtZaFrizerskiSalonRoute
   SajtZaMajstoreRoute: typeof SajtZaMajstoreRoute
+  EnPrivacyRoute: typeof EnPrivacyRoute
   ProjekatIdRoute: typeof ProjekatIdRoute
+  EnIndexRoute: typeof EnIndexRoute
+  EnProjectIdRoute: typeof EnProjectIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -206,11 +245,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SajtZaMajstoreRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/en/': {
+      id: '/en/'
+      path: '/en'
+      fullPath: '/en/'
+      preLoaderRoute: typeof EnIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/privacy': {
+      id: '/en/privacy'
+      path: '/en/privacy'
+      fullPath: '/en/privacy'
+      preLoaderRoute: typeof EnPrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projekat/$id': {
       id: '/projekat/$id'
       path: '/projekat/$id'
       fullPath: '/projekat/$id'
       preLoaderRoute: typeof ProjekatIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/project/$id': {
+      id: '/en/project/$id'
+      path: '/en/project/$id'
+      fullPath: '/en/project/$id'
+      preLoaderRoute: typeof EnProjectIdRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -225,7 +285,10 @@ const rootRouteChildren: RootRouteChildren = {
   PrivatnostRoute: PrivatnostRoute,
   SajtZaFrizerskiSalonRoute: SajtZaFrizerskiSalonRoute,
   SajtZaMajstoreRoute: SajtZaMajstoreRoute,
+  EnPrivacyRoute: EnPrivacyRoute,
   ProjekatIdRoute: ProjekatIdRoute,
+  EnIndexRoute: EnIndexRoute,
+  EnProjectIdRoute: EnProjectIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

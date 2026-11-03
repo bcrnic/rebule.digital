@@ -5,10 +5,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "motion/react";
 import { ArrowRight, Check, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLocale, useUi } from "@/lib/i18n";
 import {
   INQUIRY_FORM_NAME,
-  inquirySchema,
-  projectTypes,
+  createInquirySchema,
+  projectTypesByLocale,
   submitInquiry,
   type Inquiry,
 } from "@/lib/inquiry";
@@ -38,6 +39,9 @@ function Field({
 }
 
 export function ContactForm() {
+  const locale = useLocale();
+  const t = useUi().form;
+  const projectTypes = projectTypesByLocale[locale];
   const [status, setStatus] = useState<"idle" | "sent" | "error">("idle");
   const {
     register,
@@ -45,14 +49,14 @@ export function ContactForm() {
     reset,
     formState: { errors, isSubmitting },
   } = useForm<Inquiry>({
-    resolver: zodResolver(inquirySchema),
+    resolver: zodResolver(createInquirySchema(locale)),
     defaultValues: { type: projectTypes[0] },
   });
 
   const onSubmit = handleSubmit(async (values) => {
     setStatus("idle");
     try {
-      await submitInquiry(values);
+      await submitInquiry(values, locale);
       setStatus("sent");
       reset();
     } catch {
@@ -71,52 +75,50 @@ export function ContactForm() {
       className="grid gap-5 rounded-[1.75rem] border border-white/25 bg-white/10 p-7 backdrop-blur-2xl sm:grid-cols-2"
     >
       <input type="hidden" name="form-name" value={INQUIRY_FORM_NAME} />
-      <Field label="Ime i prezime *" error={errors.name?.message}>
+      {/* Jezik stranice sa koje je upit poslat; prikazuje se u mejlu sa upitom. */}
+      <input type="hidden" name="language" value={locale} />
+      <Field label={t.name} error={errors.name?.message}>
         <input
           {...register("name")}
           autoComplete="name"
           aria-invalid={!!errors.name}
           className="form-control"
-          placeholder="Vaše ime"
+          placeholder={t.namePlaceholder}
         />
       </Field>
-      <Field label="Email adresa *" error={errors.email?.message}>
+      <Field label={t.email} error={errors.email?.message}>
         <input
           {...register("email")}
           type="email"
           autoComplete="email"
           aria-invalid={!!errors.email}
           className="form-control"
-          placeholder="ime@firma.rs"
+          placeholder={t.emailPlaceholder}
         />
       </Field>
-      <Field label="Telefon / WhatsApp (opciono)" className="sm:col-span-2">
+      <Field label={t.phone} className="sm:col-span-2">
         <input
           {...register("phone")}
           type="tel"
           autoComplete="tel"
           className="form-control"
-          placeholder="+381 60 ..."
+          placeholder={t.phonePlaceholder}
         />
       </Field>
-      <Field label="Tip projekta" className="sm:col-span-2">
+      <Field label={t.type} className="sm:col-span-2">
         <select {...register("type")} className="form-control">
           {projectTypes.map((type) => (
             <option key={type}>{type}</option>
           ))}
         </select>
       </Field>
-      <Field
-        label="Poruka i opis potreba *"
-        error={errors.message?.message}
-        className="sm:col-span-2"
-      >
+      <Field label={t.message} error={errors.message?.message} className="sm:col-span-2">
         <textarea
           {...register("message")}
           rows={4}
           aria-invalid={!!errors.message}
           className="form-control resize-none"
-          placeholder="Ukratko opišite čime se bavite i šta vam je potrebno..."
+          placeholder={t.messagePlaceholder}
         />
       </Field>
       <input
@@ -127,9 +129,12 @@ export function ContactForm() {
         className="absolute -left-[9999px] h-0 w-0 opacity-0"
       />
       <p className="text-xs leading-relaxed opacity-75 sm:col-span-2">
-        Podatke iz forme koristim samo da bih odgovorio na vaš upit. Više u{" "}
-        <Link to="/privatnost" className="underline hover:opacity-80">
-          politici privatnosti
+        {t.privacyBefore}{" "}
+        <Link
+          to={locale === "en" ? "/en/privacy" : "/privatnost"}
+          className="underline hover:opacity-80"
+        >
+          {t.privacyLink}
         </Link>
         .
       </p>
@@ -143,11 +148,11 @@ export function ContactForm() {
         >
           {isSubmitting ? (
             <>
-              <Loader2 className="size-4 animate-spin" aria-hidden="true" /> Šaljem upit...
+              <Loader2 className="size-4 animate-spin" aria-hidden="true" /> {t.submitting}
             </>
           ) : (
             <>
-              Zakaži besplatne konsultacije <ArrowRight className="size-4" aria-hidden="true" />
+              {t.submit} <ArrowRight className="size-4" aria-hidden="true" />
             </>
           )}
         </Button>
@@ -158,7 +163,7 @@ export function ContactForm() {
             role="status"
             className="flex items-center gap-2 rounded-xl bg-white/20 px-4 py-2 text-sm font-medium text-white"
           >
-            <Check className="size-4" aria-hidden="true" /> Hvala! Odgovoriću u roku od 24h.
+            <Check className="size-4" aria-hidden="true" /> {t.sent}
           </motion.div>
         )}
         {status === "error" && (
@@ -166,7 +171,7 @@ export function ContactForm() {
             role="alert"
             className="rounded-xl bg-white/20 px-4 py-2 text-sm font-medium text-white"
           >
-            Slanje nije uspelo. Pokušajte ponovo ili mi pišite direktno na email.
+            {t.error}
           </p>
         )}
       </div>

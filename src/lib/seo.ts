@@ -1,3 +1,4 @@
+import { ogLocale, type Locale } from "@/lib/i18n";
 import { OG_IMAGE, SITE_NAME, absoluteUrl } from "@/lib/site";
 
 type SeoOptions = {
@@ -7,6 +8,9 @@ type SeoOptions = {
   keywords?: string;
   type?: "website" | "article";
   image?: string;
+  locale?: Locale;
+  /** Putanje iste stranice na oba jezika; dodaju hreflang linkove. */
+  alternates?: { sr: string; en: string };
 };
 
 export function seo({
@@ -16,11 +20,21 @@ export function seo({
   keywords,
   type = "website",
   image = OG_IMAGE,
+  locale = "sr",
+  alternates,
 }: SeoOptions) {
   const url = absoluteUrl(path);
+  const alternateLinks = alternates
+    ? [
+        { rel: "alternate", hrefLang: "sr", href: absoluteUrl(alternates.sr) },
+        { rel: "alternate", hrefLang: "en", href: absoluteUrl(alternates.en) },
+        { rel: "alternate", hrefLang: "x-default", href: absoluteUrl(alternates.sr) },
+      ]
+    : [];
   return {
-    links: [{ rel: "canonical", href: url }],
+    links: [{ rel: "canonical", href: url }, ...alternateLinks],
     meta: [
+      { property: "og:locale", content: ogLocale(locale) },
       { title },
       { name: "description", content: description },
       ...(keywords ? [{ name: "keywords", content: keywords }] : []),

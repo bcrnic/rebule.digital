@@ -7,6 +7,7 @@ import { SiteHeader } from "@/components/site-header";
 import { seo } from "@/lib/seo";
 import { CONTACT, FOUNDER, SITE_NAME } from "@/lib/site";
 
+// Engleski prevod je u routes/en/privacy.tsx; menjati ih zajedno.
 const LAST_UPDATED = "20. oktobar 2026.";
 
 export const Route = createFileRoute("/privatnost")({
@@ -15,6 +16,7 @@ export const Route = createFileRoute("/privatnost")({
       title: `Politika privatnosti | ${SITE_NAME}`,
       description: `Kako ${SITE_NAME} prikuplja, koristi i čuva podatke koje pošaljete preko kontakt forme.`,
       path: "/privatnost",
+      alternates: { sr: "/privatnost", en: "/en/privacy" },
     }),
   component: PrivacyPage,
 });

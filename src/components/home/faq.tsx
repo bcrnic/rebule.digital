@@ -1,23 +1,23 @@
 import { useId, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ChevronDown } from "lucide-react";
-import { faqs } from "@/content/home";
+import { getHomeContent } from "@/content/home";
+import { useLocale, useSectionIds, useUi } from "@/lib/i18n";
 import { reveal } from "@/lib/motion";
 import { SectionTitle } from "./section-title";
 
 export function Faq() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const baseId = useId();
+  const locale = useLocale();
+  const t = useUi().faq;
+  const ids = useSectionIds();
+  const { faqs } = getHomeContent(locale);
 
   return (
-    <section id="faq" className="scroll-mt-20 py-24 sm:py-36">
+    <section id={ids.faq} className="scroll-mt-20 py-24 sm:py-36">
       <div className="mx-auto max-w-[90rem] px-5 lg:px-10">
-        <SectionTitle
-          number="07"
-          eyebrow="Česta pitanja"
-          title="Sve što vas zanima pre početka rada."
-          text="Odgovori na najčešća pitanja o procesu, cenama, rokovima i održavanju."
-        />
+        <SectionTitle number="07" eyebrow={t.eyebrow} title={t.title} text={t.text} />
         <div className="mx-auto mt-16 max-w-4xl space-y-4">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
