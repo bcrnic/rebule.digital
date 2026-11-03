@@ -5,6 +5,9 @@ export const SITE_NAME = "rebule. digital";
 export const SITE_TITLE = "Izrada sajtova Novi Sad za male firme | rebule. digital";
 export const SITE_DESCRIPTION =
   "Izrada sajtova u Novom Sadu za male firme: brzi, moderni sajtovi i zakazivanje termina, fiksna cena unapred. Web studio Bojana Crnića.";
+export const SITE_TITLE_EN = "Website design for small businesses | rebule. digital";
+export const SITE_DESCRIPTION_EN =
+  "Fast, modern websites and online booking for small businesses in Serbia and abroad. Fixed price agreed upfront. Web studio of Bojan Crnić from Novi Sad.";
 export const OG_IMAGE = `${SITE_URL}/og-image.jpg?v=2`;
 
 export const FOUNDER = {
@@ -21,6 +24,8 @@ export const CONTACT = {
 };
 
 export const WHATSAPP_MESSAGE = "Zdravo Bojane, zainteresovan sam za izradu sajta.";
+
+export const WHATSAPP_MESSAGE_EN = "Hi Bojan, I'm interested in a website.";
 
 export const whatsappLink = (message = WHATSAPP_MESSAGE) =>
   `https://wa.me/${CONTACT.phone.replace(/\D/g, "")}?text=${encodeURIComponent(message)}`;

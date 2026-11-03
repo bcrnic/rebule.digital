@@ -4,7 +4,8 @@ import { ArrowRight, Check } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import { getProject, projectSrcSet, type Project } from "@/lib/projects";
-import { whatsappLink } from "@/lib/site";
+import { useLocale, useSectionIds, useUi } from "@/lib/i18n";
+import { WHATSAPP_MESSAGE_EN, whatsappLink } from "@/lib/site";
 
 const featured = getProject("modni-frizer-vojkan") as Project;
 const secondary = getProject("remielectric") as Project;
@@ -24,6 +25,7 @@ function BrowserWindow({
   priority?: boolean;
   className?: string;
 }) {
+  const t = useUi().hero;
   return (
     <div
       className={`overflow-hidden rounded-2xl border border-border/70 bg-card shadow-2xl ${className}`}
@@ -42,7 +44,7 @@ function BrowserWindow({
         src={project.image}
         srcSet={projectSrcSet(project)}
         sizes="(min-width: 1024px) 40vw, 92vw"
-        alt={`Sajt ${project.title}, izradio rebule. digital`}
+        alt={t.siteAlt(project.title)}
         width={1440}
         height={900}
         decoding="async"
@@ -54,6 +56,10 @@ function BrowserWindow({
 }
 
 export function Hero() {
+  const locale = useLocale();
+  const t = useUi().hero;
+  const ids = useSectionIds();
+  const projectRoute = locale === "en" ? "/en/project/$id" : "/projekat/$id";
   return (
     <section id="home" className="relative flex min-h-[94svh] items-center overflow-hidden pt-28">
       <div className="relative z-10 mx-auto w-full max-w-[90rem] px-5 py-10 lg:px-10">
@@ -67,11 +73,11 @@ export function Hero() {
                 rebule. digital © {new Date().getFullYear()}
               </span>
               <h1 className="font-display text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-                Izrada sajtova za male firme u <span className="text-primary">Novom Sadu.</span>
+                {t.titleStart}
+                <span className="text-primary">{t.titleAccent}</span>
               </h1>
               <p className="max-w-md text-lg leading-relaxed text-muted-foreground sm:text-xl">
-                Sajtovi koji donose klijente. Web studio Bojana Crnića: pravim brze, jasne i moderne
-                sajtove za firme iz Novog Sada, Vojvodine i cele Srbije, od ideje do lansiranja.
+                {t.lede}
               </p>
             </div>
             <div className="flex flex-wrap gap-4">
@@ -81,8 +87,8 @@ export function Hero() {
                 className="rounded-2xl shadow-[0_12px_32px_-12px_color-mix(in_oklab,var(--primary)_45%,transparent)]"
                 asChild
               >
-                <a href="#portfolio">
-                  Pogledaj radove <ArrowRight className="size-4" />
+                <a href={`#${ids.portfolio}`}>
+                  {t.viewWork} <ArrowRight className="size-4" />
                 </a>
               </Button>
               <Button
@@ -91,7 +97,7 @@ export function Hero() {
                 className="rounded-2xl border-border bg-card hover:bg-card/80"
                 asChild
               >
-                <a href="#kontakt">Zakaži razgovor</a>
+                <a href={`#${ids.contact}`}>{t.bookCall}</a>
               </Button>
               <Button
                 variant="ghost"
@@ -99,8 +105,12 @@ export function Hero() {
                 className="gap-2 rounded-2xl border border-emerald-500/20 bg-emerald-500/10 text-emerald-800 hover:bg-emerald-500/20 dark:text-emerald-400"
                 asChild
               >
-                <a href={whatsappLink()} target="_blank" rel="noreferrer noopener">
-                  <SiWhatsapp className="size-4" aria-hidden="true" /> WhatsApp poruka
+                <a
+                  href={locale === "en" ? whatsappLink(WHATSAPP_MESSAGE_EN) : whatsappLink()}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <SiWhatsapp className="size-4" aria-hidden="true" /> {t.whatsapp}
                 </a>
               </Button>
             </div>
@@ -119,17 +129,17 @@ export function Hero() {
             <div className="relative pb-10 sm:pb-6 sm:pr-10 sm:pt-10 lg:pt-14">
               {/* Svaki prozor vodi na svoju studiju slučaja. */}
               <Link
-                to="/projekat/$id"
+                to={projectRoute}
                 params={{ id: secondary.id }}
-                aria-label={`Pogledaj projekat ${secondary.title}`}
+                aria-label={t.viewProjectAria(secondary.title)}
                 className="absolute right-0 top-0 hidden w-[72%] rotate-3 opacity-90 transition-transform duration-500 hover:rotate-[4deg] sm:block"
               >
                 <BrowserWindow project={secondary} />
               </Link>
               <Link
-                to="/projekat/$id"
+                to={projectRoute}
                 params={{ id: featured.id }}
-                aria-label={`Pogledaj projekat ${featured.title}`}
+                aria-label={t.viewProjectAria(featured.title)}
                 className="group relative block"
               >
                 <BrowserWindow
@@ -143,11 +153,11 @@ export function Hero() {
                   </div>
                   <div>
                     <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-                      Najnoviji projekat
+                      {t.latestProject}
                     </p>
                     <p className="text-sm font-semibold text-foreground">
                       {featured.title}
-                      <span className="hidden sm:inline"> · zakazivanje porukom</span>
+                      <span className="hidden sm:inline">{t.featuredNote}</span>
                     </p>
                   </div>
                 </div>

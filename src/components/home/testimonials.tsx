@@ -1,19 +1,19 @@
 import { motion } from "motion/react";
 import { Quote, Sparkles, Star } from "lucide-react";
-import { testimonials } from "@/content/home";
+import { getHomeContent } from "@/content/home";
+import { useLocale, useSectionIds, useUi } from "@/lib/i18n";
 import { reveal } from "@/lib/motion";
 import { SectionTitle } from "./section-title";
 
 export function Testimonials() {
+  const locale = useLocale();
+  const t = useUi().testimonials;
+  const ids = useSectionIds();
+  const { testimonials } = getHomeContent(locale);
   return (
-    <section id="utisci" className="scroll-mt-20 py-24 sm:py-36">
+    <section id={ids.testimonials} className="scroll-mt-20 py-24 sm:py-36">
       <div className="mx-auto max-w-[90rem] px-5 lg:px-10">
-        <SectionTitle
-          number="05"
-          eyebrow="Utisci klijenata"
-          title="Šta kažu vlasnici sa kojima sarađujem."
-          text="Direktna saradnja, jasna komunikacija i rešenja prilagođena konkretnom poslu."
-        />
+        <SectionTitle number="05" eyebrow={t.eyebrow} title={t.title} text={t.text} />
         <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2">
           {testimonials.map((item) => (
             <motion.figure
@@ -23,11 +23,7 @@ export function Testimonials() {
             >
               <div>
                 <div className="flex items-center justify-between gap-4">
-                  <div
-                    className="flex gap-1 text-amber-500"
-                    role="img"
-                    aria-label="5 od 5 zvezdica"
-                  >
+                  <div className="flex gap-1 text-amber-500" role="img" aria-label={t.stars}>
                     {Array.from({ length: 5 }, (_, i) => (
                       <Star key={i} className="size-4 fill-amber-500" aria-hidden="true" />
                     ))}
@@ -35,7 +31,7 @@ export function Testimonials() {
                   <Quote className="size-6 text-primary/40" aria-hidden="true" />
                 </div>
                 <blockquote className="mt-6 text-lg leading-relaxed text-foreground">
-                  „{item.text}“
+                  {locale === "en" ? `“${item.text}”` : `„${item.text}“`}
                 </blockquote>
               </div>
 

@@ -25,6 +25,13 @@ export default defineConfig({
       { path: "/sajt-za-frizerski-salon", prerender: { enabled: true } },
       { path: "/sajt-za-majstore", prerender: { enabled: true } },
       { path: "/odrzavanje-sajta", prerender: { enabled: true } },
+      { path: "/en", prerender: { enabled: true } },
+      { path: "/en/project/badbyte", prerender: { enabled: true } },
+      { path: "/en/project/modni-frizer-vojkan", prerender: { enabled: true } },
+      { path: "/en/project/remielectric", prerender: { enabled: true } },
+      { path: "/en/project/residence", prerender: { enabled: true } },
+      { path: "/en/project/misolutions", prerender: { enabled: true } },
+      { path: "/en/privacy", prerender: { enabled: true } },
     ],
   },
 });

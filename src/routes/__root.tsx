@@ -9,25 +9,26 @@ import {
 } from "@tanstack/react-router";
 import { MotionConfig } from "motion/react";
 import type { ReactNode } from "react";
+import { htmlLang, useLocale, useUi } from "@/lib/i18n";
 import { businessSchema } from "@/lib/schema";
 import { OG_IMAGE, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE } from "@/lib/site";
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
+  const locale = useLocale();
+  const t = useUi().notFound;
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Stranica nije pronađena</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Stranica koju tražite ne postoji ili je premeštena.
-        </p>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">{t.title}</h2>
+        <p className="mt-2 text-sm text-muted-foreground">{t.text}</p>
         <div className="mt-6">
           <Link
-            to="/"
+            to={locale === "en" ? "/en" : "/"}
             className="inline-flex items-center justify-center rounded-xl bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Povratak na početnu
+            {t.back}
           </Link>
         </div>
       </div>
@@ -38,16 +39,14 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error("Root boundary error:", error);
   const router = useRouter();
+  const locale = useLocale();
+  const t = useUi().error;
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          Stranica se nije učitala
-        </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Došlo je do greške na našoj strani. Pokušajte ponovo ili se vratite na početnu.
-        </p>
+        <h1 className="text-xl font-semibold tracking-tight text-foreground">{t.title}</h1>
+        <p className="mt-2 text-sm text-muted-foreground">{t.text}</p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
             onClick={() => {
@@ -56,13 +55,13 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
             }}
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Pokušaj ponovo
+            {t.retry}
           </button>
           <a
-            href="/"
+            href={locale === "en" ? "/en" : "/"}
             className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
-            Na početnu
+            {t.home}
           </a>
         </div>
       </div>
@@ -137,8 +136,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const locale = useLocale();
   return (
-    <html lang="sr-Latn" suppressHydrationWarning>
+    <html lang={htmlLang(locale)} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <script
@@ -157,6 +157,7 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const t = useUi();
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -165,7 +166,7 @@ function RootComponent() {
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-primary-foreground"
         >
-          Pređi na sadržaj
+          {t.skipToContent}
         </a>
         <Outlet />
       </MotionConfig>

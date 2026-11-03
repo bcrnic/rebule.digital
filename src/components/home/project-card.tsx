@@ -1,10 +1,14 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { ArrowDownRight, ArrowRight } from "lucide-react";
-import { projectSrcSet, type Project } from "@/lib/projects";
+import { useLocale, useUi } from "@/lib/i18n";
+import { categoryLabel, projectSrcSet, type Project } from "@/lib/projects";
 import { reveal } from "@/lib/motion";
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
+  const locale = useLocale();
+  const t = useUi().projectCard;
+  const projectRoute = locale === "en" ? "/en/project/$id" : "/projekat/$id";
   const metric = project.metrics?.[0];
 
   return (
@@ -14,7 +18,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
       className="glass glass-hover group flex flex-col overflow-hidden rounded-[2rem] border border-foreground/10 transition-all duration-300"
     >
       <Link
-        to="/projekat/$id"
+        to={projectRoute}
         params={{ id: project.id }}
         tabIndex={-1}
         aria-hidden="true"
@@ -24,7 +28,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           src={project.image}
           srcSet={projectSrcSet(project)}
           sizes="(min-width: 768px) 45vw, 92vw"
-          alt={`Prikaz sajta ${project.title}`}
+          alt={t.imageAlt(project.title)}
           loading="lazy"
           decoding="async"
           width={1280}
@@ -34,7 +38,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
         <div className="absolute left-4 top-4 flex flex-wrap gap-2">
           <span className="rounded-full border border-white/20 bg-black/60 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-md">
-            {project.category}
+            {categoryLabel(project.category, locale)}
           </span>
           {metric && (
             <span className="rounded-full border border-emerald-400/30 bg-emerald-950/80 px-3 py-1 text-xs font-bold text-emerald-300 backdrop-blur-md">
@@ -47,14 +51,14 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         <div className="space-y-3">
           <div className="flex items-center justify-between gap-2">
             <span className="text-xs font-semibold uppercase text-primary">
-              Projekat 0{index + 1}
+              {t.project} 0{index + 1}
             </span>
             {project.year && (
               <span className="text-xs font-medium text-muted-foreground">{project.year}</span>
             )}
           </div>
           <h3 className="font-display text-2xl font-bold tracking-tight text-foreground transition-colors group-hover:text-primary sm:text-3xl">
-            <Link to="/projekat/$id" params={{ id: project.id }}>
+            <Link to={projectRoute} params={{ id: project.id }}>
               {project.title}
             </Link>
           </h3>
@@ -74,12 +78,12 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         </div>
         <div className="mt-6 flex items-center justify-between border-t border-border/50 pt-5">
           <Link
-            to="/projekat/$id"
+            to={projectRoute}
             params={{ id: project.id }}
-            aria-label={`Pogledaj studiju slučaja: ${project.title}`}
+            aria-label={t.viewCaseAria(project.title)}
             className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-all group-hover:gap-3"
           >
-            Pogledaj studiju slučaja
+            {t.viewCase}
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
           </Link>
           <span

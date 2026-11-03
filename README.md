@@ -61,6 +61,17 @@ a na hosting ide prerenderovan `.output/public`. GitHub Actions (`.github/workfl
 proverava lint, typecheck i build na svakom PR-u. Domen `rebule.rs` je registrovan kod Loopie,
 a DNS je na Cloudflare-u.
 
+## 🌍 Jezici
+
+Sajt je na srpskom (`/`) i engleskom (`/en`). Engleska verzija pokriva početnu, studije slučaja
+(`/en/project/...`) i politiku privatnosti (`/en/privacy`); stranice usluga su samo na srpskom.
+
+- `src/lib/i18n.ts` - jezik se čita iz adrese, mapiranje srpskih i engleskih putanja
+- `src/content/ui.ts` - tekstovi interfejsa na oba jezika
+- `src/content/home.en.ts`, `src/content/projects.en.ts` - engleski sadržaj; cene su u `pricing.ts`
+
+Kad menjate tekst na srpskom, izmenite i engleski prevod.
+
 ## 🗂️ Struktura
 
 - `src/routes/` - rute (TanStack Router, file-based)

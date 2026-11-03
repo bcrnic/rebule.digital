@@ -1,8 +1,10 @@
 import { technologies } from "@/content/home";
+import { useLocale } from "@/lib/i18n";
 
 export function Technologies() {
+  const locale = useLocale();
   return (
-    <section aria-label="Tehnologije" className="relative">
+    <section aria-label={locale === "en" ? "Technologies" : "Tehnologije"} className="relative">
       <div className="mx-auto grid max-w-[90rem] grid-cols-2 gap-4 px-5 py-10 sm:grid-cols-4 lg:px-10">
         {technologies.map(({ icon: Icon, name }) => (
           <div

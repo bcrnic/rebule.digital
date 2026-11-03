@@ -8,6 +8,8 @@ import badbyteImage from "@/assets/project-badbyte.webp";
 import badbyteImageSmall from "@/assets/project-badbyte-800.webp";
 import vojkanImage from "@/assets/project-vojkan.webp";
 import vojkanImageSmall from "@/assets/project-vojkan-800.webp";
+import { projectsEn } from "@/content/projects.en";
+import type { Locale } from "@/lib/i18n";
 
 export type ProjectCategory = "Zakazivanje" | "Portfolio" | "E-commerce" | "Biznis";
 
@@ -234,3 +236,36 @@ export function getAdjacentProjects(id: string): { prevProject: Project; nextPro
 export function projectSrcSet(project: Project) {
   return `${project.imageSmall} 800w, ${project.image} ${project.imageWidth ?? 1440}w`;
 }
+
+const categoryLabels: Record<Locale, Record<ProjectCategory, string>> = {
+  sr: {
+    Zakazivanje: "Zakazivanje",
+    Portfolio: "Portfolio",
+    "E-commerce": "E-commerce",
+    Biznis: "Biznis",
+  },
+  en: {
+    Zakazivanje: "Booking",
+    Portfolio: "Portfolio",
+    "E-commerce": "E-commerce",
+    Biznis: "Business",
+  },
+};
+
+export const categoryLabel = (category: ProjectCategory, locale: Locale) =>
+  categoryLabels[locale][category];
+
+/** Projekat sa tekstovima na datom jeziku; srpski je osnova, engleski dolazi iz content/projects.en.ts. */
+export function localizeProject(project: Project, locale: Locale): Project {
+  if (locale === "sr") return project;
+  const t = projectsEn[project.id];
+  if (!t) return project;
+  // Stranice usluga postoje samo na srpskom, pa engleski projekat nema servicePath.
+  const { servicePath: _servicePath, client, ...rest } = project;
+  const { client: clientEn, ...text } = t;
+  const localizedClient = clientEn ?? client;
+  return { ...rest, ...text, ...(localizedClient ? { client: localizedClient } : {}) };
+}
+
+export const getLocalizedProjects = (locale: Locale) =>
+  projects.map((project) => localizeProject(project, locale));

@@ -58,13 +58,18 @@ export function renderInquiryEmail(submission: Submission) {
   const type = field(data, "type") || "Nije navedeno";
   const message = field(data, "message");
   const phoneDigits = phone.replace(/\D/g, "").replace(/^0/, "381");
+  // Upiti sa engleske verzije sajta (/en) stižu sa language=en.
+  const isEnglish = field(data, "language") === "en";
 
-  const subject = `Novi upit: ${name} · ${type}`;
+  const subject = `Novi upit${isEnglish ? " (EN)" : ""}: ${name} · ${type}`;
+  const replySubject = isEnglish
+    ? "Re: Your inquiry - rebule. digital"
+    : "Re: Vaš upit - rebule. digital";
 
   const actions = [
     email &&
       button(
-        `mailto:${email}?subject=${encodeURIComponent("Re: Vaš upit — rebule. digital")}`,
+        `mailto:${email}?subject=${encodeURIComponent(replySubject)}`,
         "Odgovori mejlom",
         true,
       ),
@@ -91,6 +96,7 @@ export function renderInquiryEmail(submission: Submission) {
             ${row("Ime i prezime", `<strong>${escapeHtml(name)}</strong>`)}
             ${email ? row("Email", `<a href="mailto:${escapeHtml(email)}" style="color:${BRAND};">${escapeHtml(email)}</a>`) : ""}
             ${phone ? row("Telefon", `<a href="tel:${escapeHtml(phone.replace(/\s/g, ""))}" style="color:${BRAND};">${escapeHtml(phone)}</a>`) : ""}
+            ${isEnglish ? row("Jezik", "English (rebule.rs/en)") : ""}
             ${row("Tip projekta", `<span style="display:inline-block;background:#e6f0ea;color:${BRAND};padding:3px 10px;border-radius:999px;font-size:13px;font-weight:600;">${escapeHtml(type)}</span>`)}
           </table>
         </td></tr>
@@ -114,6 +120,7 @@ export function renderInquiryEmail(submission: Submission) {
     `Ime i prezime: ${name}`,
     email ? `Email: ${email}` : null,
     phone ? `Telefon: ${phone}` : null,
+    isEnglish ? "Jezik: English (rebule.rs/en)" : null,
     `Tip projekta: ${type}`,
     "",
     "Poruka:",
