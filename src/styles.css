@@ -1,7 +1,9 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
-@import "@fontsource-variable/geist";
+/* Fontovi brenda: Manrope za naslove, Inter za osnovni tekst (učitavaju se sa sajta). */
+@import "@fontsource-variable/manrope";
+@import "@fontsource-variable/inter";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -62,8 +64,8 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --color-surface: var(--surface);
   --color-primary-bright: var(--primary-bright);
-  --font-display: "Geist Variable", "Geist", sans-serif;
-  --font-sans: "Geist Variable", "Geist", sans-serif;
+  --font-display: "Manrope Variable", "Manrope", sans-serif;
+  --font-sans: "Inter Variable", "Inter", sans-serif;
   --shadow-hero: 0 16px 40px color-mix(in oklab, var(--primary) 28%, transparent);
   --shadow-glass:
     0 1px 1px color-mix(in oklab, var(--foreground) 4%, transparent),
