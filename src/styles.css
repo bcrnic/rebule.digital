@@ -96,7 +96,7 @@
   --ring: oklch(0.524 0.101 158.5);
   --surface: oklch(0.956 0.0095 96);
   --logo-gold: oklch(0.66 0.085 78);
-  --logo-gold-2: oklch(0.56 0.075 76);
+  --logo-bg: var(--background);
   --chart-1: oklch(0.524 0.101 158.5);
   --chart-2: oklch(0.642 0.118 157);
   --chart-3: oklch(0.818 0.093 88);
@@ -135,7 +135,6 @@
   --ring: oklch(0.728 0.12 157);
   --surface: oklch(0.22 0.019 160);
   --logo-gold: oklch(0.77 0.095 82);
-  --logo-gold-2: oklch(0.64 0.08 78);
   --chart-1: oklch(0.728 0.12 157);
   --chart-2: oklch(0.79 0.11 156);
   --chart-3: oklch(0.785 0.098 88);
