@@ -76,7 +76,8 @@ export function SiteHeader() {
           className="text-primary transition-opacity hover:opacity-80"
           aria-label={t.homeAria}
         >
-          <BrandLogo className="h-10 w-auto sm:h-12" />
+          <BrandLogo className="h-10 w-auto sm:hidden" />
+          <BrandLogo full className="hidden h-12 w-auto sm:block" />
         </Link>
 
         <nav className="hidden items-center gap-7 xl:flex" aria-label={t.mainNav}>
