@@ -73,10 +73,11 @@ export function SiteHeader() {
       <div className="glass mx-auto flex h-16 max-w-[86rem] items-center justify-between rounded-full px-4 sm:h-[4.25rem] sm:px-6">
         <Link
           to={home}
-          className="text-foreground transition-opacity hover:opacity-80"
+          className="text-primary transition-opacity hover:opacity-80"
           aria-label={t.homeAria}
         >
-          <BrandLogo className="h-10 w-auto sm:h-12" />
+          <BrandLogo className="h-10 w-auto sm:hidden" />
+          <BrandLogo full className="hidden h-12 w-auto sm:block" />
         </Link>
 
         <nav className="hidden items-center gap-7 xl:flex" aria-label={t.mainNav}>
