@@ -4,7 +4,7 @@ export const SITE_URL = (env.VITE_SITE_URL ?? "https://rebule.rs").replace(/\/$/
 export const SITE_NAME = "rebule. digital";
 export const SITE_TITLE = "Izrada sajtova Novi Sad za mikro firme | rebule. digital";
 export const SITE_DESCRIPTION =
-  "Izrada sajtova u Novom Sadu za mikro firme: brzi, moderni sajtovi i zakazivanje termina, fiksna cena unapred. Web studio Bojana Crnića.";
+  "Izrada sajtova u Novom Sadu za male i mikro firme: brzi, moderni sajtovi i zakazivanje termina, fiksna cena unapred. Web studio Bojana Crnića.";
 export const SITE_TITLE_EN = "Website design for small businesses | rebule. digital";
 export const SITE_DESCRIPTION_EN =
   "Fast, modern websites and online booking for small businesses in Serbia and abroad. Fixed price agreed upfront. Web studio of Bojan Crnić from Novi Sad.";
