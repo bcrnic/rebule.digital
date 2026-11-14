@@ -10,7 +10,7 @@ import {
 } from "@/lib/site";
 
 const services = [
-  { name: "Izrada sajtova za male firme", path: "/izrada-sajtova-novi-sad" },
+  { name: "Izrada sajtova za mikro firme", path: "/izrada-sajtova-novi-sad" },
   { name: "Online zakazivanje termina", path: "/online-zakazivanje-termina" },
   { name: "Sajt za frizerski i kozmetički salon", path: "/sajt-za-frizerski-salon" },
   { name: "Sajt za majstore i zanatlije", path: "/sajt-za-majstore" },

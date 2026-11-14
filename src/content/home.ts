@@ -13,7 +13,7 @@ export type Service = {
 export const services: Service[] = [
   {
     icon: Globe2,
-    title: "Sajtovi za male firme",
+    title: "Sajtovi za mikro firme",
     path: "/izrada-sajtova-novi-sad",
     text: "Jasna ponuda, profesionalan utisak i više pravih upita za vaš posao.",
   },

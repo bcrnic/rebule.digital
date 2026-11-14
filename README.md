@@ -1,4 +1,4 @@
-# rebule. digital - Web studio za male firme
+# rebule. digital - Web studio za mikro firme
 
 Zvanični vebsajt i portfolio studija **rebule. digital** (osnivač Bojan Crnić). Specijalizovan za izradu brzih, modernih sajtova i sistema za zakazivanje za lokalne firme i preduzetnike.
 

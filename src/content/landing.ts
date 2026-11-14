@@ -36,13 +36,13 @@ export type LandingPage = {
 export const landingPages: LandingPage[] = [
   {
     path: "/izrada-sajtova-novi-sad",
-    seoTitle: "Izrada sajtova Novi Sad za male firme | rebule. digital",
+    seoTitle: "Izrada sajtova Novi Sad za mikro firme | rebule. digital",
     seoDescription:
-      "Izrada brzih, modernih sajtova za male firme u Novom Sadu i Vojvodini. Fiksna cena unapred, izrada za 7 do 14 radnih dana, direktan rad sa developerom.",
+      "Izrada brzih, modernih sajtova za mikro firme u Novom Sadu i Vojvodini. Fiksna cena unapred, izrada za 7 do 14 radnih dana, direktan rad sa developerom.",
     navLabel: "Izrada sajtova Novi Sad",
     serviceName: "Izrada sajtova u Novom Sadu",
     kicker: "Web studio iz Novog Sada",
-    title: "Izrada sajtova u Novom Sadu za male firme.",
+    title: "Izrada sajtova u Novom Sadu za mikro firme.",
     intro:
       "Pravim sajtove za lokalne firme iz Novog Sada i Vojvodine: salone, majstore, konsultante i investitore. Radite direktno sa mnom, od prvog razgovora do lansiranja, bez posrednika.",
     problemsTitle: "Zašto lokalnoj firmi treba sajt",
@@ -100,7 +100,7 @@ export const landingPages: LandingPage[] = [
     path: "/cene-izrade-sajta",
     seoTitle: "Cena izrade sajta: paketi i šta dobijate | rebule. digital",
     seoDescription:
-      "Koliko košta izrada sajta za malu firmu: paketi Start, Biznis i Zakazivanje, održavanje i šta je uključeno. Fiksna cena unapred, bez skrivenih troškova.",
+      "Koliko košta izrada sajta za mikro firmu: paketi Start, Biznis i Zakazivanje, održavanje i šta je uključeno. Fiksna cena unapred, bez skrivenih troškova.",
     navLabel: "Cene izrade sajta",
     serviceName: "Izrada sajta: cene i paketi",
     kicker: "Cene",
@@ -173,7 +173,7 @@ export const landingPages: LandingPage[] = [
       },
       {
         title: "Skupe aplikacije za zakazivanje",
-        text: "Za mnoge male firme je zakazivanje porukom dovoljno, bez mesečne pretplate na aplikaciju.",
+        text: "Za mnoge mikro firme je zakazivanje porukom dovoljno, bez mesečne pretplate na aplikaciju.",
       },
     ],
     featuresTitle: "Šta dobijate",
@@ -336,7 +336,7 @@ export const landingPages: LandingPage[] = [
     path: "/odrzavanje-sajta",
     seoTitle: "Održavanje sajta: hosting i izmene | rebule. digital",
     seoDescription:
-      "Mesečno održavanje sajta za male firme: hosting i SSL, backup, praćenje dostupnosti i izmene sadržaja. Bez brige o tehničkim stvarima.",
+      "Mesečno održavanje sajta za mikro firme: hosting i SSL, backup, praćenje dostupnosti i izmene sadržaja. Bez brige o tehničkim stvarima.",
     navLabel: "Održavanje sajta",
     serviceName: "Održavanje sajta",
     kicker: "Održavanje i podrška",
