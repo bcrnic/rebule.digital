@@ -26,7 +26,7 @@ const sr = {
   theme: { toLight: "Uključi svetlu temu", toDark: "Uključi tamnu temu" },
   footer: {
     servicesNav: "Usluge",
-    tagline: "Web studio za male firme.",
+    tagline: "Web studio za mikro firme.",
     rights: "Sva prava zadržana.",
     privacy: "Politika privatnosti",
     linkedinAria: "LinkedIn profil Bojana Crnića",
@@ -34,7 +34,7 @@ const sr = {
     emailAria: "Pošaljite email",
   },
   hero: {
-    titleStart: "Izrada sajtova za male firme u ",
+    titleStart: "Izrada sajtova za mikro firme u ",
     titleAccent: "Novom Sadu.",
     lede: "Sajtovi koji donose klijente. Web studio Bojana Crnića: pravim brze, jasne i moderne sajtove za firme iz Novog Sada, Vojvodine i cele Srbije, od ideje do lansiranja.",
     viewWork: "Pogledaj radove",
@@ -48,7 +48,7 @@ const sr = {
   services: {
     eyebrow: "Usluge",
     title: "Izrada sajtova i zakazivanje termina za vaš posao.",
-    text: "Za male firme iz Novog Sada i cele Srbije. Bez komplikovanja i skrivenih troškova: brz, jasan sajt napravljen prema stvarnim potrebama vaših klijenata.",
+    text: "Za mikro firme iz Novog Sada i cele Srbije. Bez komplikovanja i skrivenih troškova: brz, jasan sajt napravljen prema stvarnim potrebama vaših klijenata.",
   },
   pricing: {
     eyebrow: "Cene",
@@ -89,7 +89,7 @@ const sr = {
     eyebrow: "O meni",
     title: "Web developer iz Novog Sada. Direktna saradnja, velika pažnja.",
     hello: "Zdravo, ja sam Bojan.",
-    p1: "Full-stack developer i osnivač studija rebule. digital. Pomažem malim firmama da dobiju sajt koji im donosi klijente.",
+    p1: "Full-stack developer i osnivač studija rebule. digital. Pomažem mikro firmama da dobiju sajt koji im donosi klijente.",
     p2: "Radim direktno sa vlasnicima, bez posrednika i dugih procesa. To znači bržu komunikaciju, jasne rokove i rešenje prilagođeno vašem poslu.",
     portraitAlt: "Bojan Crnić, osnivač studija rebule. digital",
   },
