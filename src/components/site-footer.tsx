@@ -27,7 +27,7 @@ export function SiteFooter() {
       )}
       <div className="glass mx-auto flex max-w-[90rem] flex-col gap-7 p-7 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="text-foreground">
+          <p className="text-primary">
             <BrandLogo className="h-12 w-auto" />
             <span className="sr-only">{SITE_NAME}</span>
           </p>
