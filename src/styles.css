@@ -1,7 +1,9 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
-@import "@fontsource-variable/geist";
+/* Fontovi brenda: Manrope za naslove, Inter za osnovni tekst (učitavaju se sa sajta). */
+@import "@fontsource-variable/manrope";
+@import "@fontsource-variable/inter";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -62,8 +64,8 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --color-surface: var(--surface);
   --color-primary-bright: var(--primary-bright);
-  --font-display: "Geist Variable", "Geist", sans-serif;
-  --font-sans: "Geist Variable", "Geist", sans-serif;
+  --font-display: "Manrope Variable", "Manrope", sans-serif;
+  --font-sans: "Inter Variable", "Inter", sans-serif;
   --shadow-hero: 0 16px 40px color-mix(in oklab, var(--primary) 28%, transparent);
   --shadow-glass:
     0 1px 1px color-mix(in oklab, var(--foreground) 4%, transparent),
@@ -93,6 +95,8 @@
   --input: oklch(0.893 0.012 96);
   --ring: oklch(0.524 0.101 158.5);
   --surface: oklch(0.956 0.0095 96);
+  --logo-gold: oklch(0.66 0.085 78);
+  --logo-bg: var(--background);
   --chart-1: oklch(0.524 0.101 158.5);
   --chart-2: oklch(0.642 0.118 157);
   --chart-3: oklch(0.818 0.093 88);
@@ -130,6 +134,7 @@
   --input: oklch(0.315 0.02 162);
   --ring: oklch(0.728 0.12 157);
   --surface: oklch(0.22 0.019 160);
+  --logo-gold: oklch(0.77 0.095 82);
   --chart-1: oklch(0.728 0.12 157);
   --chart-2: oklch(0.79 0.11 156);
   --chart-3: oklch(0.785 0.098 88);

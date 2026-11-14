@@ -2,6 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
+import { BrandLogo } from "@/components/brand-logo";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { Button } from "@/components/ui/button";
 import { alternatePath, useLocale, useSectionIds, useUi } from "@/lib/i18n";
@@ -72,10 +73,10 @@ export function SiteHeader() {
       <div className="glass mx-auto flex h-16 max-w-[86rem] items-center justify-between rounded-full px-4 sm:h-[4.25rem] sm:px-6">
         <Link
           to={home}
-          className="font-display text-base font-extrabold uppercase tracking-tight text-foreground transition-opacity hover:opacity-80"
+          className="text-foreground transition-opacity hover:opacity-80"
           aria-label={t.homeAria}
         >
-          Rebule<span className="text-primary">.</span>&nbsp;Digital
+          <BrandLogo className="h-10 w-auto sm:h-12" />
         </Link>
 
         <nav className="hidden items-center gap-7 xl:flex" aria-label={t.mainNav}>
