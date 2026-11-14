@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Linkedin, Mail } from "lucide-react";
+import { BrandLogo } from "@/components/brand-logo";
 import { Button } from "@/components/ui/button";
 import { landingPages } from "@/content/landing";
 import { useLocale, useUi } from "@/lib/i18n";
@@ -26,8 +27,9 @@ export function SiteFooter() {
       )}
       <div className="glass mx-auto flex max-w-[90rem] flex-col gap-7 p-7 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="font-display text-lg font-extrabold uppercase">
-            Rebule<span className="text-primary">.</span> Digital
+          <p className="text-foreground">
+            <BrandLogo className="h-12 w-auto" />
+            <span className="sr-only">{SITE_NAME}</span>
           </p>
           <p className="mt-1 text-sm text-muted-foreground">{t.tagline}</p>
         </div>

@@ -8,7 +8,7 @@ export const SITE_DESCRIPTION =
 export const SITE_TITLE_EN = "Website design for small businesses | rebule. digital";
 export const SITE_DESCRIPTION_EN =
   "Fast, modern websites and online booking for small businesses in Serbia and abroad. Fixed price agreed upfront. Web studio of Bojan Crnić from Novi Sad.";
-export const OG_IMAGE = `${SITE_URL}/og-image.jpg?v=2`;
+export const OG_IMAGE = `${SITE_URL}/og-image.jpg?v=3`;
 
 export const FOUNDER = {
   name: "Bojan Crnić",
