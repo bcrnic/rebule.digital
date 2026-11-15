@@ -40,7 +40,7 @@ export function Contact() {
               <Phone className="size-5" aria-hidden="true" /> {CONTACT.phoneLabel}
             </a>
             <a
-              className="flex items-center gap-3 text-emerald-200 transition-opacity hover:opacity-75"
+              className="flex items-center gap-3 font-semibold transition-opacity hover:opacity-75"
               href={locale === "en" ? whatsappLink(WHATSAPP_MESSAGE_EN) : whatsappLink()}
               target="_blank"
               rel="noreferrer noopener"

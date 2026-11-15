@@ -1,9 +1,39 @@
+# rebule.rs: sve je javno i sme da se indeksira.
+
+# Pretraživači
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
 Allow: /
 
+# AI pretraga (citiraju sajt u odgovorima ChatGPT-a, Perplexity-ja, Claude-a)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# AI modeli (učenje): dozvoljeno, da modeli znaju za studio i njegove usluge
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Pregledi linkova na društvenim mrežama
 User-agent: Twitterbot
 Allow: /
 
