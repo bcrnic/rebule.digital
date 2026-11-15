@@ -16,7 +16,7 @@ export const FOUNDER = {
 };
 
 export const CONTACT = {
-  email: env.VITE_CONTACT_EMAIL ?? "rebule26@gmail.com",
+  email: env.VITE_CONTACT_EMAIL ?? "bojan@rebule.rs",
   phone: env.VITE_CONTACT_PHONE ?? "+381643007002",
   phoneLabel: env.VITE_CONTACT_PHONE_LABEL ?? "+381 64 300 7002",
   instagram:
