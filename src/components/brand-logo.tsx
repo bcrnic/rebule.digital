@@ -7,7 +7,7 @@
 export function BrandLogo({ className = "" }: { className?: string }) {
   return (
     <svg
-      viewBox="13 26 72 47"
+      viewBox="13 26 64 47"
       className={className}
       aria-hidden="true"
       focusable="false"
@@ -35,7 +35,7 @@ export function BrandLogo({ className = "" }: { className?: string }) {
         strokeLinecap="round"
       />
       <path
-        d="M20.3 69.6C26 60 34 50.5 43 46C50 43.2 57 43.8 63 45.6C68.5 47.2 73 47.6 77.5 46.6C79.3 46.2 80.8 45.4 81.8 45C83.2 44.6 83.6 46 82.8 47.2C81.4 49.2 78.6 50.8 74.5 51C68.5 51.2 63 49.2 58 47.8C52 46.2 46.5 46.2 41.5 48.6C33.5 52.6 26.5 60.5 20.3 69.6Z"
+        d="M20.3 69.6C26 60 34 50.5 43 46C50 43.2 56.36 43.8 60.44 45.6C64.18 47.2 67.24 47.6 70.3 46.6C71.52 46.2 72.54 45.4 73.22 45C74.18 44.6 74.45 46 73.9 47.2C72.95 49.2 71.05 50.8 68.26 51C64.18 51.2 60.44 49.2 57.04 47.8C52 46.2 46.5 46.2 41.5 48.6C33.5 52.6 26.5 60.5 20.3 69.6Z"
         fill="currentColor"
       />
       <path
