@@ -1,24 +1,24 @@
-import { useState } from "react";
 import { motion } from "motion/react";
 import { ArrowRight, Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { useLocale, useSectionIds, useUi } from "@/lib/i18n";
-import { categoryLabel, getLocalizedProjects, type ProjectCategory } from "@/lib/projects";
-import { ProjectCard } from "./project-card";
+import { getLocalizedProjects } from "@/lib/projects";
 import { reveal } from "@/lib/motion";
+import { ProjectCard } from "./project-card";
 import { SectionTitle } from "./section-title";
 
-type Filter = "all" | ProjectCategory;
-const filters: Filter[] = ["all", "Zakazivanje", "Portfolio", "E-commerce", "Biznis"];
-
+/**
+ * Radovi: tri kolone na računaru, dve na tabletu, a na telefonu red koji se prevlači levo-desno,
+ * da pet projekata ne zauzme pet ekrana.
+ */
 export function Portfolio() {
   const locale = useLocale();
   const t = useUi().portfolio;
   const ids = useSectionIds();
-  const projects = getLocalizedProjects(locale);
-  const [filter, setFilter] = useState<Filter>("all");
-  const visibleProjects =
-    filter === "all" ? projects : projects.filter((project) => project.category === filter);
+  // Najpre radovi za glavnu publiku (saloni i majstori), pa ostali.
+  const order = ["modni-frizer-vojkan", "remielectric", "residence", "misolutions", "badbyte"];
+  const projects = [...getLocalizedProjects(locale)].sort(
+    (a, b) => (order.indexOf(a.id) + 1 || 99) - (order.indexOf(b.id) + 1 || 99),
+  );
 
   return (
     <section
@@ -28,56 +28,30 @@ export function Portfolio() {
     >
       <div className="relative z-10 mx-auto max-w-[90rem] px-5 lg:px-10">
         <SectionTitle eyebrow={t.eyebrow} title={t.title} />
-        <div
-          role="group"
-          aria-label={t.filterAria}
-          className="glass ml-auto mt-12 flex w-fit flex-wrap gap-1 rounded-full p-1.5"
-        >
-          {filters.map((item) => (
-            <Button
-              key={item}
-              variant="ghost"
-              size="sm"
-              aria-pressed={filter === item}
-              className={
-                filter === item
-                  ? "bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground"
-                  : "text-muted-foreground"
-              }
-              onClick={() => setFilter(item)}
-            >
-              {item === "all" ? t.all : categoryLabel(item, locale)}
-            </Button>
-          ))}
-        </div>
-        <motion.div layout className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-10">
-          {visibleProjects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+        <div className="-mx-5 mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-3">
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
           ))}
 
-          {filter === "all" && (
-            <motion.article
-              layout
-              {...reveal}
-              className="glass group flex min-h-[420px] flex-col justify-between rounded-[2rem] border border-dashed border-primary/40 p-8 text-center transition-all duration-300 hover:border-primary hover:bg-primary/5 sm:p-10"
-            >
-              <div className="my-auto space-y-4">
-                <div className="mx-auto flex size-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110">
-                  <Sparkles className="size-6" aria-hidden="true" />
-                </div>
-                <h3 className="font-display text-2xl font-bold sm:text-3xl">{t.ctaTitle}</h3>
-                <p className="mx-auto max-w-sm text-sm leading-relaxed text-muted-foreground sm:text-base">
-                  {t.ctaText}
-                </p>
+          <motion.article
+            {...reveal}
+            className="glass group flex w-[80%] shrink-0 snap-start flex-col justify-between rounded-[1.5rem] border border-dashed border-primary/40 p-7 transition-colors hover:border-primary hover:bg-primary/5 md:w-auto"
+          >
+            <div className="space-y-3">
+              <div className="flex size-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                <Sparkles className="size-5" aria-hidden="true" />
               </div>
-              <Button variant="hero" size="lg" className="mt-8 w-full rounded-2xl" asChild>
-                <a href={`#${ids.contact}`}>
-                  {t.ctaButton} <ArrowRight className="size-4" />
-                </a>
-              </Button>
-            </motion.article>
-          )}
-        </motion.div>
+              <h3 className="font-display text-xl font-semibold">{t.ctaTitle}</h3>
+              <p className="text-sm leading-relaxed text-muted-foreground">{t.ctaText}</p>
+            </div>
+            <a
+              href={`#${ids.contact}`}
+              className="mt-6 inline-flex w-fit items-center gap-2 text-sm font-semibold text-primary transition-all hover:gap-3"
+            >
+              {t.ctaButton} <ArrowRight className="size-4" aria-hidden="true" />
+            </a>
+          </motion.article>
+        </div>
       </div>
     </section>
   );

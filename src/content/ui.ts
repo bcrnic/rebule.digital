@@ -67,8 +67,6 @@ const sr = {
   portfolio: {
     eyebrow: "Odabrani radovi",
     title: "Sajtovi koje sam napravio: rezultati, ne samo lepe stranice.",
-    filterAria: "Filter projekata",
-    all: "Svi",
     ctaTitle: "Vaš projekat na ovom mestu?",
     ctaText:
       "Hajde da zajedno kreiramo moderan, brz sajt koji privlači klijente i donosi upite za vaš biznis.",
@@ -247,8 +245,6 @@ const en: UiStrings = {
   portfolio: {
     eyebrow: "Selected work",
     title: "Websites I have built: results, not just pretty pages.",
-    filterAria: "Filter projects",
-    all: "All",
     ctaTitle: "Your project here?",
     ctaText:
       "Let's build a fast, modern website that attracts clients and brings in inquiries for your business.",
