@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowDown, ArrowRight, Check } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
+import { BrandLogo } from "@/components/brand-logo";
 import { Button } from "@/components/ui/button";
 import { getProject, projectSrcSet, type Project } from "@/lib/projects";
 import { useLocale, useSectionIds, useUi } from "@/lib/i18n";
@@ -68,10 +69,13 @@ export function Hero() {
               a ne tek kad se učita JavaScript. */}
           <div className="flex flex-col gap-8">
             <div className="space-y-6">
-              <span className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/15 bg-primary/8 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-foreground/80">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                rebule. digital © {new Date().getFullYear()}
-              </span>
+              {/* Znak i moto brenda: buntovnik na strani malih. */}
+              <p className="flex items-center gap-4 text-primary">
+                <BrandLogo className="hidden h-16 w-auto sm:block" />
+                <span className="font-display text-lg font-semibold tracking-tight text-foreground sm:text-xl">
+                  {t.motto}
+                </span>
+              </p>
               <h1 className="font-display text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
                 {t.titleStart}
                 <span className="text-primary">{t.titleAccent}</span>
@@ -80,39 +84,39 @@ export function Hero() {
                 {t.lede}
               </p>
             </div>
-            <div className="flex flex-wrap gap-4">
-              <Button
-                variant="hero"
-                size="lg"
-                className="rounded-2xl shadow-[0_12px_32px_-12px_color-mix(in_oklab,var(--primary)_45%,transparent)]"
-                asChild
-              >
-                <a href={`#${ids.portfolio}`}>
-                  {t.viewWork} <ArrowRight className="size-4" />
-                </a>
-              </Button>
-              <Button
-                variant="heroOutline"
-                size="lg"
-                className="rounded-2xl border-border bg-card hover:bg-card/80"
-                asChild
-              >
-                <a href={`#${ids.contact}`}>{t.bookCall}</a>
-              </Button>
-              <Button
-                variant="ghost"
-                size="lg"
-                className="gap-2 rounded-2xl border border-emerald-500/20 bg-emerald-500/10 text-emerald-800 hover:bg-emerald-500/20 dark:text-emerald-400"
-                asChild
-              >
-                <a
-                  href={locale === "en" ? whatsappLink(WHATSAPP_MESSAGE_EN) : whatsappLink()}
-                  target="_blank"
-                  rel="noreferrer noopener"
+            <div className="flex flex-col gap-5">
+              <div className="flex flex-wrap gap-3">
+                <Button
+                  variant="hero"
+                  size="lg"
+                  className="rounded-2xl shadow-[0_12px_32px_-12px_color-mix(in_oklab,var(--primary)_45%,transparent)]"
+                  asChild
                 >
-                  <SiWhatsapp className="size-4" aria-hidden="true" /> {t.whatsapp}
-                </a>
-              </Button>
+                  <a href={`#${ids.contact}`}>
+                    {t.bookCall} <ArrowRight className="size-4" />
+                  </a>
+                </Button>
+                <Button
+                  variant="heroOutline"
+                  size="lg"
+                  className="gap-2 rounded-2xl border-border bg-card hover:bg-card/80"
+                  asChild
+                >
+                  <a
+                    href={locale === "en" ? whatsappLink(WHATSAPP_MESSAGE_EN) : whatsappLink()}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    <SiWhatsapp className="size-4 text-[#25D366]" aria-hidden="true" /> {t.whatsapp}
+                  </a>
+                </Button>
+              </div>
+              <a
+                href={`#${ids.portfolio}`}
+                className="inline-flex w-fit items-center gap-2 text-sm font-semibold text-muted-foreground underline-offset-4 transition-colors hover:text-primary hover:underline"
+              >
+                {t.viewWork} <ArrowDown className="size-4" aria-hidden="true" />
+              </a>
             </div>
           </div>
 

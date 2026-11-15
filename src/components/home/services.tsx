@@ -11,9 +11,9 @@ export function Services() {
   const ids = useSectionIds();
   const { services } = getHomeContent(locale);
   return (
-    <section id={ids.services} className="scroll-mt-20 py-24 sm:py-36">
+    <section id={ids.services} className="scroll-mt-20 py-20 sm:py-28">
       <div className="mx-auto max-w-[90rem] px-5 lg:px-10">
-        <SectionTitle number="02" eyebrow={t.eyebrow} title={t.title} text={t.text} />
+        <SectionTitle number="03" eyebrow={t.eyebrow} title={t.title} text={t.text} />
         <div className="mt-16 grid gap-4">
           {services.map(({ icon: Icon, title, text, path }, index) => (
             <motion.article

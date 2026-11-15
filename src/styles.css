@@ -740,3 +740,12 @@
 .theme-switch input:checked + .switch-bg .landscape .tree::after {
   background: linear-gradient(90deg, #111a26 0%, #080d14 100%);
 }
+
+/* Tamnozelena sekcija (portfolio) za ritam na svetloj strani; u tamnoj temi malo svetlija od pozadine. */
+.section-deep {
+  background: oklch(0.3 0.055 158);
+}
+
+:root.dark .section-deep {
+  background: oklch(0.235 0.03 160);
+}

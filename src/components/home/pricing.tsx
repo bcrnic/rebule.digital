@@ -14,7 +14,7 @@ type PricingProps = {
   showMoreLink?: boolean;
 };
 
-export function Pricing({ number = "03", title, showMoreLink = false }: PricingProps) {
+export function Pricing({ number = "04", title, showMoreLink = false }: PricingProps) {
   const locale = useLocale();
   const t = useUi().pricing;
   const ids = useSectionIds();
@@ -25,7 +25,7 @@ export function Pricing({ number = "03", title, showMoreLink = false }: PricingP
     notes: pricingNotes,
   } = getPricingContent(locale);
   return (
-    <section id={ids.pricing} className="scroll-mt-20 py-24 sm:py-36">
+    <section id={ids.pricing} className="scroll-mt-20 py-20 sm:py-28">
       <div className="mx-auto max-w-[90rem] px-5 lg:px-10">
         <SectionTitle number={number} eyebrow={t.eyebrow} title={title ?? t.title} text={t.text} />
 

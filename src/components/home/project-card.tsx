@@ -65,16 +65,6 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
             {project.description}
           </p>
-          <div className="flex flex-wrap gap-1.5 pt-2">
-            {project.technologies.map((tech) => (
-              <span
-                key={tech}
-                className="rounded-lg bg-foreground/5 px-2.5 py-1 text-xs font-medium text-muted-foreground"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
         </div>
         <div className="mt-6 flex items-center justify-between border-t border-border/50 pt-5">
           <Link

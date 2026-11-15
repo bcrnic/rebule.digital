@@ -1,5 +1,4 @@
 import { CalendarCheck, Code2, Globe2, RefreshCw } from "lucide-react";
-import { SiPython, SiReact, SiTailwindcss, SiTypescript } from "react-icons/si";
 import type { Locale } from "@/lib/i18n";
 import { aboutPointsEn, faqsEn, servicesEn, testimonialsEn } from "./home.en";
 
@@ -34,13 +33,6 @@ export const services: Service[] = [
     path: "/odrzavanje-sajta",
     text: "Pouzdane izmene, nadogradnje i podrška i nakon lansiranja sajta.",
   },
-];
-
-export const technologies = [
-  { icon: SiPython, name: "Python" },
-  { icon: SiReact, name: "React" },
-  { icon: SiTypescript, name: "TypeScript" },
-  { icon: SiTailwindcss, name: "Tailwind CSS" },
 ];
 
 export const testimonials = [
