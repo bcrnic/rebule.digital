@@ -94,6 +94,11 @@ const sr = {
     p2: "Od prvog razgovora do lansiranja radite samo sa mnom, bez posrednika. Cenu znate unapred, rok je jasan, a i posle lansiranja sam tu kad vam nešto zatreba.",
     portraitAlt: "Bojan Crnić, osnivač studija rebule. digital",
   },
+  process: {
+    eyebrow: "Kako radimo",
+    title: "Od prvog razgovora do sajta za 7 do 14 dana.",
+    text: "Bez dugih procesa i bez iznenađenja. Ovako izgleda saradnja.",
+  },
   faq: {
     eyebrow: "Česta pitanja",
     title: "Sve što vas zanima pre početka rada.",
@@ -268,6 +273,11 @@ const en: UiStrings = {
     p1: "Developer from Novi Sad and founder of rebule. digital. The name comes from “rebel”: big agencies work for big companies, and I'm on the side of salons, tradespeople and local businesses.",
     p2: "From the first call to launch you work only with me, with no middlemen. The price is fixed up front, the deadline is clear, and I'm still around after launch whenever you need something.",
     portraitAlt: "Bojan Crnić, founder of rebule. digital",
+  },
+  process: {
+    eyebrow: "How it works",
+    title: "From the first call to a live website in 7 to 14 days.",
+    text: "No long processes and no surprises. This is what working together looks like.",
   },
   faq: {
     eyebrow: "FAQ",
