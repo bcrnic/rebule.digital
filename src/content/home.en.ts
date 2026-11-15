@@ -87,6 +87,11 @@ export const faqsEn = [
     answer:
       "After launch I provide technical support, free small changes and an optional monthly maintenance plan, so your site stays secure and up to date.",
   },
+  {
+    question: "Do I need a website if I already have Instagram?",
+    answer:
+      "Instagram is great for showing your work, but when people search on Google or Maps, they find websites, not posts. A website keeps your prices, services and booking in one place, and Instagram sends people to it. They work best together.",
+  },
 ];
 
 export const aboutPointsEn = [

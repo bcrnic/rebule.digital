@@ -1,4 +1,5 @@
 import { About } from "@/components/home/about";
+import { Audience } from "@/components/home/audience";
 import { Contact } from "@/components/home/contact";
 import { Faq } from "@/components/home/faq";
 import { Hero } from "@/components/home/hero";
@@ -31,6 +32,8 @@ export function HomePage() {
         {/* Lice studija odmah posle uvoda: radite direktno sa mnom. */}
         <About />
         <Services />
+        {/* Delatnosti vode na srpske stranice usluga, pa samo na srpskoj verziji. */}
+        {locale === "sr" && <Audience />}
         {/* Zasebna stranica sa cenama postoji samo na srpskom. */}
         <Pricing showMoreLink={locale === "sr"} />
         <Portfolio />

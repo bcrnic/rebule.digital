@@ -2,28 +2,33 @@ import { motion } from "motion/react";
 import { reveal } from "@/lib/motion";
 
 type SectionTitleProps = {
-  number: string;
   eyebrow: string;
   title: string;
   text?: string;
+  /** Zastarelo: redni broj sekcije se više ne prikazuje. */
+  number?: string;
 };
 
-export function SectionTitle({ number, eyebrow, title, text }: SectionTitleProps) {
+/** Naslov sekcije: naslov levo, uvodna rečenica desno (na širokom ekranu), bez praznih kolona. */
+export function SectionTitle({ eyebrow, title, text }: SectionTitleProps) {
   return (
     <motion.div
       {...reveal}
-      className="grid gap-7 border-t border-border pt-5 md:grid-cols-[1fr_4fr]"
+      className="grid gap-5 border-t border-border pt-6 lg:grid-cols-2 lg:items-end lg:gap-16"
     >
-      <p className="text-xs font-semibold text-muted-foreground">({number})</p>
-      <div className="max-w-4xl">
-        <p className="mb-5 text-xs font-semibold uppercase text-primary">{eyebrow}</p>
-        <h2 className="font-display text-4xl font-semibold leading-[1.02] sm:text-6xl lg:text-7xl">
+      <div>
+        <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-primary">
+          {eyebrow}
+        </p>
+        <h2 className="font-display text-3xl font-semibold leading-[1.05] tracking-tight sm:text-5xl">
           {title}
         </h2>
-        {text && (
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">{text}</p>
-        )}
       </div>
+      {text && (
+        <p className="max-w-xl text-lg leading-relaxed text-muted-foreground lg:justify-self-end">
+          {text}
+        </p>
+      )}
     </motion.div>
   );
 }

@@ -100,7 +100,7 @@ const sr = {
     text: "Odgovori na najčešća pitanja o procesu, cenama, rokovima i održavanju.",
   },
   contact: {
-    kicker: "(08) Kontakt",
+    kicker: "Kontakt",
     title: "Hajde da napravimo nešto što radi.",
     text: "Ispričajte mi ukratko o svom poslu. Odgovoriću u roku od jednog radnog dana sa prvim predlogom.",
     whatsapp: "Pišite mi na WhatsApp",
@@ -275,7 +275,7 @@ const en: UiStrings = {
     text: "Answers to the most common questions about the process, pricing, timelines and maintenance.",
   },
   contact: {
-    kicker: "(08) Contact",
+    kicker: "Contact",
     title: "Let's build something that works.",
     text: "Tell me briefly about your business. I will reply within one working day with a first proposal.",
     whatsapp: "Message me on WhatsApp",

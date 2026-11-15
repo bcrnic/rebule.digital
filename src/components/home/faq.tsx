@@ -17,8 +17,8 @@ export function Faq() {
   return (
     <section id={ids.faq} className="scroll-mt-20 py-20 sm:py-28">
       <div className="mx-auto max-w-[90rem] px-5 lg:px-10">
-        <SectionTitle number="07" eyebrow={t.eyebrow} title={t.title} text={t.text} />
-        <div className="mx-auto mt-16 max-w-4xl space-y-4">
+        <SectionTitle eyebrow={t.eyebrow} title={t.title} text={t.text} />
+        <div className="mt-12 grid items-start gap-4 lg:grid-cols-2">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             const buttonId = `${baseId}-button-${index}`;

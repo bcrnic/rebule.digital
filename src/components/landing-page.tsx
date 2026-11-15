@@ -215,7 +215,7 @@ export function LandingPageView({ path }: { path: string }) {
           )}
         </section>
 
-        {page.showPricing && <Pricing number="02" title="Paketi i cene" />}
+        {page.showPricing && <Pricing title="Paketi i cene" />}
 
         {/* Studija slučaja */}
         {project && (

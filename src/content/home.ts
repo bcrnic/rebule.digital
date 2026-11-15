@@ -92,6 +92,16 @@ export const faqs = [
     answer:
       "Nakon lansiranja obezbeđujem tehničku podršku, besplatne sitne izmene i opciju mesečnog održavanja kako bi vaš sajt uvek bio siguran i ažuran.",
   },
+  {
+    question: "Da li radite samo sa firmama iz Novog Sada?",
+    answer:
+      "Ne. Studio je u Novom Sadu, ali sve može da se uradi online: razgovaramo telefonom ili preko WhatsApp-a, a dizajn i izmene vam šaljem na pregled. Radim sa firmama iz cele Srbije i regiona.",
+  },
+  {
+    question: "Da li mi treba sajt ako već imam Instagram?",
+    answer:
+      "Instagram je odličan za radove, ali kada vas neko traži na Google-u ili na mapi, nalazi sajt, ne objave. Na sajtu su cene, usluge i zakazivanje uvek na istom mestu, a Instagram vodi ljude na njega. Najbolje rade zajedno.",
+  },
 ];
 
 export const aboutPoints = [
