@@ -12,10 +12,10 @@ export function About() {
   const ids = useSectionIds();
   const { aboutPoints } = getHomeContent(locale);
   return (
-    <section id={ids.about} className="scroll-mt-20 bg-surface/40 py-24 sm:py-36">
+    <section id={ids.about} className="scroll-mt-20 bg-surface/40 py-20 sm:py-28">
       <div className="mx-auto max-w-[90rem] px-5 lg:px-10">
-        <SectionTitle number="06" eyebrow={t.eyebrow} title={t.title} />
-        <div className="mt-20 grid grid-cols-12 gap-6">
+        <SectionTitle number="02" eyebrow={t.eyebrow} title={t.title} />
+        <div className="mt-14 grid grid-cols-12 gap-6">
           <motion.div {...reveal} className="col-span-12 md:col-span-5">
             <img
               src={portrait}

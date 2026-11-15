@@ -4,8 +4,10 @@ import { SiWhatsapp } from "react-icons/si";
 import { Pricing } from "@/components/home/pricing";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { PhoneVideo } from "@/components/phone-video";
 import { Button } from "@/components/ui/button";
 import { getLandingPage, landingPages, type LandingPage } from "@/content/landing";
+import { getSpot, spotPoster, spotSrc } from "@/content/spots";
 import { maintenancePlan, pricingPlans } from "@/content/pricing";
 import { getProject, projectSrcSet } from "@/lib/projects";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
@@ -61,6 +63,7 @@ export function LandingPageView({ path }: { path: string }) {
   const page = getLandingPage(path);
   const plan = findPlan(page.plan);
   const project = page.caseStudy ? getProject(page.caseStudy) : undefined;
+  const spot = page.spot ? getSpot(page.spot) : undefined;
   const related = page.related
     .map((p) => landingPages.find((l) => l.path === p))
     .filter((l): l is LandingPage => Boolean(l));
@@ -136,6 +139,28 @@ export function LandingPageView({ path }: { path: string }) {
             </div>
           </div>
         </section>
+
+        {/* Kratak spot: glavna korist za 13 sekundi */}
+        {spot && (
+          <section className="mx-auto grid max-w-[90rem] items-center gap-10 px-5 pt-20 sm:grid-cols-[minmax(0,280px)_1fr] sm:gap-16 lg:px-10">
+            <PhoneVideo
+              src={spotSrc(spot.id)}
+              poster={spotPoster(spot.id)}
+              label={`Kratak video: ${spot.title}`}
+              aspect="540 / 960"
+              className="mx-auto w-full max-w-[280px]"
+            />
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider text-primary">
+                Za 13 sekundi
+              </p>
+              <h2 className="mt-4 font-display text-3xl font-semibold sm:text-5xl">{spot.title}</h2>
+              <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground">
+                {spot.text}
+              </p>
+            </div>
+          </section>
+        )}
 
         {/* Šta dobijate + preporučeni paket */}
         <section className="mx-auto grid max-w-[90rem] gap-10 px-5 py-20 lg:grid-cols-2 lg:px-10">

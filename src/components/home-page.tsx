@@ -5,7 +5,6 @@ import { Hero } from "@/components/home/hero";
 import { Portfolio } from "@/components/home/portfolio";
 import { Pricing } from "@/components/home/pricing";
 import { Services } from "@/components/home/services";
-import { Technologies } from "@/components/home/technologies";
 import { Testimonials } from "@/components/home/testimonials";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -29,13 +28,13 @@ export function HomePage() {
       <SiteHeader />
       <main id="main">
         <Hero />
-        <Technologies />
+        {/* Lice studija odmah posle uvoda: radite direktno sa mnom. */}
+        <About />
         <Services />
         {/* Zasebna stranica sa cenama postoji samo na srpskom. */}
         <Pricing showMoreLink={locale === "sr"} />
         <Portfolio />
         <Testimonials />
-        <About />
         <Faq />
         <Contact />
       </main>

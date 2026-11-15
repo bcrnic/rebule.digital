@@ -23,11 +23,11 @@ export function Portfolio() {
   return (
     <section
       id={ids.portfolio}
-      className="relative scroll-mt-20 overflow-hidden bg-surface/60 py-24 sm:py-36"
+      // Tamna sekcija (klasa "dark" menja boje unutra) daje ritam inače svetloj strani.
+      className="dark section-deep relative scroll-mt-20 overflow-hidden py-20 text-foreground sm:py-28"
     >
-      <div className="aurora opacity-60" aria-hidden="true" />
       <div className="relative z-10 mx-auto max-w-[90rem] px-5 lg:px-10">
-        <SectionTitle number="04" eyebrow={t.eyebrow} title={t.title} />
+        <SectionTitle number="05" eyebrow={t.eyebrow} title={t.title} />
         <div
           role="group"
           aria-label={t.filterAria}

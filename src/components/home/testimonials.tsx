@@ -11,9 +11,9 @@ export function Testimonials() {
   const ids = useSectionIds();
   const { testimonials } = getHomeContent(locale);
   return (
-    <section id={ids.testimonials} className="scroll-mt-20 py-24 sm:py-36">
+    <section id={ids.testimonials} className="scroll-mt-20 py-20 sm:py-28">
       <div className="mx-auto max-w-[90rem] px-5 lg:px-10">
-        <SectionTitle number="05" eyebrow={t.eyebrow} title={t.title} text={t.text} />
+        <SectionTitle number="06" eyebrow={t.eyebrow} title={t.title} text={t.text} />
         <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2">
           {testimonials.map((item) => (
             <motion.figure

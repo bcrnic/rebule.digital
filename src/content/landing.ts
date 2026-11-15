@@ -1,6 +1,8 @@
 // Sadržaj stranica usluga i niša. Cene se ne pišu ovde: paket se navodi imenom, a cena se čita
 // iz pricing.ts, da bi uvek bila ista kao na početnoj.
 
+import type { SpotId } from "./spots";
+
 export type LandingFaq = { question: string; answer: string };
 
 export type LandingPage = {
@@ -31,11 +33,14 @@ export type LandingPage = {
   /** Putanje drugih stranica usluga na koje ova stranica linkuje. */
   related: string[];
   whatsappMessage: string;
+  /** Kratak video spot (public/video) koji ilustruje glavnu korist stranice. */
+  spot?: SpotId;
 };
 
 export const landingPages: LandingPage[] = [
   {
     path: "/izrada-sajtova-novi-sad",
+    spot: "mapa",
     seoTitle: "Izrada sajtova Novi Sad za mikro firme | rebule. digital",
     seoDescription:
       "Izrada brzih, modernih sajtova za male i mikro firme u Novom Sadu i Vojvodini. Fiksna cena unapred, izrada za 7 do 14 radnih dana, direktan rad sa developerom.",
@@ -98,6 +103,7 @@ export const landingPages: LandingPage[] = [
   },
   {
     path: "/cene-izrade-sajta",
+    spot: "sajt7",
     seoTitle: "Cena izrade sajta: paketi i šta dobijate | rebule. digital",
     seoDescription:
       "Koliko košta izrada sajta za malu firmu: paketi Start, Biznis i Zakazivanje, održavanje i šta je uključeno. Fiksna cena unapred, bez skrivenih troškova.",
@@ -152,6 +158,7 @@ export const landingPages: LandingPage[] = [
   },
   {
     path: "/online-zakazivanje-termina",
+    spot: "tisina",
     seoTitle: "Online zakazivanje termina na sajtu | rebule. digital",
     seoDescription:
       "Sajt sa zakazivanjem termina porukom ili kalendarom slobodnih termina, za salone, ordinacije, trenere i servise. Fiksna cena dogovorena unapred.",
@@ -213,6 +220,7 @@ export const landingPages: LandingPage[] = [
   },
   {
     path: "/sajt-za-frizerski-salon",
+    spot: "preposle",
     seoTitle: "Sajt za frizerski i kozmetički salon | rebule. digital",
     seoDescription:
       "Sajt za frizerski ili kozmetički salon: cenovnik, galerija i zakazivanje termina porukom preko WhatsApp-a i Vibera. Izrada za 7 do 14 radnih dana.",
@@ -274,6 +282,7 @@ export const landingPages: LandingPage[] = [
   },
   {
     path: "/sajt-za-majstore",
+    spot: "sajt7",
     seoTitle: "Sajt za majstore, električare i zanatlije | rebule. digital",
     seoDescription:
       "Sajt za električare, vodoinstalatere i druge majstore: jasne usluge, dugme za hitan poziv i forma za zakazivanje pregleda. Izrada za 7 do 14 radnih dana.",

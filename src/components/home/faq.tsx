@@ -15,7 +15,7 @@ export function Faq() {
   const { faqs } = getHomeContent(locale);
 
   return (
-    <section id={ids.faq} className="scroll-mt-20 py-24 sm:py-36">
+    <section id={ids.faq} className="scroll-mt-20 py-20 sm:py-28">
       <div className="mx-auto max-w-[90rem] px-5 lg:px-10">
         <SectionTitle number="07" eyebrow={t.eyebrow} title={t.title} text={t.text} />
         <div className="mx-auto mt-16 max-w-4xl space-y-4">
