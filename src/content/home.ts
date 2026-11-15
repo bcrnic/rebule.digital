@@ -118,7 +118,7 @@ export type Stat = { value: string; label: string };
 
 /** Činjenice u delu "O meni" (samo tačni podaci, dobijeni od Bojana). */
 export const aboutStats: Stat[] = [
-  { value: "10-ak", label: "lansiranih sajtova" },
+  { value: "20+", label: "urađenih sajtova" },
   { value: "7 do 14", label: "dana do lansiranja" },
   { value: "2 runde", label: "izmena uključene u cenu" },
   { value: "1 radni dan", label: "do odgovora na upit" },

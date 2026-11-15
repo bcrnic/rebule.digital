@@ -100,7 +100,7 @@ export const faqsEn = [
 ];
 
 export const aboutStatsEn = [
-  { value: "~10", label: "websites launched" },
+  { value: "20+", label: "websites built" },
   { value: "7 to 14", label: "days to launch" },
   { value: "2 rounds", label: "of revisions included" },
   { value: "1 business day", label: "to reply to your enquiry" },
