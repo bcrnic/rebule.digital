@@ -43,7 +43,7 @@ export const landingPages: LandingPage[] = [
     spot: "mapa",
     seoTitle: "Izrada sajtova Novi Sad za mikro firme | rebule. digital",
     seoDescription:
-      "Izrada brzih, modernih sajtova za male i mikro firme u Novom Sadu i Vojvodini. Fiksna cena unapred, izrada za 7 do 14 radnih dana, direktan rad sa developerom.",
+      "Brzi, moderni sajtovi za male i mikro firme u Novom Sadu i Vojvodini. Fiksna cena unapred, izrada za 7 do 14 radnih dana, direktno sa developerom.",
     navLabel: "Izrada sajtova Novi Sad",
     serviceName: "Izrada sajtova u Novom Sadu",
     kicker: "Web studio iz Novog Sada",

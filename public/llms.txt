@@ -1,0 +1,29 @@
+# rebule. digital
+
+> Web studio Bojana Crnića iz Novog Sada. Pravi brze sajtove i zakazivanje termina porukom za mikro i male lokalne firme u Srbiji i regionu: frizerske i kozmetičke salone, majstore i zanatlije, konsultante i investitore. Klijent radi direktno sa developerom, cena je fiksna i poznata unapred, a sajt je najčešće gotov za 7 do 14 radnih dana.
+
+Paketi (cene "od", tačna ponuda posle kratkog razgovora; domen se plaća posebno):
+- Start, od 250 €: jedna strana, kontakt forma, osnovni SEO.
+- Biznis, od 490 €: do 5 strana, galerija i cenovnik, kontakt preko WhatsApp-a, Vibera i emaila, lokalni SEO.
+- Zakazivanje, od 650 €: sve iz paketa Biznis, uz zakazivanje termina porukom.
+- Održavanje, 30 € mesečno: hosting, SSL, backup, praćenje dostupnosti i oko sat vremena izmena.
+
+Kontakt: +381 64 300 7002 (telefon i WhatsApp), Novi Sad, rad sa klijentima svuda.
+
+## Usluge
+- [Izrada sajtova Novi Sad](https://rebule.rs/izrada-sajtova-novi-sad): sajtovi za mikro i male firme
+- [Cene izrade sajta](https://rebule.rs/cene-izrade-sajta): paketi i šta je uključeno
+- [Online zakazivanje termina](https://rebule.rs/online-zakazivanje-termina): zakazivanje porukom ili kalendarom
+- [Sajt za frizerski i kozmetički salon](https://rebule.rs/sajt-za-frizerski-salon)
+- [Sajt za majstore i zanatlije](https://rebule.rs/sajt-za-majstore)
+- [Održavanje sajta](https://rebule.rs/odrzavanje-sajta)
+
+## Studije slučaja
+- [Modni Frizer Vojkan](https://rebule.rs/projekat/modni-frizer-vojkan): ženski frizerski salon u Novom Sadu, cenovnik i zakazivanje porukom
+- [REMIELECTRIC](https://rebule.rs/projekat/remielectric): elektroinstalateri iz Novog Sada, dugme za hitan poziv i zakazivanje pregleda
+- [Residence](https://rebule.rs/projekat/residence): prodajni sajt za investitora sa katalogom stanova
+- [MiSolutions](https://rebule.rs/projekat/misolutions): sajt konsultantske agencije
+- [Badbyte](https://rebule.rs/projekat/badbyte): sajt web studija
+
+## English
+- [rebule. digital in English](https://rebule.rs/en): websites for small businesses, built in Novi Sad

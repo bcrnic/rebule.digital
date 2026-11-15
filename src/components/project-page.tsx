@@ -114,7 +114,7 @@ export function ProjectPage({ project, prevProject, nextProject }: ProjectPagePr
               <h1 className="font-display text-5xl font-semibold leading-[1.04] tracking-tight sm:text-7xl lg:text-8xl">
                 <span className="block text-2xl font-medium text-muted-foreground sm:text-3xl">
                   {project.niche}:
-                </span>
+                </span>{" "}
                 {project.title}
               </h1>
               <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground sm:text-xl">

@@ -2,7 +2,7 @@ const env = import.meta.env;
 
 export const SITE_URL = (env.VITE_SITE_URL ?? "https://rebule.rs").replace(/\/$/, "");
 export const SITE_NAME = "rebule. digital";
-export const SITE_TITLE = "Izrada sajtova Novi Sad za mikro firme | rebule. digital";
+export const SITE_TITLE = "rebule. digital | Izrada sajtova i zakazivanje, Novi Sad";
 export const SITE_DESCRIPTION =
   "Izrada sajtova u Novom Sadu za male i mikro firme: brzi, moderni sajtovi i zakazivanje termina, fiksna cena unapred. Web studio Bojana Crnića.";
 export const SITE_TITLE_EN = "Website design for small businesses | rebule. digital";
@@ -19,7 +19,8 @@ export const CONTACT = {
   email: env.VITE_CONTACT_EMAIL ?? "rebule26@gmail.com",
   phone: env.VITE_CONTACT_PHONE ?? "+381643007002",
   phoneLabel: env.VITE_CONTACT_PHONE_LABEL ?? "+381 64 300 7002",
-  instagram: env.VITE_INSTAGRAM_URL as string | undefined,
+  instagram:
+    (env.VITE_INSTAGRAM_URL as string | undefined) ?? "https://www.instagram.com/rebule.digital/",
   city: "Novi Sad",
 };
 
