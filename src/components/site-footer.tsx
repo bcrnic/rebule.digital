@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Linkedin, Mail } from "lucide-react";
+import { BackToTop } from "@/components/back-to-top";
 import { BrandLogo } from "@/components/brand-logo";
 import { Button } from "@/components/ui/button";
 import { landingPages } from "@/content/landing";
@@ -74,6 +75,7 @@ export function SiteFooter() {
           </Link>
         </div>
       </div>
+      <BackToTop />
     </footer>
   );
 }

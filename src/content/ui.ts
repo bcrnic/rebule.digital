@@ -32,6 +32,7 @@ const sr = {
     linkedinAria: "LinkedIn profil Bojana Crnića",
     instagramAria: "Instagram profil",
     emailAria: "Pošaljite email",
+    backToTop: "Nazad na vrh",
   },
   hero: {
     motto: "Na strani malih.",
@@ -210,6 +211,7 @@ const en: UiStrings = {
     linkedinAria: "Bojan Crnić on LinkedIn",
     instagramAria: "Instagram profile",
     emailAria: "Send an email",
+    backToTop: "Back to top",
   },
   hero: {
     motto: "On the side of the little guy.",
