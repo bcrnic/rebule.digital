@@ -62,7 +62,10 @@ export function Hero() {
   const ids = useSectionIds();
   const projectRoute = locale === "en" ? "/en/project/$id" : "/projekat/$id";
   return (
-    <section id="home" className="relative flex min-h-[94svh] items-center overflow-hidden pt-28">
+    <section
+      id="home"
+      className="relative flex items-center overflow-hidden pb-6 pt-28 lg:min-h-[86svh]"
+    >
       <div className="relative z-10 mx-auto w-full max-w-[90rem] px-5 py-10 lg:px-10">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-24">
           {/* Bez ulazne animacije: naslov je najveći element (LCP) i mora biti vidljiv odmah,

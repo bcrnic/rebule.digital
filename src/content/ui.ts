@@ -94,13 +94,18 @@ const sr = {
     p2: "Od prvog razgovora do lansiranja radite samo sa mnom, bez posrednika. Cenu znate unapred, rok je jasan, a i posle lansiranja sam tu kad vam nešto zatreba.",
     portraitAlt: "Bojan Crnić, osnivač studija rebule. digital",
   },
+  process: {
+    eyebrow: "Kako radimo",
+    title: "Od prvog razgovora do sajta za 7 do 14 dana.",
+    text: "Bez dugih procesa i bez iznenađenja. Ovako izgleda saradnja.",
+  },
   faq: {
     eyebrow: "Česta pitanja",
     title: "Sve što vas zanima pre početka rada.",
     text: "Odgovori na najčešća pitanja o procesu, cenama, rokovima i održavanju.",
   },
   contact: {
-    kicker: "(08) Kontakt",
+    kicker: "Kontakt",
     title: "Hajde da napravimo nešto što radi.",
     text: "Ispričajte mi ukratko o svom poslu. Odgovoriću u roku od jednog radnog dana sa prvim predlogom.",
     whatsapp: "Pišite mi na WhatsApp",
@@ -269,13 +274,18 @@ const en: UiStrings = {
     p2: "From the first call to launch you work only with me, with no middlemen. The price is fixed up front, the deadline is clear, and I'm still around after launch whenever you need something.",
     portraitAlt: "Bojan Crnić, founder of rebule. digital",
   },
+  process: {
+    eyebrow: "How it works",
+    title: "From the first call to a live website in 7 to 14 days.",
+    text: "No long processes and no surprises. This is what working together looks like.",
+  },
   faq: {
     eyebrow: "FAQ",
     title: "Everything you want to know before we start.",
     text: "Answers to the most common questions about the process, pricing, timelines and maintenance.",
   },
   contact: {
-    kicker: "(08) Contact",
+    kicker: "Contact",
     title: "Let's build something that works.",
     text: "Tell me briefly about your business. I will reply within one working day with a first proposal.",
     whatsapp: "Message me on WhatsApp",

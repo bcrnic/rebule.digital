@@ -87,11 +87,36 @@ export const faqsEn = [
     answer:
       "After launch I provide technical support, free small changes and an optional monthly maintenance plan, so your site stays secure and up to date.",
   },
+  {
+    question: "Who owns the website and the domain?",
+    answer:
+      "You do. The domain is registered in your name, and once the project is paid, the website, texts, images and code are yours. If you ever decide to move to another developer, I hand over all the files.",
+  },
+  {
+    question: "Do I need a website if I already have Instagram?",
+    answer:
+      "Instagram is great for showing your work, but when people search on Google or Maps, they find websites, not posts. A website keeps your prices, services and booking in one place, and Instagram sends people to it. They work best together.",
+  },
 ];
 
-export const aboutPointsEn = [
-  "Direct communication",
-  "Clear deadlines",
-  "Mobile-first approach",
-  "Support after launch",
+export const aboutStatsEn = [
+  { value: "~10", label: "websites launched" },
+  { value: "7 to 14", label: "days to launch" },
+  { value: "2 rounds", label: "of revisions included" },
+  { value: "1 business day", label: "to reply to your enquiry" },
+];
+
+export const processStepsEn = [
+  {
+    title: "Free call",
+    text: "Tell me briefly about your business and what you need. You get a fixed quote and a deadline, with no obligation.",
+  },
+  {
+    title: "Design and copy",
+    text: "I design the site and help with texts and photos. You review the proposal, and two rounds of revisions are included in the price.",
+  },
+  {
+    title: "Launch",
+    text: "The site goes live on your domain and I connect it to Google. The domain is registered in your name, and once paid, the website is yours too.",
+  },
 ];

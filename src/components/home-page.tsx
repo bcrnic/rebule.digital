@@ -1,8 +1,10 @@
 import { About } from "@/components/home/about";
+import { Audience } from "@/components/home/audience";
 import { Contact } from "@/components/home/contact";
 import { Faq } from "@/components/home/faq";
 import { Hero } from "@/components/home/hero";
 import { Portfolio } from "@/components/home/portfolio";
+import { Process } from "@/components/home/process";
 import { Pricing } from "@/components/home/pricing";
 import { Services } from "@/components/home/services";
 import { Testimonials } from "@/components/home/testimonials";
@@ -31,6 +33,9 @@ export function HomePage() {
         {/* Lice studija odmah posle uvoda: radite direktno sa mnom. */}
         <About />
         <Services />
+        {/* Delatnosti vode na srpske stranice usluga, pa samo na srpskoj verziji. */}
+        {locale === "sr" && <Audience />}
+        <Process />
         {/* Zasebna stranica sa cenama postoji samo na srpskom. */}
         <Pricing showMoreLink={locale === "sr"} />
         <Portfolio />

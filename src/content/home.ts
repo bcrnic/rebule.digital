@@ -1,6 +1,6 @@
 import { CalendarCheck, Code2, Globe2, RefreshCw } from "lucide-react";
 import type { Locale } from "@/lib/i18n";
-import { aboutPointsEn, faqsEn, servicesEn, testimonialsEn } from "./home.en";
+import { aboutStatsEn, faqsEn, processStepsEn, servicesEn, testimonialsEn } from "./home.en";
 
 export type Service = {
   icon: typeof Globe2;
@@ -92,13 +92,54 @@ export const faqs = [
     answer:
       "Nakon lansiranja obezbeđujem tehničku podršku, besplatne sitne izmene i opciju mesečnog održavanja kako bi vaš sajt uvek bio siguran i ažuran.",
   },
+  {
+    question: "Koliko izmena je uključeno u cenu?",
+    answer:
+      "Dve runde izmena dizajna i teksta su uključene u cenu. Sitne izmene posle lansiranja (na primer nova cena ili radno vreme) radim besplatno, a veće dogovaramo posebno ili kroz održavanje.",
+  },
+  {
+    question: "Ko je vlasnik sajta i domena?",
+    answer:
+      "Vi. Domen se registruje na vaše ime, a posle uplate su vaši i sajt, tekstovi, slike i kod. Ako jednog dana odlučite da pređete kod drugog developera, predajem vam sve fajlove.",
+  },
+  {
+    question: "Da li radite samo sa firmama iz Novog Sada?",
+    answer:
+      "Ne. Studio je u Novom Sadu, ali sve može da se uradi online: razgovaramo telefonom ili preko WhatsApp-a, a dizajn i izmene vam šaljem na pregled. Radim sa firmama iz cele Srbije i regiona.",
+  },
+  {
+    question: "Da li mi treba sajt ako već imam Instagram?",
+    answer:
+      "Instagram je odličan za radove, ali kada vas neko traži na Google-u ili na mapi, nalazi sajt, ne objave. Na sajtu su cene, usluge i zakazivanje uvek na istom mestu, a Instagram vodi ljude na njega. Najbolje rade zajedno.",
+  },
 ];
 
-export const aboutPoints = [
-  "Direktna komunikacija",
-  "Jasni rokovi",
-  "Mobilni pristup",
-  "Podrška nakon lansiranja",
+export type Stat = { value: string; label: string };
+
+/** Činjenice u delu "O meni" (samo tačni podaci, dobijeni od Bojana). */
+export const aboutStats: Stat[] = [
+  { value: "10-ak", label: "lansiranih sajtova" },
+  { value: "7 do 14", label: "dana do lansiranja" },
+  { value: "2 runde", label: "izmena uključene u cenu" },
+  { value: "1 radni dan", label: "do odgovora na upit" },
+];
+
+export type Step = { title: string; text: string };
+
+/** Kako izgleda saradnja, u tri koraka. */
+export const processSteps: Step[] = [
+  {
+    title: "Besplatan razgovor",
+    text: "Ispričate mi ukratko o svom poslu i šta vam treba. Dobijate fiksnu ponudu i rok, bez obaveze.",
+  },
+  {
+    title: "Dizajn i tekst",
+    text: "Pravim dizajn i pomažem oko teksta i fotografija. Predlog dobijate na pregled, a dve runde izmena su uključene u cenu.",
+  },
+  {
+    title: "Lansiranje",
+    text: "Sajt ide uživo na vašem domenu i povezujem ga sa Google-om. Domen je na vaše ime, a posle uplate i sajt je vaš.",
+  },
 ];
 
 /** Sadržaj početne za dati jezik; srpski je gore, engleski u home.en.ts. */
@@ -108,7 +149,8 @@ export function getHomeContent(locale: Locale) {
         services: servicesEn,
         testimonials: testimonialsEn,
         faqs: faqsEn,
-        aboutPoints: aboutPointsEn,
+        aboutStats: aboutStatsEn,
+        processSteps: processStepsEn,
       }
-    : { services, testimonials, faqs, aboutPoints };
+    : { services, testimonials, faqs, aboutStats, processSteps };
 }

@@ -8,13 +8,12 @@ import { reveal } from "@/lib/motion";
 import { SectionTitle } from "./section-title";
 
 type PricingProps = {
-  number?: string;
   title?: string;
   /** Na početnoj ide link ka zasebnoj stranici sa cenama. */
   showMoreLink?: boolean;
 };
 
-export function Pricing({ number = "04", title, showMoreLink = false }: PricingProps) {
+export function Pricing({ title, showMoreLink = false }: PricingProps) {
   const locale = useLocale();
   const t = useUi().pricing;
   const ids = useSectionIds();
@@ -27,9 +26,9 @@ export function Pricing({ number = "04", title, showMoreLink = false }: PricingP
   return (
     <section id={ids.pricing} className="scroll-mt-20 py-20 sm:py-28">
       <div className="mx-auto max-w-[90rem] px-5 lg:px-10">
-        <SectionTitle number={number} eyebrow={t.eyebrow} title={title ?? t.title} text={t.text} />
+        <SectionTitle eyebrow={t.eyebrow} title={title ?? t.title} text={t.text} />
 
-        <div className="mt-16 grid gap-6 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {pricingPlans.map((plan) => (
             <motion.article
               {...reveal}

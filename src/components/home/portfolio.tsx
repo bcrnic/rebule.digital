@@ -27,7 +27,7 @@ export function Portfolio() {
       className="dark section-deep relative scroll-mt-20 overflow-hidden py-20 text-foreground sm:py-28"
     >
       <div className="relative z-10 mx-auto max-w-[90rem] px-5 lg:px-10">
-        <SectionTitle number="05" eyebrow={t.eyebrow} title={t.title} />
+        <SectionTitle eyebrow={t.eyebrow} title={t.title} />
         <div
           role="group"
           aria-label={t.filterAria}
@@ -50,7 +50,7 @@ export function Portfolio() {
             </Button>
           ))}
         </div>
-        <motion.div layout className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-10">
+        <motion.div layout className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-10">
           {visibleProjects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
