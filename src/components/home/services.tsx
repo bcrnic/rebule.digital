@@ -4,6 +4,7 @@ import { getHomeContent } from "@/content/home";
 import { useLocale, useSectionIds, useUi } from "@/lib/i18n";
 import { reveal } from "@/lib/motion";
 import { SectionTitle } from "./section-title";
+import { SpotsStrip } from "./spots-strip";
 
 export function Services() {
   const locale = useLocale();
@@ -38,6 +39,8 @@ export function Services() {
             </motion.article>
           ))}
         </div>
+        {/* Spotovi su na srpskom, pa se prikazuju samo na srpskoj verziji. */}
+        {locale === "sr" && <SpotsStrip />}
       </div>
     </section>
   );
