@@ -1,12 +1,12 @@
 import { Pause, Play } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { SiWhatsapp } from "react-icons/si";
-import portrait from "@/assets/bojan-crnic.webp";
 import { RollCtaInner } from "@/components/ui/roll-cta";
 import { rollCtaClass } from "@/components/ui/roll-cta-class";
 import { WordRotator } from "@/components/ui/word-rotator";
 import { getHomeContent } from "@/content/home";
 import { useLocale, useSectionIds, useUi } from "@/lib/i18n";
+import { PortraitFlip } from "./portrait-flip";
 import { isMotionPaused, setMotionPaused, useMotionPaused } from "@/lib/motion-pause";
 import { WHATSAPP_MESSAGE_EN, whatsappLink } from "@/lib/site";
 
@@ -148,20 +148,7 @@ export function Hero() {
             {/* Desno: lice studija, kratko obećanje, poziv na razgovor i utisak klijenta. */}
             <div className="flex flex-col justify-end gap-8 lg:col-span-5">
               <div className="grid grid-cols-[minmax(0,9rem)_1fr] gap-5 sm:grid-cols-[minmax(0,13rem)_1fr]">
-                <figure className="relative self-start">
-                  <img
-                    src={portrait}
-                    alt={t.portraitAlt}
-                    width={724}
-                    height={1086}
-                    decoding="async"
-                    fetchPriority="high"
-                    className="aspect-[4/5] w-full rounded-[var(--radius)] object-cover object-top"
-                  />
-                  <figcaption className="label-mono absolute bottom-1.5 left-1.5 whitespace-nowrap bg-foreground px-1.5 py-0.5 text-[0.5rem] text-background sm:bottom-2 sm:left-2 sm:text-[0.625rem]">
-                    {t.portraitLabel}
-                  </figcaption>
-                </figure>
+                <PortraitFlip alt={t.portraitAlt} label={t.portraitLabel} />
                 <div className="flex flex-col justify-between gap-5">
                   <p className="text-base leading-relaxed text-foreground/80 sm:text-lg">
                     {t.lede}
