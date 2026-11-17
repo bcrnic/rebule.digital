@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type RefObject } from "react";
 
-const STEPS = [6, 12, 24, 48, 96];
-const STEP_MS = 90;
+const STEPS = [10, 18, 32, 60, 110];
+const STEP_MS = 85;
 
 /**
  * Pikselizovano otkrivanje slike: preko slike stoji mali canvas koji se crta u sve
@@ -35,7 +35,7 @@ export function PixelReveal({ imgRef }: { imgRef: RefObject<HTMLImageElement | n
     let started = false;
     const ratio = (img.naturalHeight || 10) / (img.naturalWidth || 16);
     const draw = (step: number | undefined) => {
-      const width = step ?? 96;
+      const width = step ?? 110;
       canvas.width = width;
       canvas.height = Math.max(1, Math.round(width * ratio));
       ctx.imageSmoothingEnabled = false;

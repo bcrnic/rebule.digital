@@ -460,3 +460,44 @@
     animation: vt-rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 }
+
+/* Reč u hero naslovu koja se smenjuje (WordRotator): 3 reči + prva ponovljena, korak 1.15em (razmak da se susedna reč ne vidi u prozoru). */
+@keyframes word-rotate {
+  0%,
+  22% {
+    transform: translateY(0);
+  }
+  28%,
+  50% {
+    transform: translateY(-1.15em);
+  }
+  56%,
+  78% {
+    transform: translateY(-2.3em);
+  }
+  84%,
+  100% {
+    transform: translateY(-3.45em);
+  }
+}
+@utility word-rotate {
+  animation: word-rotate 7.5s cubic-bezier(0.76, 0, 0.24, 1) infinite;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+/* Dugme "Pauziraj animacije": zaustavlja sve što se samo kreće. */
+html[data-motion="paused"] .marquee-track,
+html[data-motion="paused"] .word-rotate {
+  animation-play-state: paused;
+}
+
+/* Pasus koji se boji reč po reč pri skrolu (ScrollWords); bez JS-a sve reči su pune boje. */
+.scroll-words[data-scroll-words="on"] [data-w] {
+  opacity: 0.2;
+  transition: opacity 0.3s ease;
+}
+.scroll-words[data-scroll-words="on"] [data-w].on {
+  opacity: 1;
+}

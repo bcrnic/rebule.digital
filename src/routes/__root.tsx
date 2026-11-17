@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -9,6 +10,7 @@ import {
 } from "@tanstack/react-router";
 import { MotionConfig } from "motion/react";
 import { CursorLabel } from "@/components/cursor-label";
+import { restoreMotionPause } from "@/lib/motion-pause";
 import type { ReactNode } from "react";
 import { htmlLang, useLocale, useUi } from "@/lib/i18n";
 import { businessSchema } from "@/lib/schema";
@@ -159,6 +161,9 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const t = useUi();
+
+  // Vrati izbor "Pauziraj animacije" iz prethodne posete.
+  useEffect(() => restoreMotionPause(), []);
 
   return (
     <QueryClientProvider client={queryClient}>

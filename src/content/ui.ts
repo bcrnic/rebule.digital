@@ -39,6 +39,8 @@ const sr = {
     available: "Primam nove projekte",
     titleLines: ["Sajtovi", "koji donose"],
     titleAccent: "pozive.",
+    // Reči koje se u naslovu smenjuju posle prve (titleAccent ostaje u h1 za SEO).
+    titleRotate: ["klijente.", "termine."],
     seoLine: "Izrada sajtova za mikro firme u Novom Sadu",
     portraitLabel: "Bojan Crnić · osnivač",
     lede: "Brzi sajtovi za salone, majstore i lokalne firme. Radite direktno sa mnom, od prvog razgovora do lansiranja, a cenu znate unapred.",
@@ -56,6 +58,8 @@ const sr = {
       "Održavanje",
     ],
     marqueeAria: "Usluge: sajtovi za salone i majstore, online zakazivanje, lokalni SEO",
+    pauseMotion: "Pauziraj animacije",
+    playMotion: "Pokreni animacije",
     portraitAlt: "Bojan Crnić, osnivač studija rebule. digital",
   },
   stickyCta: {
@@ -252,6 +256,7 @@ const en: UiStrings = {
     available: "Taking on new projects",
     titleLines: ["Websites", "that bring in"],
     titleAccent: "calls.",
+    titleRotate: ["clients.", "bookings."],
     seoLine: "Websites for small businesses, built in Novi Sad",
     portraitLabel: "Bojan Crnić · founder",
     lede: "Fast websites for salons, tradespeople and local businesses. You work directly with me from the first call to launch, and the price is fixed up front.",
@@ -269,6 +274,8 @@ const en: UiStrings = {
       "Maintenance",
     ],
     marqueeAria: "Services: websites for salons and tradespeople, online booking, local SEO",
+    pauseMotion: "Pause animations",
+    playMotion: "Play animations",
     portraitAlt: "Bojan Crnić, founder of rebule. digital",
   },
   stickyCta: {

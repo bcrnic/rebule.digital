@@ -48,9 +48,28 @@ export function SiteHeader() {
   const navItems = navKeys.map((key) => [t.nav[key], ids[key]] as const);
   const [open, setOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
+  const [compact, setCompact] = useState(false);
 
   useEffect(() => {
     setIsDark(document.documentElement.classList.contains("dark"));
+  }, []);
+
+  // Posle 40 px skrola zaglavlje postaje niže (CSS tranzicija radi ostalo).
+  useEffect(() => {
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      setCompact(window.scrollY > 40);
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(frame);
+    };
   }, []);
 
   useEffect(() => {
@@ -72,14 +91,23 @@ export function SiteHeader() {
   };
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
-      <div className="glass mx-auto flex h-16 max-w-[86rem] items-center justify-between rounded-full px-4 sm:h-[4.25rem] sm:px-6">
+    <header
+      data-compact={compact || undefined}
+      className={`fixed inset-x-0 top-0 z-50 px-3 transition-[padding] duration-300 sm:px-5 motion-reduce:transition-none ${compact ? "pt-2" : "pt-3 sm:pt-4"}`}
+    >
+      <div
+        className={`glass mx-auto flex items-center justify-between rounded-full px-4 transition-[height,max-width] duration-300 ease-out sm:px-6 motion-reduce:transition-none ${
+          compact ? "h-14 max-w-[80rem]" : "h-16 max-w-[86rem] sm:h-[4.25rem]"
+        }`}
+      >
         <Link
           to={home}
           className="text-primary transition-opacity hover:opacity-80"
           aria-label={t.homeAria}
         >
-          <BrandLogo className="h-12 w-auto sm:h-14" />
+          <BrandLogo
+            className={`w-auto transition-[height] duration-300 motion-reduce:transition-none ${compact ? "h-10" : "h-12 sm:h-14"}`}
+          />
         </Link>
 
         <nav className="hidden items-center gap-7 xl:flex" aria-label={t.mainNav}>
