@@ -4,6 +4,10 @@
 /* Fontovi brenda: Manrope za naslove, Inter za osnovni tekst (učitavaju se sa sajta). */
 @import "@fontsource-variable/manrope";
 @import "@fontsource-variable/inter";
+/* Plakatni naslovi (Anton, ima č ć š ž đ) i mono labele (JetBrains Mono). */
+@import "@fontsource/anton/latin.css";
+@import "@fontsource/anton/latin-ext.css";
+@import "@fontsource-variable/jetbrains-mono/wght.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -66,6 +70,8 @@
   --color-primary-bright: var(--primary-bright);
   --font-display: "Manrope Variable", "Manrope", sans-serif;
   --font-sans: "Inter Variable", "Inter", sans-serif;
+  --font-poster: "Anton", "Impact", "Arial Narrow", sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, "SFMono-Regular", monospace;
   --shadow-hero: 0 16px 40px color-mix(in oklab, var(--primary) 28%, transparent);
   --shadow-glass:
     0 1px 1px color-mix(in oklab, var(--foreground) 4%, transparent),
@@ -73,7 +79,7 @@
 }
 
 :root {
-  --radius: 1.25rem;
+  --radius: 0.625rem;
   --background: oklch(0.9765 0.0075 92.5);
   --foreground: oklch(0.232 0.023 158);
   --card: oklch(0.993 0.0035 95);
@@ -748,4 +754,30 @@
 
 :root.dark .section-deep {
   background: oklch(0.235 0.03 160);
+}
+
+/* Traka sa uslugama koja klizi ispod hero sekcije. */
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@utility marquee-track {
+  animation: marquee 38s linear infinite;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+/* Mono labela: mala, velika slova, razmaknuta (kao u tehničkom crtežu). */
+@utility label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }

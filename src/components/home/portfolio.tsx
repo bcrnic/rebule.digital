@@ -1,56 +1,99 @@
-import { motion } from "motion/react";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight } from "lucide-react";
 import { useLocale, useSectionIds, useUi } from "@/lib/i18n";
-import { getLocalizedProjects } from "@/lib/projects";
-import { reveal } from "@/lib/motion";
+import { categoryLabel, getLocalizedProjects, type ProjectCategory } from "@/lib/projects";
 import { ProjectCard } from "./project-card";
-import { SectionTitle } from "./section-title";
+
+// Najpre radovi za glavnu publiku (saloni i majstori), pa ostali.
+const order = ["modni-frizer-vojkan", "remielectric", "residence", "misolutions", "badbyte"];
 
 /**
- * Radovi: tri kolone na računaru, dve na tabletu, a na telefonu red koji se prevlači levo-desno,
- * da pet projekata ne zauzme pet ekrana.
+ * Radovi: plakatni naslov sa brojačem, filteri po vrsti projekta i mreža kartica
+ * (na telefonu red koji se prevlači), a ispod traka "Sledeći ste vi".
  */
 export function Portfolio() {
   const locale = useLocale();
   const t = useUi().portfolio;
   const ids = useSectionIds();
-  // Najpre radovi za glavnu publiku (saloni i majstori), pa ostali.
-  const order = ["modni-frizer-vojkan", "remielectric", "residence", "misolutions", "badbyte"];
   const projects = [...getLocalizedProjects(locale)].sort(
     (a, b) => (order.indexOf(a.id) + 1 || 99) - (order.indexOf(b.id) + 1 || 99),
   );
+  const categories = [...new Set(projects.map((p) => p.category))] as ProjectCategory[];
+  const [filter, setFilter] = useState<ProjectCategory | "all">("all");
+  const visible = filter === "all" ? projects : projects.filter((p) => p.category === filter);
+
+  const chip = (active: boolean) =>
+    `label-mono inline-flex items-center gap-2 border px-3 py-2 transition-colors ${
+      active
+        ? "border-foreground bg-foreground text-background"
+        : "border-border bg-card text-foreground hover:border-foreground"
+    }`;
 
   return (
-    <section
-      id={ids.portfolio}
-      // Tamna sekcija (klasa "dark" menja boje unutra) daje ritam inače svetloj strani.
-      className="dark section-deep relative scroll-mt-20 overflow-hidden py-20 text-foreground sm:py-28"
-    >
-      <div className="relative z-10 mx-auto max-w-[90rem] px-5 lg:px-10">
-        <SectionTitle eyebrow={t.eyebrow} title={t.title} />
-        <div className="-mx-5 mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-3">
-          {projects.map((project) => (
+    <section id={ids.portfolio} className="relative scroll-mt-20 py-16 sm:py-24">
+      <div className="mx-auto max-w-[90rem] px-5 lg:px-10">
+        <div className="flex items-end justify-between gap-6">
+          <h2 className="font-poster text-[clamp(3.5rem,10vw,8rem)] uppercase leading-[0.86] text-foreground">
+            {t.title}
+            <span className="text-primary">.</span>
+          </h2>
+          <p className="label-mono pb-2 text-muted-foreground" aria-live="polite">
+            {visible.length} / {projects.length}
+          </p>
+        </div>
+
+        <div
+          className="mt-8 flex flex-wrap gap-2 border-t border-foreground pt-5"
+          role="group"
+          aria-label={t.filtersAria}
+        >
+          <button
+            type="button"
+            className={chip(filter === "all")}
+            aria-pressed={filter === "all"}
+            onClick={() => setFilter("all")}
+          >
+            {t.all}
+            <span className="opacity-60">{projects.length}</span>
+          </button>
+          {categories.map((category) => (
+            <button
+              key={category}
+              type="button"
+              className={chip(filter === category)}
+              aria-pressed={filter === category}
+              onClick={() => setFilter(category)}
+            >
+              {categoryLabel(category, locale)}
+              <span className="opacity-60">
+                {projects.filter((p) => p.category === category).length}
+              </span>
+            </button>
+          ))}
+        </div>
+
+        <div className="-mx-5 mt-8 flex scroll-px-5 snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 md:mx-0 md:grid md:grid-cols-2 md:gap-x-6 md:gap-y-12 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-3">
+          {visible.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
+        </div>
 
-          <motion.article
-            {...reveal}
-            className="glass group flex w-[80%] shrink-0 snap-start flex-col justify-between rounded-[1.5rem] border border-dashed border-primary/40 p-7 transition-colors hover:border-primary hover:bg-primary/5 md:w-auto"
+        {/* Mesto za sledećeg klijenta, kao poslednji "projekat" na listi. */}
+        <div className="mt-12 flex flex-col gap-5 rounded-[var(--radius)] bg-surface p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
+          <p className="flex items-center gap-3 font-poster text-4xl uppercase leading-none tracking-normal text-foreground sm:text-5xl">
+            <span className="size-3 shrink-0 bg-primary" aria-hidden="true" />
+            {t.ctaTitle}
+          </p>
+          <p className="max-w-md text-base leading-relaxed text-muted-foreground">{t.ctaText}</p>
+          <a
+            href={`#${ids.contact}`}
+            className="group inline-flex w-fit shrink-0 items-center gap-3 rounded-full bg-primary py-2 pl-2 pr-5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-foreground hover:text-background"
           >
-            <div className="space-y-3">
-              <div className="flex size-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                <Sparkles className="size-5" aria-hidden="true" />
-              </div>
-              <h3 className="font-display text-xl font-semibold">{t.ctaTitle}</h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">{t.ctaText}</p>
-            </div>
-            <a
-              href={`#${ids.contact}`}
-              className="mt-6 inline-flex w-fit items-center gap-2 text-sm font-semibold text-primary transition-all hover:gap-3"
-            >
-              {t.ctaButton} <ArrowRight className="size-4" aria-hidden="true" />
-            </a>
-          </motion.article>
+            <span className="flex size-8 items-center justify-center rounded-full bg-primary-foreground text-primary">
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </span>
+            {t.ctaButton}
+          </a>
         </div>
       </div>
     </section>

@@ -10,6 +10,7 @@ import { Services } from "@/components/home/services";
 import { Testimonials } from "@/components/home/testimonials";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { StickyCta } from "@/components/sticky-cta";
 import { getHomeContent } from "@/content/home";
 import { useLocale } from "@/lib/i18n";
 import { faqSchema } from "@/lib/schema";
@@ -30,7 +31,8 @@ export function HomePage() {
       <SiteHeader />
       <main id="main">
         <Hero />
-        {/* Lice studija odmah posle uvoda: radite direktno sa mnom. */}
+        {/* Radovi odmah posle uvoda: za studio su oni glavni dokaz. */}
+        <Portfolio />
         <About />
         <Services />
         {/* Delatnosti vode na srpske stranice usluga, pa samo na srpskoj verziji. */}
@@ -38,12 +40,12 @@ export function HomePage() {
         <Process />
         {/* Zasebna stranica sa cenama postoji samo na srpskom. */}
         <Pricing showMoreLink={locale === "sr"} />
-        <Portfolio />
         <Testimonials />
         <Faq />
         <Contact />
       </main>
       <SiteFooter />
+      <StickyCta />
     </div>
   );
 }
