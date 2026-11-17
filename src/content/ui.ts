@@ -8,6 +8,7 @@ const sr = {
     mainNav: "Glavna navigacija",
     mobileNav: "Mobilna navigacija",
     cta: "Zakaži razgovor",
+    ctaHover: "Javite se",
     openMenu: "Otvori meni",
     closeMenu: "Zatvori meni",
     nav: {
@@ -42,6 +43,7 @@ const sr = {
     portraitLabel: "Bojan Crnić · osnivač",
     lede: "Brzi sajtovi za salone, majstore i lokalne firme. Radite direktno sa mnom, od prvog razgovora do lansiranja, a cenu znate unapred.",
     bookCall: "Zakaži besplatan razgovor",
+    bookCallHover: "Pričajmo o vašem sajtu",
     whatsapp: "ili mi piši na WhatsApp",
     quoteLabel: "Utisak klijenta",
     marquee: [
@@ -219,6 +221,7 @@ const en: UiStrings = {
     mainNav: "Main navigation",
     mobileNav: "Mobile navigation",
     cta: "Book a call",
+    ctaHover: "Say hello",
     openMenu: "Open menu",
     closeMenu: "Close menu",
     nav: {
@@ -253,6 +256,7 @@ const en: UiStrings = {
     portraitLabel: "Bojan Crnić · founder",
     lede: "Fast websites for salons, tradespeople and local businesses. You work directly with me from the first call to launch, and the price is fixed up front.",
     bookCall: "Book a free call",
+    bookCallHover: "Let's talk about your site",
     whatsapp: "or message me on WhatsApp",
     quoteLabel: "Client feedback",
     marquee: [

@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
+import { MaskedWords } from "@/components/ui/masked-words";
 import { useLocale, useSectionIds, useUi } from "@/lib/i18n";
 import { CONTACT, WHATSAPP_MESSAGE_EN, whatsappLink } from "@/lib/site";
 import { ContactForm } from "./contact-form";
@@ -27,7 +28,7 @@ export function Contact() {
             {t.kicker}
           </p>
           <h2 className="mt-8 font-poster text-[clamp(3.25rem,7vw,6.5rem)] uppercase leading-[0.96] tracking-normal">
-            {t.title}
+            <MaskedWords text={t.title} />
           </h2>
           <p className="mt-7 max-w-lg text-lg leading-relaxed opacity-75">{t.text}</p>
           <div className="mt-12 space-y-4 text-sm">

@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
+import { ShuffleText } from "@/components/ui/shuffle-text";
 import { useLocale, useUi } from "@/lib/i18n";
 import { categoryLabel, projectSrcSet, type Project } from "@/lib/projects";
 
@@ -10,7 +11,10 @@ export function ProjectCard({ project }: { project: Project }) {
   const projectRoute = locale === "en" ? "/en/project/$id" : "/projekat/$id";
 
   return (
-    <article className="group relative flex w-[82%] shrink-0 snap-start flex-col md:w-auto">
+    <article
+      data-shuffle-root
+      className="group relative flex w-[82%] shrink-0 snap-start flex-col md:w-auto"
+    >
       <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[var(--radius)] bg-muted">
         <img
           src={project.image}
@@ -25,7 +29,7 @@ export function ProjectCard({ project }: { project: Project }) {
         />
         <span className="label-mono absolute left-3 top-3 flex items-center gap-1.5 bg-background px-2 py-1 text-foreground">
           <span className="size-1.5 bg-foreground" aria-hidden="true" />
-          {categoryLabel(project.category, locale)}
+          <ShuffleText text={categoryLabel(project.category, locale)} />
         </span>
       </div>
       <div className="mt-4 flex items-start justify-between gap-4">

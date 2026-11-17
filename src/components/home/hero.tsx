@@ -1,6 +1,7 @@
-import { ArrowRight } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import portrait from "@/assets/bojan-crnic.webp";
+import { RollCtaInner } from "@/components/ui/roll-cta";
+import { rollCtaClass } from "@/components/ui/roll-cta-class";
 import { getHomeContent } from "@/content/home";
 import { useLocale, useSectionIds, useUi } from "@/lib/i18n";
 import { WHATSAPP_MESSAGE_EN, whatsappLink } from "@/lib/site";
@@ -91,14 +92,8 @@ export function Hero() {
                     {t.lede}
                   </p>
                   <div className="flex flex-col gap-3">
-                    <a
-                      href={`#${ids.contact}`}
-                      className="group inline-flex w-fit items-center gap-3 rounded-full bg-primary py-2 pl-2 pr-5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-foreground hover:text-background"
-                    >
-                      <span className="flex size-8 items-center justify-center rounded-full bg-primary-foreground text-primary transition-transform group-hover:translate-x-0.5">
-                        <ArrowRight className="size-4" aria-hidden="true" />
-                      </span>
-                      {t.bookCall}
+                    <a href={`#${ids.contact}`} className={rollCtaClass()}>
+                      <RollCtaInner label={t.bookCall} hoverLabel={t.bookCallHover} />
                     </a>
                     <a
                       href={locale === "en" ? whatsappLink(WHATSAPP_MESSAGE_EN) : whatsappLink()}

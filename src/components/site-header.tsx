@@ -5,6 +5,9 @@ import { useEffect, useState } from "react";
 import { BrandLogo } from "@/components/brand-logo";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { Button } from "@/components/ui/button";
+import { RollCtaInner } from "@/components/ui/roll-cta";
+import { rollCtaClass } from "@/components/ui/roll-cta-class";
+import { ShuffleText } from "@/components/ui/shuffle-text";
 import { alternatePath, useLocale, useSectionIds, useUi } from "@/lib/i18n";
 
 const navKeys = [
@@ -87,7 +90,7 @@ export function SiteHeader() {
               hash={anchor}
               className="label-mono text-muted-foreground transition-colors hover:text-foreground"
             >
-              {label}
+              <ShuffleText text={label} />
             </Link>
           ))}
         </nav>
@@ -96,11 +99,9 @@ export function SiteHeader() {
           <LanguageSwitch />
           <ThemeSwitch isDark={isDark} onToggle={toggleTheme} />
 
-          <Button asChild className="hidden rounded-full sm:inline-flex" size="sm">
-            <Link to={home} hash={ids.contact}>
-              {t.cta}
-            </Link>
-          </Button>
+          <Link to={home} hash={ids.contact} className={rollCtaClass("sm", "max-sm:hidden")}>
+            <RollCtaInner label={t.cta} hoverLabel={t.ctaHover} size="sm" />
+          </Link>
 
           <Button
             variant="ghost"

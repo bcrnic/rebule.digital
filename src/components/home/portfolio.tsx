@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
+import { ShuffleText } from "@/components/ui/shuffle-text";
 import { useLocale, useSectionIds, useUi } from "@/lib/i18n";
 import { categoryLabel, getLocalizedProjects, type ProjectCategory } from "@/lib/projects";
 import { ProjectCard } from "./project-card";
@@ -58,7 +59,7 @@ export function Portfolio() {
             aria-pressed={filter === "all"}
             onClick={() => setFilter("all")}
           >
-            {t.all}
+            <ShuffleText text={t.all} />
             <span className="opacity-60">{projects.length}</span>
           </button>
           {categories.map((category) => (
@@ -69,7 +70,7 @@ export function Portfolio() {
               aria-pressed={filter === category}
               onClick={() => setFilter(category)}
             >
-              {categoryLabel(category, locale)}
+              <ShuffleText text={categoryLabel(category, locale)} />
               <span className="opacity-60">
                 {projects.filter((p) => p.category === category).length}
               </span>
