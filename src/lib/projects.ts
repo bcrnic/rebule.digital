@@ -53,7 +53,7 @@ export const projects: Project[] = [
     niche: "Sajt za web studio",
     category: "Biznis",
     client: "Badbyte Studio",
-    year: "2024",
+    year: "2026",
     seoDescription:
       "Studija slučaja: sajt za web development studio iz Novog Sada sa jasnom ponudom, cenama, utiscima klijenata i formom za zahtev za ponudu.",
     description:
@@ -81,7 +81,7 @@ export const projects: Project[] = [
     servicePath: "/sajt-za-frizerski-salon",
     category: "Zakazivanje",
     client: "Salon Vojkan",
-    year: "2024",
+    year: "2026",
     seoDescription:
       "Studija slučaja: sajt za ženski frizerski salon u Novom Sadu sa 40 godina tradicije. Cenovnik, galerija i zakazivanje termina porukom.",
     description:
@@ -114,7 +114,7 @@ export const projects: Project[] = [
     servicePath: "/sajt-za-majstore",
     category: "Zakazivanje",
     client: "REMIELECTRIC Novi Sad",
-    year: "2024",
+    year: "2026",
     seoDescription:
       "Studija slučaja: sajt za elektroinstalatere iz Novog Sada sa pregledom usluga, dugmetom za hitan poziv i zakazivanjem besplatnog pregleda.",
     description:
@@ -150,7 +150,7 @@ export const projects: Project[] = [
     niche: "Sajt za prodaju stanova",
     category: "E-commerce",
     client: "Investitor Residence",
-    year: "2024",
+    year: "2026",
     seoDescription:
       "Studija slučaja: prodajni sajt za investitora sa katalogom stanova, cenama, tlocrtima, filterima po strukturi i oznakom slobodnih stanova.",
     description:
@@ -183,7 +183,7 @@ export const projects: Project[] = [
     niche: "Sajt za konsultantsku agenciju",
     category: "Biznis",
     client: "MiSolutions Konsalting",
-    year: "2024",
+    year: "2026",
     seoDescription:
       "Studija slučaja: prezentacioni sajt konsultantske agencije za istraživanje tržišta, sa jasnom ponudom, rezultatima i B2B kontakt formom.",
     description:
