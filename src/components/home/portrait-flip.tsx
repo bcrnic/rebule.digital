@@ -5,7 +5,8 @@ import portrait3 from "@/assets/bojan-crnic-3.webp";
 import { isMotionPaused } from "@/lib/motion-pause";
 
 const PHOTOS = [portrait1, portrait2, portrait3];
-const FLIP_MS = 420;
+// Sporije listanje sa mekim pretapanjem, da prelaz ne deluje kao skok.
+const FLIP_MS = 1100;
 
 /**
  * Portret u hero sekciji: na hover se blago približi i "lista" kroz tri fotografije
@@ -59,7 +60,7 @@ export function PortraitFlip({ alt, label }: { alt: string; label: string }) {
           decoding="async"
           loading={i === 0 ? "eager" : "lazy"}
           fetchPriority={i === 0 ? "high" : "low"}
-          className={`absolute inset-0 h-full w-full object-cover object-top transition-[scale] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+          className={`absolute inset-0 h-full w-full object-cover object-top [transition:scale_700ms_cubic-bezier(0.22,1,0.36,1),opacity_300ms_ease-in-out] motion-reduce:transition-none ${
             i === index ? "opacity-100" : "opacity-0"
           } ${active ? "scale-[1.04]" : "scale-100"}`}
         />
