@@ -44,7 +44,7 @@ export const spots: Spot[] = [
     title: "Gotovo za 7 do 14 dana",
     text: "Bez meseci čekanja, a cenu znate unapred.",
     path: "/cene-izrade-sajta",
-    points: ["Fiksna cena od 250 €", "Rok 7 do 14 radnih dana", "Radite direktno sa mnom"],
+    points: ["Fiksna cena od 250 €", "Rok upisan u ponudu", "Radite direktno sa mnom"],
   },
 ];
 

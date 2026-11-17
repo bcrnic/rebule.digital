@@ -8,15 +8,19 @@ import { reveal } from "@/lib/motion";
 /** Usluge kao četiri kratka spota: video u telefonu, šta dobijate i link na stranicu usluge. */
 export function SpotsStrip() {
   return (
-    <div className="mt-12 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="-mx-5 mt-10 flex scroll-px-5 snap-x snap-mandatory gap-6 overflow-x-auto px-5 pb-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-y-12 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
       {spots.map((spot) => (
-        <motion.article key={spot.id} {...reveal} className="flex flex-col">
+        <motion.article
+          key={spot.id}
+          {...reveal}
+          className="flex w-[72%] shrink-0 snap-start flex-col sm:w-auto"
+        >
           <PhoneVideo
             src={spotSrc(spot.id)}
             poster={spotPoster(spot.id)}
             label={`Kratak video: ${spot.title}`}
             aspect="540 / 960"
-            className="mx-auto w-full max-w-[240px]"
+            className="mx-auto w-full max-w-[200px] sm:max-w-[240px]"
           />
           <div className="mx-auto mt-6 flex w-full max-w-[280px] flex-1 flex-col">
             <h3 className="font-display text-xl font-semibold leading-tight">

@@ -87,7 +87,7 @@ export function ProjectPage({ project, prevProject, nextProject }: ProjectPagePr
 
           <div className="grid grid-cols-12 gap-8 border-t border-border pt-8">
             <div className="col-span-12 space-y-4 md:col-span-3">
-              <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+              <span className="label-mono inline-flex items-center gap-2 border border-border bg-card px-3 py-1.5 text-muted-foreground">
                 <span className="size-1.5 rounded-full bg-primary" />
                 {category(project)}
               </span>
@@ -111,7 +111,7 @@ export function ProjectPage({ project, prevProject, nextProject }: ProjectPagePr
             </div>
 
             <div className="col-span-12 md:col-span-9">
-              <h1 className="font-display text-5xl font-semibold leading-[1.04] tracking-tight sm:text-7xl lg:text-8xl">
+              <h1 className="font-poster text-[clamp(3.25rem,8vw,7.5rem)] uppercase leading-[0.9] tracking-normal">
                 <span className="block text-2xl font-medium text-muted-foreground sm:text-3xl">
                   {project.niche}:
                 </span>{" "}
@@ -157,7 +157,7 @@ export function ProjectPage({ project, prevProject, nextProject }: ProjectPagePr
             className="border-y border-border/70 bg-card/40 py-14"
           >
             <div className="mx-auto max-w-[90rem] px-5 lg:px-10">
-              <div className="mb-8 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
+              <div className="mb-8 flex items-center gap-2 label-mono text-primary">
                 <Sparkles className="size-4" />
                 <span>{t.highlights}</span>
               </div>
@@ -220,7 +220,7 @@ export function ProjectPage({ project, prevProject, nextProject }: ProjectPagePr
         <section className="mx-auto max-w-[90rem] px-5 py-16 lg:px-10">
           <div className="grid gap-12 border-t border-border pt-10 md:grid-cols-2">
             <div>
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
+              <div className="flex items-center gap-2 label-mono text-primary">
                 <Layers className="size-4" />
                 <span>{t.deliverablesKicker}</span>
               </div>
@@ -250,9 +250,7 @@ export function ProjectPage({ project, prevProject, nextProject }: ProjectPagePr
               </div>
 
               <div className="glass-soft mt-8 p-6">
-                <p className="text-xs font-bold uppercase tracking-wider text-primary">
-                  {t.outcome}
-                </p>
+                <p className="label-mono text-primary">{t.outcome}</p>
                 <p className="mt-3 flex items-start gap-3 text-base font-medium leading-relaxed text-foreground">
                   <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-primary" />
                   {project.result}
@@ -273,9 +271,7 @@ export function ProjectPage({ project, prevProject, nextProject }: ProjectPagePr
         {/* Adjacent Projects Navigation */}
         <section aria-label={t.adjacentAria} className="border-t border-border bg-surface/30 py-16">
           <div className="mx-auto max-w-[90rem] px-5 lg:px-10">
-            <p className="mb-6 text-xs font-bold uppercase tracking-wider text-muted-foreground">
-              {t.seeOthers}
-            </p>
+            <p className="mb-6 label-mono text-muted-foreground">{t.seeOthers}</p>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
               <Link
                 to={projectRoute}
@@ -346,10 +342,10 @@ export function ProjectPage({ project, prevProject, nextProject }: ProjectPagePr
           />
           <div className="relative z-10 mx-auto flex max-w-[90rem] flex-col items-start justify-between gap-8 px-5 md:flex-row md:items-end lg:px-10">
             <div>
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider">
+              <span className="label-mono inline-flex items-center gap-2 border border-white/30 px-3 py-1.5">
                 {t.ctaKicker}
               </span>
-              <h2 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-tight sm:text-6xl">
+              <h2 className="mt-4 max-w-3xl font-poster text-[clamp(2.75rem,5.5vw,5rem)] uppercase leading-[0.95] tracking-normal">
                 {t.ctaTitle}
               </h2>
               <p className="mt-3 max-w-xl text-lg opacity-80">{t.ctaText}</p>

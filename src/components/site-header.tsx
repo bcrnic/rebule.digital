@@ -85,7 +85,7 @@ export function SiteHeader() {
               key={anchor}
               to={home}
               hash={anchor}
-              className="text-xs font-semibold uppercase text-muted-foreground transition-colors hover:text-primary"
+              className="label-mono text-muted-foreground transition-colors hover:text-foreground"
             >
               {label}
             </Link>

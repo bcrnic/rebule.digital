@@ -89,11 +89,11 @@ export function LandingPageView({ path }: { path: string }) {
             </Link>
           </Button>
           <div className="border-t border-border pt-8">
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+            <span className="label-mono inline-flex items-center gap-2 border border-border bg-card px-3 py-1.5 text-muted-foreground">
               <span className="size-1.5 rounded-full bg-primary" />
               {page.kicker}
             </span>
-            <h1 className="mt-6 max-w-5xl font-display text-5xl font-semibold leading-[1.04] tracking-tight sm:text-7xl">
+            <h1 className="mt-6 max-w-5xl font-poster text-[clamp(3rem,6.5vw,6rem)] uppercase leading-[0.92] tracking-normal">
               {page.title}
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
@@ -102,7 +102,7 @@ export function LandingPageView({ path }: { path: string }) {
             <div className="mt-8 flex flex-wrap gap-4">
               <Button variant="hero" size="lg" className="rounded-2xl" asChild>
                 <Link to="/" hash="kontakt">
-                  Zakažite besplatan razgovor <ArrowRight className="size-4" />
+                  Zakaži besplatan razgovor <ArrowRight className="size-4" />
                 </Link>
               </Button>
               <Button
@@ -126,7 +126,7 @@ export function LandingPageView({ path }: { path: string }) {
         {/* Problemi */}
         <section className="border-y border-border/70 bg-card/40 py-20">
           <div className="mx-auto max-w-[90rem] px-5 lg:px-10">
-            <h2 className="font-display text-3xl font-semibold sm:text-5xl">
+            <h2 className="font-poster text-[clamp(2.5rem,5vw,4.5rem)] uppercase leading-[0.92] tracking-normal">
               {page.problemsTitle}
             </h2>
             <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -151,10 +151,10 @@ export function LandingPageView({ path }: { path: string }) {
               className="mx-auto w-full max-w-[280px]"
             />
             <div>
-              <p className="text-xs font-bold uppercase tracking-wider text-primary">
-                Za 13 sekundi
-              </p>
-              <h2 className="mt-4 font-display text-3xl font-semibold sm:text-5xl">{spot.title}</h2>
+              <p className="label-mono text-primary">Za 13 sekundi</p>
+              <h2 className="mt-4 font-poster text-[clamp(2.5rem,5vw,4.5rem)] uppercase leading-[0.92] tracking-normal">
+                {spot.title}
+              </h2>
               <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground">
                 {spot.text}
               </p>
@@ -165,7 +165,7 @@ export function LandingPageView({ path }: { path: string }) {
         {/* Šta dobijate + preporučeni paket */}
         <section className="mx-auto grid max-w-[90rem] gap-10 px-5 py-20 lg:grid-cols-2 lg:px-10">
           <div>
-            <h2 className="font-display text-3xl font-semibold sm:text-5xl">
+            <h2 className="font-poster text-[clamp(2.5rem,5vw,4.5rem)] uppercase leading-[0.92] tracking-normal">
               {page.featuresTitle}
             </h2>
             <ul className="mt-8 grid gap-3">
@@ -179,9 +179,7 @@ export function LandingPageView({ path }: { path: string }) {
           </div>
           {plan && (
             <aside className="glass flex flex-col p-8 ring-2 ring-primary sm:p-10">
-              <p className="text-xs font-bold uppercase tracking-wider text-primary">
-                Preporučeni paket
-              </p>
+              <p className="label-mono text-primary">Preporučeni paket</p>
               <h2 className="mt-4 font-display text-3xl font-semibold">{plan.name}</h2>
               <p className="mt-6 text-sm text-muted-foreground">od</p>
               <p className="font-display text-5xl font-semibold tracking-tight">
@@ -237,9 +235,7 @@ export function LandingPageView({ path }: { path: string }) {
                 className="aspect-[16/10] w-full rounded-2xl object-cover object-top"
               />
               <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-primary">
-                  Primer iz prakse
-                </p>
+                <p className="label-mono text-primary">Primer iz prakse</p>
                 <h2 className="mt-4 font-display text-3xl font-semibold">
                   {project.niche}: {project.title}
                 </h2>
@@ -256,7 +252,9 @@ export function LandingPageView({ path }: { path: string }) {
         {/* FAQ */}
         <section className="border-t border-border bg-surface/30 py-20">
           <div className="mx-auto max-w-4xl px-5 lg:px-10">
-            <h2 className="font-display text-3xl font-semibold sm:text-5xl">Česta pitanja</h2>
+            <h2 className="font-poster text-[clamp(2.5rem,5vw,4.5rem)] uppercase leading-[0.92] tracking-normal">
+              Česta pitanja
+            </h2>
             <div className="mt-10 space-y-4">
               {page.faqs.map((faq) => (
                 <details key={faq.question} className="glass group overflow-hidden">
@@ -279,9 +277,7 @@ export function LandingPageView({ path }: { path: string }) {
         {/* Povezane usluge */}
         {related.length > 0 && (
           <nav aria-label="Povezane usluge" className="mx-auto max-w-[90rem] px-5 py-16 lg:px-10">
-            <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-              Pogledajte i
-            </p>
+            <p className="label-mono text-muted-foreground">Pogledajte i</p>
             <div className="mt-6 flex flex-wrap gap-3">
               {related.map((item) => (
                 <Link
@@ -300,7 +296,7 @@ export function LandingPageView({ path }: { path: string }) {
         <section className="relative overflow-hidden bg-primary py-20 text-primary-foreground">
           <div className="relative z-10 mx-auto flex max-w-[90rem] flex-col items-start justify-between gap-8 px-5 md:flex-row md:items-end lg:px-10">
             <div>
-              <h2 className="max-w-3xl font-display text-4xl font-semibold leading-tight sm:text-6xl">
+              <h2 className="max-w-3xl font-poster text-[clamp(2.75rem,5.5vw,5rem)] uppercase leading-[0.95] tracking-normal">
                 Hajde da vidimo šta vašem poslu treba.
               </h2>
               <p className="mt-3 max-w-xl text-lg opacity-80">
@@ -309,7 +305,7 @@ export function LandingPageView({ path }: { path: string }) {
             </div>
             <Button variant="secondary" size="lg" className="rounded-2xl shadow-xl" asChild>
               <Link to="/" hash="kontakt">
-                Zakažite besplatne konsultacije <ArrowRight className="size-4" />
+                Zakaži besplatan razgovor <ArrowRight className="size-4" />
               </Link>
             </Button>
           </div>
