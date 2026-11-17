@@ -5,30 +5,32 @@ type SectionTitleProps = {
   eyebrow: string;
   title: string;
   text?: string;
-  /** Zastarelo: redni broj sekcije se više ne prikazuje. */
-  number?: string;
+  /** Redni broj sekcije u mono labeli, npr. "03". */
+  number?: string | undefined;
 };
 
-/** Naslov sekcije: naslov levo, uvodna rečenica desno (na širokom ekranu), bez praznih kolona. */
-export function SectionTitle({ eyebrow, title, text }: SectionTitleProps) {
+/**
+ * Naslov sekcije: tanka crta, mono labela sa brojem, plakatni naslov levo i
+ * uvodna rečenica desno (na širokom ekranu).
+ */
+export function SectionTitle({ eyebrow, title, text, number }: SectionTitleProps) {
   return (
-    <motion.div
-      {...reveal}
-      className="grid gap-5 border-t border-border pt-6 lg:grid-cols-2 lg:items-end lg:gap-16"
-    >
-      <div>
-        <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-primary">
-          {eyebrow}
-        </p>
-        <h2 className="font-display text-3xl font-semibold leading-[1.05] tracking-tight sm:text-5xl">
+    <motion.div {...reveal} className="border-t border-foreground pt-5">
+      <p className="label-mono flex items-center gap-2 text-muted-foreground">
+        <span className="size-1.5 bg-primary" aria-hidden="true" />
+        {number && <span className="text-foreground">{number}</span>}
+        {eyebrow}
+      </p>
+      <div className="mt-6 grid gap-5 lg:grid-cols-12 lg:items-end lg:gap-10">
+        <h2 className="font-poster text-[clamp(2.75rem,6.4vw,6rem)] uppercase leading-[0.92] tracking-normal text-foreground lg:col-span-7">
           {title}
         </h2>
+        {text && (
+          <p className="max-w-xl text-lg leading-relaxed text-muted-foreground lg:col-span-5 lg:justify-self-end">
+            {text}
+          </p>
+        )}
       </div>
-      {text && (
-        <p className="max-w-xl text-lg leading-relaxed text-muted-foreground lg:justify-self-end">
-          {text}
-        </p>
-      )}
     </motion.div>
   );
 }

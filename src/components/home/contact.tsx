@@ -13,7 +13,7 @@ export function Contact() {
   return (
     <section
       id={ids.contact}
-      className="relative scroll-mt-20 overflow-hidden bg-primary py-24 text-primary-foreground sm:py-36"
+      className="relative scroll-mt-20 overflow-hidden bg-primary py-20 text-primary-foreground sm:py-28"
     >
       <div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(40rem_28rem_at_20%_10%,rgba(255,255,255,0.22),transparent_70%),radial-gradient(36rem_26rem_at_85%_85%,rgba(255,255,255,0.14),transparent_70%)]"
@@ -21,8 +21,12 @@ export function Contact() {
       />
       <div className="relative z-10 mx-auto grid max-w-[90rem] gap-16 px-5 lg:grid-cols-2 lg:px-10">
         <div>
-          <p className="text-xs font-semibold uppercase opacity-70">{t.kicker}</p>
-          <h2 className="mt-8 font-display text-5xl font-semibold leading-[0.95] sm:text-7xl">
+          <p className="label-mono flex items-center gap-2 opacity-80">
+            <span className="size-1.5 bg-[var(--logo-gold)]" aria-hidden="true" />
+            <span>08</span>
+            {t.kicker}
+          </p>
+          <h2 className="mt-8 font-poster text-[clamp(3.25rem,7vw,6.5rem)] uppercase leading-[0.96] tracking-normal">
             {t.title}
           </h2>
           <p className="mt-7 max-w-lg text-lg leading-relaxed opacity-75">{t.text}</p>

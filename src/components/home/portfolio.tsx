@@ -32,8 +32,13 @@ export function Portfolio() {
   return (
     <section id={ids.portfolio} className="relative scroll-mt-20 py-16 sm:py-24">
       <div className="mx-auto max-w-[90rem] px-5 lg:px-10">
-        <div className="flex items-end justify-between gap-6">
-          <h2 className="font-poster text-[clamp(3.5rem,10vw,8rem)] uppercase leading-[0.86] text-foreground">
+        <p className="label-mono flex items-center gap-2 text-muted-foreground">
+          <span className="size-1.5 bg-primary" aria-hidden="true" />
+          <span className="text-foreground">01</span>
+          {t.eyebrow}
+        </p>
+        <div className="mt-4 flex items-end justify-between gap-6">
+          <h2 className="font-poster text-[clamp(3.5rem,10vw,8rem)] uppercase leading-[0.86] tracking-normal text-foreground">
             {t.title}
             <span className="text-primary">.</span>
           </h2>

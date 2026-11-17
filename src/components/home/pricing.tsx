@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { ArrowRight, CalendarClock, Check, Wrench } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowRight, Check } from "lucide-react";
 import { getPricingContent } from "@/content/pricing";
 import { useLocale, useSectionIds, useUi } from "@/lib/i18n";
 import { reveal } from "@/lib/motion";
@@ -11,9 +10,12 @@ type PricingProps = {
   title?: string;
   /** Na početnoj ide link ka zasebnoj stranici sa cenama. */
   showMoreLink?: boolean;
+  /** Redni broj sekcije (samo na početnoj). */
+  number?: string;
 };
 
-export function Pricing({ title, showMoreLink = false }: PricingProps) {
+/** Paketi: tri kolone u rasteru, najpopularniji je taman; ispod kalendar i održavanje. */
+export function Pricing({ title, showMoreLink = false, number }: PricingProps) {
   const locale = useLocale();
   const t = useUi().pricing;
   const ids = useSectionIds();
@@ -24,31 +26,37 @@ export function Pricing({ title, showMoreLink = false }: PricingProps) {
     notes: pricingNotes,
   } = getPricingContent(locale);
   return (
-    <section id={ids.pricing} className="scroll-mt-20 py-20 sm:py-28">
+    <section id={ids.pricing} className="scroll-mt-20 py-16 sm:py-24">
       <div className="mx-auto max-w-[90rem] px-5 lg:px-10">
-        <SectionTitle eyebrow={t.eyebrow} title={title ?? t.title} text={t.text} />
+        <SectionTitle number={number} eyebrow={t.eyebrow} title={title ?? t.title} text={t.text} />
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+        <div className="mt-10 grid gap-4 lg:grid-cols-3">
           {pricingPlans.map((plan) => (
             <motion.article
               {...reveal}
               key={plan.name}
-              className={`glass flex flex-col p-8 sm:p-10 ${
-                plan.featured ? "ring-2 ring-primary" : ""
+              className={`flex flex-col rounded-[var(--radius)] border p-7 sm:p-8 ${
+                plan.featured
+                  ? "dark border-transparent bg-background text-foreground"
+                  : "border-foreground/15 bg-card"
               }`}
             >
               <div className="flex items-center justify-between gap-3">
-                <h3 className="font-display text-2xl font-semibold">{plan.name}</h3>
+                <h3 className="label-mono text-sm text-foreground">{plan.name}</h3>
                 {plan.featured && (
-                  <span className="rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">
+                  <span className="label-mono bg-[var(--logo-gold)] px-2 py-1 text-[0.625rem] text-[oklch(0.2_0.02_160)]">
                     {t.popular}
                   </span>
                 )}
               </div>
-              <p className="mt-6 text-sm text-muted-foreground">{t.from}</p>
-              <p className="font-display text-5xl font-semibold tracking-tight">{plan.price}</p>
+              <p className="mt-8 flex items-baseline gap-2">
+                <span className="label-mono text-muted-foreground">{t.from}</span>
+                <span className="font-poster text-7xl leading-none tracking-normal">
+                  {plan.price}
+                </span>
+              </p>
               <p className="mt-4 leading-relaxed text-muted-foreground">{plan.description}</p>
-              <ul className="mt-8 grid flex-1 content-start gap-3 text-sm">
+              <ul className="mt-6 grid flex-1 content-start gap-3 border-t border-foreground/15 pt-6 text-sm">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3">
                     <Check className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
@@ -56,69 +64,73 @@ export function Pricing({ title, showMoreLink = false }: PricingProps) {
                   </li>
                 ))}
               </ul>
-              <Button
-                variant={plan.featured ? "hero" : "heroOutline"}
-                size="lg"
-                className="mt-10 w-full rounded-2xl"
-                asChild
+              <Link
+                to={home}
+                hash={ids.contact}
+                className={`group mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-full text-sm font-semibold transition-colors ${
+                  plan.featured
+                    ? "bg-primary text-primary-foreground hover:bg-primary-bright"
+                    : "border border-foreground text-foreground hover:bg-foreground hover:text-background"
+                }`}
               >
-                <Link to={home} hash={ids.contact}>
-                  {t.requestQuote} <ArrowRight className="size-4" />
-                </Link>
-              </Button>
+                {t.requestQuote}
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+              </Link>
             </motion.article>
           ))}
         </div>
 
-        <div className="mt-6 grid gap-6 md:grid-cols-2">
-          <motion.article {...reveal} className="glass flex flex-col gap-5 p-8">
-            <div className="flex items-center gap-3">
-              <span className="glass-soft flex size-11 items-center justify-center rounded-full text-primary">
-                <CalendarClock className="size-5" aria-hidden="true" />
-              </span>
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
+          <motion.article
+            {...reveal}
+            className="flex flex-col gap-4 rounded-[var(--radius)] border border-foreground/15 p-7"
+          >
+            <div className="flex items-baseline justify-between gap-4">
               <h3 className="font-display text-xl font-semibold">{t.calendarTitle}</h3>
+              <p className="label-mono shrink-0 text-foreground">{t.onRequest}</p>
             </div>
             <p className="leading-relaxed text-muted-foreground">{t.calendarText}</p>
-            <p className="font-display text-2xl font-semibold">{t.onRequest}</p>
           </motion.article>
 
-          <motion.article {...reveal} className="glass flex flex-col gap-5 p-8">
-            <div className="flex items-center gap-3">
-              <span className="glass-soft flex size-11 items-center justify-center rounded-full text-primary">
-                <Wrench className="size-5" aria-hidden="true" />
-              </span>
+          <motion.article
+            {...reveal}
+            className="flex flex-col gap-4 rounded-[var(--radius)] border border-foreground/15 p-7"
+          >
+            <div className="flex items-baseline justify-between gap-4">
               <h3 className="font-display text-xl font-semibold">{maintenancePlan.name}</h3>
+              <p className="shrink-0">
+                <span className="font-poster text-3xl tracking-normal">
+                  {maintenancePlan.price}
+                </span>{" "}
+                <span className="label-mono text-muted-foreground">{maintenancePlan.suffix}</span>
+              </p>
             </div>
-            <ul className="grid gap-2 text-sm text-muted-foreground">
+            <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
               {maintenancePlan.features.map((feature) => (
-                <li key={feature} className="flex items-start gap-3">
+                <li key={feature} className="flex items-start gap-2">
                   <Check className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
                   {feature}
                 </li>
               ))}
             </ul>
-            <p className="font-display text-2xl font-semibold">
-              {maintenancePlan.price}{" "}
-              <span className="text-base font-medium text-muted-foreground">
-                {maintenancePlan.suffix}
-              </span>
-            </p>
           </motion.article>
         </div>
 
-        <ul className="mt-8 space-y-1 text-sm text-muted-foreground">
-          {pricingNotes.map((note) => (
-            <li key={note}>{note}</li>
-          ))}
-        </ul>
-        {showMoreLink && (
-          <Link
-            to="/cene-izrade-sajta"
-            className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary underline-offset-4 hover:underline"
-          >
-            {t.moreLink} <ArrowRight className="size-4" />
-          </Link>
-        )}
+        <div className="mt-6 flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+          <ul className="space-y-1 text-sm text-muted-foreground">
+            {pricingNotes.map((note) => (
+              <li key={note}>{note}</li>
+            ))}
+          </ul>
+          {showMoreLink && (
+            <Link
+              to="/cene-izrade-sajta"
+              className="inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-foreground underline decoration-border underline-offset-4 hover:decoration-foreground"
+            >
+              {t.moreLink} <ArrowRight className="size-4" />
+            </Link>
+          )}
+        </div>
       </div>
     </section>
   );

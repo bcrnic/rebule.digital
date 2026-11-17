@@ -10,10 +10,10 @@ export function About() {
   const ids = useSectionIds();
   const { aboutStats } = getHomeContent(locale);
   return (
-    <section id={ids.about} className="scroll-mt-20 bg-surface/40 py-20 sm:py-28">
+    <section id={ids.about} className="scroll-mt-20 py-16 sm:py-24">
       <div className="mx-auto max-w-[90rem] px-5 lg:px-10">
-        <SectionTitle eyebrow={t.eyebrow} title={t.title} />
-        <div className="mt-12 grid gap-10 lg:grid-cols-12 lg:gap-16">
+        <SectionTitle number="02" eyebrow={t.eyebrow} title={t.title} />
+        <div className="mt-10 grid gap-10 lg:grid-cols-12 lg:gap-16">
           <motion.div {...reveal} className="lg:col-span-6">
             <p className="font-display text-3xl font-semibold sm:text-4xl">{t.hello}</p>
             <div className="mt-6 max-w-2xl space-y-4 text-lg leading-relaxed text-muted-foreground">

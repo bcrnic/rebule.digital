@@ -1,53 +1,39 @@
 import { motion } from "motion/react";
-import { Quote, Sparkles, Star } from "lucide-react";
 import { getHomeContent } from "@/content/home";
 import { useLocale, useSectionIds, useUi } from "@/lib/i18n";
 import { reveal } from "@/lib/motion";
 import { SectionTitle } from "./section-title";
 
+/** Utisci klijenata: citat, ime firme i delatnost, i jedna konkretna stvar koju su dobili. */
 export function Testimonials() {
   const locale = useLocale();
   const t = useUi().testimonials;
   const ids = useSectionIds();
   const { testimonials } = getHomeContent(locale);
+  const [open, close] = locale === "en" ? ["“", "”"] : ["„", "“"];
   return (
-    <section id={ids.testimonials} className="scroll-mt-20 py-20 sm:py-28">
+    <section id={ids.testimonials} className="scroll-mt-20 py-16 sm:py-24">
       <div className="mx-auto max-w-[90rem] px-5 lg:px-10">
-        <SectionTitle eyebrow={t.eyebrow} title={t.title} text={t.text} />
-        <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <SectionTitle number="06" eyebrow={t.eyebrow} title={t.title} text={t.text} />
+        <div className="-mx-5 mt-10 flex scroll-px-5 snap-x snap-mandatory gap-6 overflow-x-auto px-5 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-x-12 sm:overflow-visible sm:px-0">
           {testimonials.map((item) => (
             <motion.figure
               {...reveal}
               key={item.name}
-              className="glass flex flex-col justify-between p-8 sm:p-10"
+              className="flex w-[85%] shrink-0 snap-start flex-col justify-between gap-6 border-b border-foreground/15 py-8 sm:w-auto"
             >
-              <div>
-                <div className="flex items-center justify-between gap-4">
-                  <div className="flex gap-1 text-amber-500" role="img" aria-label={t.stars}>
-                    {Array.from({ length: 5 }, (_, i) => (
-                      <Star key={i} className="size-4 fill-amber-500" aria-hidden="true" />
-                    ))}
-                  </div>
-                  <Quote className="size-6 text-primary/40" aria-hidden="true" />
-                </div>
-                <blockquote className="mt-6 text-lg leading-relaxed text-foreground">
-                  {locale === "en" ? `“${item.text}”` : `„${item.text}“`}
-                </blockquote>
-              </div>
-
-              <figcaption className="mt-8 border-t border-border pt-6">
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <div>
-                    <p className="font-display text-base font-semibold text-foreground">
-                      {item.name}
-                    </p>
-                    <p className="text-xs text-muted-foreground">{item.role}</p>
-                  </div>
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-                    <Sparkles className="size-3.5" aria-hidden="true" />
-                    {item.highlight}
-                  </span>
-                </div>
+              <blockquote className="font-display text-xl font-medium leading-snug tracking-tight text-foreground sm:text-2xl">
+                {open}
+                {item.text}
+                {close}
+              </blockquote>
+              <figcaption className="flex flex-wrap items-center justify-between gap-3">
+                <span className="label-mono text-foreground">
+                  {item.name} <span className="text-muted-foreground">· {item.role}</span>
+                </span>
+                <span className="label-mono bg-primary/10 px-2 py-1 text-[0.625rem] text-primary">
+                  {item.highlight}
+                </span>
               </figcaption>
             </motion.figure>
           ))}

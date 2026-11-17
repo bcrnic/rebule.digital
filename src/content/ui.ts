@@ -65,12 +65,12 @@ const sr = {
   },
   services: {
     eyebrow: "Usluge",
-    title: "Izrada sajtova i zakazivanje termina za vaš posao.",
+    title: "Šta dobijate",
     text: "Za mikro firme iz Novog Sada i cele Srbije. Bez komplikovanja i skrivenih troškova: brz, jasan sajt napravljen prema stvarnim potrebama vaših klijenata.",
   },
   pricing: {
     eyebrow: "Cene",
-    title: "Cene izrade sajta: jasni paketi, bez skrivenih troškova.",
+    title: "Cene bez iznenađenja",
     text: "Fiksna cena dogovorena unapred. Izaberite paket koji odgovara vašem poslu, a ostalo rešavamo na razgovoru.",
     popular: "Najpopularnije",
     from: "od",
@@ -99,26 +99,40 @@ const sr = {
   },
   testimonials: {
     eyebrow: "Utisci klijenata",
-    title: "Šta kažu vlasnici sa kojima sarađujem.",
+    title: "Šta kažu klijenti",
     text: "Direktna saradnja, jasna komunikacija i rešenja prilagođena konkretnom poslu.",
     stars: "5 od 5 zvezdica",
   },
   about: {
     eyebrow: "O meni",
-    title: "Iza svakog sajta stojim lično ja.",
+    title: "Iza svakog sajta stojim ja",
     hello: "Zdravo, ja sam Bojan.",
     p1: "Developer iz Novog Sada i osnivač studija rebule. digital. Ime dolazi od „rebel“: velike agencije rade za velike firme, a ja sam na strani salona, majstora i lokalnih firmi.",
     p2: "Od prvog razgovora do lansiranja radite samo sa mnom, bez posrednika. Cenu znate unapred, rok je jasan, a i posle lansiranja sam tu kad vam nešto zatreba.",
     portraitAlt: "Bojan Crnić, osnivač studija rebule. digital",
   },
+  manifest: {
+    eyebrow: "Manifest",
+    title: "Na strani malih.",
+    points: [
+      "Velike agencije rade za velike firme. Ja radim za salone, radionice i lokalne firme.",
+      "Cena se zna pre početka. Bez sitnih slova i naknadnih troškova.",
+      "Sajt je vaš: domen, kod, tekstovi i slike.",
+      "Razgovarate sa onim ko pravi sajt. Bez posrednika.",
+    ],
+  },
+  audience: {
+    title: "Za koga radim",
+    example: "Primer",
+  },
   process: {
     eyebrow: "Kako radimo",
-    title: "Od prvog razgovora do sajta za 7 do 14 dana.",
+    title: "Tri koraka do sajta",
     text: "Bez dugih procesa i bez iznenađenja. Ovako izgleda saradnja.",
   },
   faq: {
     eyebrow: "Česta pitanja",
-    title: "Sve što vas zanima pre početka rada.",
+    title: "Pre nego što krenemo",
     text: "Odgovori na najčešća pitanja o procesu, cenama, rokovima i održavanju.",
   },
   contact: {
@@ -262,12 +276,12 @@ const en: UiStrings = {
   },
   services: {
     eyebrow: "Services",
-    title: "Websites and online booking for your business.",
+    title: "What you get",
     text: "For small businesses in Serbia and abroad. No complications and no hidden costs: a fast, clear website built around what your clients actually need.",
   },
   pricing: {
     eyebrow: "Pricing",
-    title: "Website pricing: clear packages, no hidden costs.",
+    title: "Pricing, no surprises",
     text: "A fixed price agreed upfront. Pick the package that fits your business, and we will sort out the details on a call.",
     popular: "Most popular",
     from: "from",
@@ -296,26 +310,40 @@ const en: UiStrings = {
   },
   testimonials: {
     eyebrow: "Client feedback",
-    title: "What the business owners I work with say.",
+    title: "What clients say",
     text: "Direct collaboration, clear communication and solutions built for each business.",
     stars: "5 out of 5 stars",
   },
   about: {
     eyebrow: "About me",
-    title: "Every website is built by me, personally.",
+    title: "Every site is built by me",
     hello: "Hi, I'm Bojan.",
     p1: "Developer from Novi Sad and founder of rebule. digital. The name comes from “rebel”: big agencies work for big companies, and I'm on the side of salons, tradespeople and local businesses.",
     p2: "From the first call to launch you work only with me, with no middlemen. The price is fixed up front, the deadline is clear, and I'm still around after launch whenever you need something.",
     portraitAlt: "Bojan Crnić, founder of rebule. digital",
   },
+  manifest: {
+    eyebrow: "Manifesto",
+    title: "On the side of the little guy.",
+    points: [
+      "Big agencies work for big companies. I work for salons, workshops and local businesses.",
+      "You know the price before we start. No small print and no extra costs later.",
+      "The website is yours: domain, code, copy and images.",
+      "You talk to the person who builds your site. No middlemen.",
+    ],
+  },
+  audience: {
+    title: "Who I work with",
+    example: "Example",
+  },
   process: {
     eyebrow: "How it works",
-    title: "From the first call to a live website in 7 to 14 days.",
+    title: "Three steps to launch",
     text: "No long processes and no surprises. This is what working together looks like.",
   },
   faq: {
     eyebrow: "FAQ",
-    title: "Everything you want to know before we start.",
+    title: "Before we start",
     text: "Answers to the most common questions about the process, pricing, timelines and maintenance.",
   },
   contact: {

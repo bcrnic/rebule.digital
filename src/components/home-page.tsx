@@ -1,8 +1,8 @@
 import { About } from "@/components/home/about";
-import { Audience } from "@/components/home/audience";
 import { Contact } from "@/components/home/contact";
 import { Faq } from "@/components/home/faq";
 import { Hero } from "@/components/home/hero";
+import { Manifest } from "@/components/home/manifest";
 import { Portfolio } from "@/components/home/portfolio";
 import { Process } from "@/components/home/process";
 import { Pricing } from "@/components/home/pricing";
@@ -33,13 +33,13 @@ export function HomePage() {
         <Hero />
         {/* Radovi odmah posle uvoda: za studio su oni glavni dokaz. */}
         <Portfolio />
+        <Manifest />
         <About />
+        {/* Usluge; na srpskom i delatnosti koje vode na stranice usluga. */}
         <Services />
-        {/* Delatnosti vode na srpske stranice usluga, pa samo na srpskoj verziji. */}
-        {locale === "sr" && <Audience />}
         <Process />
         {/* Zasebna stranica sa cenama postoji samo na srpskom. */}
-        <Pricing showMoreLink={locale === "sr"} />
+        <Pricing number="05" showMoreLink={locale === "sr"} />
         <Testimonials />
         <Faq />
         <Contact />
