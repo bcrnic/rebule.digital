@@ -8,6 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { MotionConfig } from "motion/react";
+import { CursorLabel } from "@/components/cursor-label";
 import type { ReactNode } from "react";
 import { htmlLang, useLocale, useUi } from "@/lib/i18n";
 import { businessSchema } from "@/lib/schema";
@@ -169,6 +170,7 @@ function RootComponent() {
           {t.skipToContent}
         </a>
         <Outlet />
+        <CursorLabel />
       </MotionConfig>
     </QueryClientProvider>
   );

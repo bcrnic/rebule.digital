@@ -32,25 +32,22 @@ export function Contact() {
           </h2>
           <p className="mt-7 max-w-lg text-lg leading-relaxed opacity-75">{t.text}</p>
           <div className="mt-12 space-y-4 text-sm">
-            <a
-              className="flex items-center gap-3 transition-opacity hover:opacity-75"
-              href={`mailto:${CONTACT.email}`}
-            >
-              <Mail className="size-5" aria-hidden="true" /> {CONTACT.email}
+            <a className="flex w-fit items-center gap-3" href={`mailto:${CONTACT.email}`}>
+              <Mail className="size-5" aria-hidden="true" />
+              <span className="link-wipe">{CONTACT.email}</span>
+            </a>
+            <a className="flex w-fit items-center gap-3" href={`tel:${CONTACT.phone}`}>
+              <Phone className="size-5" aria-hidden="true" />
+              <span className="link-wipe">{CONTACT.phoneLabel}</span>
             </a>
             <a
-              className="flex items-center gap-3 transition-opacity hover:opacity-75"
-              href={`tel:${CONTACT.phone}`}
-            >
-              <Phone className="size-5" aria-hidden="true" /> {CONTACT.phoneLabel}
-            </a>
-            <a
-              className="flex items-center gap-3 font-semibold transition-opacity hover:opacity-75"
+              className="flex w-fit items-center gap-3 font-semibold"
               href={locale === "en" ? whatsappLink(WHATSAPP_MESSAGE_EN) : whatsappLink()}
               target="_blank"
               rel="noreferrer noopener"
             >
-              <SiWhatsapp className="size-5" aria-hidden="true" /> {t.whatsapp}
+              <SiWhatsapp className="size-5" aria-hidden="true" />
+              <span className="link-wipe">{t.whatsapp}</span>
             </a>
             <p className="flex items-center gap-3 opacity-75">
               <MapPin className="size-5" aria-hidden="true" /> {CONTACT.city} · {t.location}

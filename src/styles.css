@@ -396,3 +396,67 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
+
+/*
+ * Podvlaka koja se briše: na hover stara (bleda) linija nestane nadesno, a nova
+ * se iscrta s leva. Klasa ide na tekst (span) unutar linka, pa linija ne ide ispod ikone.
+ */
+@utility link-wipe {
+  position: relative;
+  display: inline-block;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: -0.15em;
+    height: 1px;
+    background: currentColor;
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  &::before {
+    opacity: 0.35;
+    transform-origin: right center;
+  }
+  &::after {
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+  :where(a:hover, a:focus-visible) &::before {
+    transform: scaleX(0);
+  }
+  :where(a:hover, a:focus-visible) &::after {
+    transform: scaleX(1);
+    transition-delay: 0.18s;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    &::before,
+    &::after {
+      transition: none;
+    }
+  }
+}
+
+/*
+ * Prelaz između stranica (View Transitions): nova stranica izlazi odozdo, a stara se
+ * blago povuče i potamni. Router ga pokreće samo kad se menja putanja, ne za #sidra.
+ */
+@keyframes vt-rise {
+  from {
+    transform: translateY(100vh);
+  }
+}
+@keyframes vt-sink {
+  to {
+    transform: translateY(-8vh) scale(0.95);
+    filter: brightness(0.55);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html:active-view-transition-type(rise)::view-transition-old(root) {
+    animation: vt-sink 0.5s cubic-bezier(0.65, 0, 0.35, 1) both;
+  }
+  html:active-view-transition-type(rise)::view-transition-new(root) {
+    animation: vt-rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}

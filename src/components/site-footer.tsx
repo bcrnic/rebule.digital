@@ -32,7 +32,7 @@ export function SiteFooter() {
               {landingPages.map((page) => (
                 <li key={page.path}>
                   <Link to={page.path} className="transition-colors hover:text-primary">
-                    {page.navLabel}
+                    <span className="link-wipe">{page.navLabel}</span>
                   </Link>
                 </li>
               ))}
@@ -69,9 +69,9 @@ export function SiteFooter() {
           </span>
           <Link
             to={locale === "en" ? "/en/privacy" : "/privatnost"}
-            className="underline-offset-4 transition-colors hover:text-primary hover:underline"
+            className="transition-colors hover:text-primary"
           >
-            {t.privacy}
+            <span className="link-wipe">{t.privacy}</span>
           </Link>
         </div>
       </div>

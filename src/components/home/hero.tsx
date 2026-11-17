@@ -99,10 +99,10 @@ export function Hero() {
                       href={locale === "en" ? whatsappLink(WHATSAPP_MESSAGE_EN) : whatsappLink()}
                       target="_blank"
                       rel="noreferrer noopener"
-                      className="inline-flex w-fit items-center gap-2 text-sm font-medium text-muted-foreground underline decoration-border underline-offset-4 transition-colors hover:text-foreground hover:decoration-foreground"
+                      className="inline-flex w-fit items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
                     >
                       <SiWhatsapp className="size-4 text-[#25D366]" aria-hidden="true" />
-                      {t.whatsapp}
+                      <span className="link-wipe">{t.whatsapp}</span>
                     </a>
                   </div>
                 </div>
