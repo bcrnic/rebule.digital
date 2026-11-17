@@ -8,22 +8,14 @@ const PHOTOS = [portrait1, portrait2, portrait3];
 const FLIP_MS = 420;
 
 /**
- * Portret u hero sekciji: u mirovanju crno-beo, a na hover dobije boju, blago se
- * približi i "lista" kroz tri fotografije kao stop-motion. Natpis se zarola u drugi.
- * Na telefonu isto radi na dodir (dodir ponovo vraća crno-belo).
+ * Portret u hero sekciji: na hover se blago približi i "lista" kroz tri fotografije
+ * kao stop-motion, a kad miš ode vrati se na prvu. Na telefonu isto radi na dodir
+ * (drugi dodir zaustavlja).
  *
  * Prva slika je LCP element (eager, fetchPriority high); ostale se učitavaju lenjo.
- * Uz smanjeno kretanje ili pauzirane animacije nema listanja, samo boja.
+ * Uz smanjeno kretanje ili pauzirane animacije nema listanja.
  */
-export function PortraitFlip({
-  alt,
-  label,
-  colorLabel,
-}: {
-  alt: string;
-  label: string;
-  colorLabel: string;
-}) {
+export function PortraitFlip({ alt, label }: { alt: string; label: string }) {
   const [active, setActive] = useState(false);
   const [index, setIndex] = useState(0);
   const [canHover, setCanHover] = useState(true);
@@ -67,23 +59,13 @@ export function PortraitFlip({
           decoding="async"
           loading={i === 0 ? "eager" : "lazy"}
           fetchPriority={i === 0 ? "high" : "low"}
-          className={`absolute inset-0 h-full w-full object-cover object-top transition-[filter,scale] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+          className={`absolute inset-0 h-full w-full object-cover object-top transition-[scale] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
             i === index ? "opacity-100" : "opacity-0"
-          } ${active ? "scale-[1.04] contrast-100 grayscale-0" : "scale-100 grayscale contrast-[1.06]"}`}
+          } ${active ? "scale-[1.04]" : "scale-100"}`}
         />
       ))}
-      <figcaption className="label-mono absolute bottom-1.5 left-1.5 z-10 grid overflow-hidden whitespace-nowrap bg-foreground px-1.5 py-0.5 text-[0.5rem] text-background sm:bottom-2 sm:left-2 sm:text-[0.625rem]">
-        <span
-          className={`[grid-area:1/1] transition-transform duration-500 motion-reduce:transition-none ${active ? "-translate-y-[120%]" : ""}`}
-        >
-          {label}
-        </span>
-        <span
-          aria-hidden="true"
-          className={`[grid-area:1/1] transition-transform duration-500 motion-reduce:transition-none ${active ? "" : "translate-y-[120%]"}`}
-        >
-          {colorLabel}
-        </span>
+      <figcaption className="label-mono absolute bottom-1.5 left-1.5 z-10 whitespace-nowrap bg-foreground px-1.5 py-0.5 text-[0.5rem] text-background sm:bottom-2 sm:left-2 sm:text-[0.625rem]">
+        {label}
       </figcaption>
     </figure>
   );

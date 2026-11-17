@@ -148,11 +148,7 @@ export function Hero() {
             {/* Desno: lice studija, kratko obećanje, poziv na razgovor i utisak klijenta. */}
             <div className="flex flex-col justify-end gap-8 lg:col-span-5">
               <div className="grid grid-cols-[minmax(0,9rem)_1fr] gap-5 sm:grid-cols-[minmax(0,13rem)_1fr]">
-                <PortraitFlip
-                  alt={t.portraitAlt}
-                  label={t.portraitLabel}
-                  colorLabel={t.portraitLabelColor}
-                />
+                <PortraitFlip alt={t.portraitAlt} label={t.portraitLabel} />
                 <div className="flex flex-col justify-between gap-5">
                   <p className="text-base leading-relaxed text-foreground/80 sm:text-lg">
                     {t.lede}
