@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { MaskedWords } from "@/components/ui/masked-words";
 import { reveal } from "@/lib/motion";
 
 type SectionTitleProps = {
@@ -23,7 +24,7 @@ export function SectionTitle({ eyebrow, title, text, number }: SectionTitleProps
       </p>
       <div className="mt-6 grid gap-5 lg:grid-cols-12 lg:items-end lg:gap-10">
         <h2 className="font-poster text-[clamp(2.75rem,6.4vw,6rem)] uppercase leading-[0.92] tracking-normal text-foreground lg:col-span-7">
-          {title}
+          <MaskedWords text={title} />
         </h2>
         {text && (
           <p className="max-w-xl text-lg leading-relaxed text-muted-foreground lg:col-span-5 lg:justify-self-end">

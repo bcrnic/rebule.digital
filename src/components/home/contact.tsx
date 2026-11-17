@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
+import { MaskedWords } from "@/components/ui/masked-words";
 import { useLocale, useSectionIds, useUi } from "@/lib/i18n";
 import { CONTACT, WHATSAPP_MESSAGE_EN, whatsappLink } from "@/lib/site";
 import { ContactForm } from "./contact-form";
@@ -27,29 +28,26 @@ export function Contact() {
             {t.kicker}
           </p>
           <h2 className="mt-8 font-poster text-[clamp(3.25rem,7vw,6.5rem)] uppercase leading-[0.96] tracking-normal">
-            {t.title}
+            <MaskedWords text={t.title} />
           </h2>
           <p className="mt-7 max-w-lg text-lg leading-relaxed opacity-75">{t.text}</p>
           <div className="mt-12 space-y-4 text-sm">
-            <a
-              className="flex items-center gap-3 transition-opacity hover:opacity-75"
-              href={`mailto:${CONTACT.email}`}
-            >
-              <Mail className="size-5" aria-hidden="true" /> {CONTACT.email}
+            <a className="flex w-fit items-center gap-3" href={`mailto:${CONTACT.email}`}>
+              <Mail className="size-5" aria-hidden="true" />
+              <span className="link-wipe">{CONTACT.email}</span>
+            </a>
+            <a className="flex w-fit items-center gap-3" href={`tel:${CONTACT.phone}`}>
+              <Phone className="size-5" aria-hidden="true" />
+              <span className="link-wipe">{CONTACT.phoneLabel}</span>
             </a>
             <a
-              className="flex items-center gap-3 transition-opacity hover:opacity-75"
-              href={`tel:${CONTACT.phone}`}
-            >
-              <Phone className="size-5" aria-hidden="true" /> {CONTACT.phoneLabel}
-            </a>
-            <a
-              className="flex items-center gap-3 font-semibold transition-opacity hover:opacity-75"
+              className="flex w-fit items-center gap-3 font-semibold"
               href={locale === "en" ? whatsappLink(WHATSAPP_MESSAGE_EN) : whatsappLink()}
               target="_blank"
               rel="noreferrer noopener"
             >
-              <SiWhatsapp className="size-5" aria-hidden="true" /> {t.whatsapp}
+              <SiWhatsapp className="size-5" aria-hidden="true" />
+              <span className="link-wipe">{t.whatsapp}</span>
             </a>
             <p className="flex items-center gap-3 opacity-75">
               <MapPin className="size-5" aria-hidden="true" /> {CONTACT.city} · {t.location}

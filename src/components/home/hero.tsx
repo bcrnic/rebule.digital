@@ -1,32 +1,108 @@
-import { ArrowRight } from "lucide-react";
+import { Pause, Play } from "lucide-react";
+import { useEffect, useRef } from "react";
 import { SiWhatsapp } from "react-icons/si";
 import portrait from "@/assets/bojan-crnic.webp";
+import { RollCtaInner } from "@/components/ui/roll-cta";
+import { rollCtaClass } from "@/components/ui/roll-cta-class";
+import { WordRotator } from "@/components/ui/word-rotator";
 import { getHomeContent } from "@/content/home";
 import { useLocale, useSectionIds, useUi } from "@/lib/i18n";
+import { isMotionPaused, setMotionPaused, useMotionPaused } from "@/lib/motion-pause";
 import { WHATSAPP_MESSAGE_EN, whatsappLink } from "@/lib/site";
 
-/** Traka sa uslugama: niz se ponavlja dvaput da animacija može da se vrti bez skoka. */
+/**
+ * Traka sa uslugama: niz se ponavlja dvaput da animacija može da se vrti bez skoka.
+ * Na skrol se ubrza, okrene smer zajedno sa skrolom i malo iskosi, pa se smiri.
+ * Dugme na kraju trake pauzira sve animacije koje se same kreću (WCAG 2.2.2).
+ */
 function Marquee() {
   const t = useUi().hero;
   const items = [...t.marquee, ...t.marquee];
+  const trackRef = useRef<HTMLDivElement>(null);
+  const skewRef = useRef<HTMLDivElement>(null);
+  const paused = useMotionPaused();
+
+  useEffect(() => {
+    const track = trackRef.current;
+    const skew = skewRef.current;
+    const animation = track?.getAnimations()[0];
+    if (!track || !skew || !animation) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    // Pomeri početak daleko unapred da i vožnja unazad ima kuda (inače stane na nuli).
+    const cycle = Number(animation.effect?.getComputedTiming().duration) || 38000;
+    animation.currentTime = cycle * 1000;
+
+    let last = window.scrollY;
+    let dir = 1;
+    let boost = 0;
+    let rate = 1;
+    let tilt = 0;
+    let tiltTarget = 0;
+    let frame = 0;
+
+    const tick = () => {
+      boost *= 0.92;
+      tiltTarget *= 0.85;
+      rate += (dir * (1 + boost) - rate) * 0.12;
+      tilt += (tiltTarget - tilt) * 0.2;
+      animation.playbackRate = rate;
+      skew.style.transform = `skewX(${tilt.toFixed(2)}deg)`;
+      const settled = boost < 0.01 && Math.abs(tilt) < 0.05 && Math.abs(rate - dir) < 0.01;
+      frame = settled ? 0 : requestAnimationFrame(tick);
+    };
+
+    const onScroll = () => {
+      const d = window.scrollY - last;
+      last = window.scrollY;
+      if (!d || isMotionPaused()) return;
+      dir = Math.sign(d);
+      boost = Math.max(boost, Math.min(Math.abs(d) / 18, 4));
+      tiltTarget = -Math.max(-6, Math.min(6, d * 0.25));
+      if (!frame) frame = requestAnimationFrame(tick);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(frame);
+    };
+  }, []);
+
   return (
     <div
       className="relative overflow-hidden border-y border-foreground bg-foreground py-3 text-background sm:py-4"
       role="region"
       aria-label={t.marqueeAria}
     >
-      <div className="marquee-track flex w-max items-center" aria-hidden="true">
-        {items.map((item, i) => (
-          <span key={i} className="flex items-center">
-            <span className="whitespace-nowrap px-5 font-poster text-2xl uppercase leading-none tracking-normal sm:px-7 sm:text-4xl">
-              {item}
+      <div ref={skewRef} className="will-change-transform">
+        <div ref={trackRef} className="marquee-track flex w-max items-center" aria-hidden="true">
+          {items.map((item, i) => (
+            <span key={i} className="flex items-center">
+              <span className="whitespace-nowrap px-5 font-poster text-2xl uppercase leading-none tracking-normal sm:px-7 sm:text-4xl">
+                {item}
+              </span>
+              <span className="font-poster text-2xl leading-none text-[var(--logo-gold)] sm:text-4xl">
+                ✱
+              </span>
             </span>
-            <span className="font-poster text-2xl leading-none text-[var(--logo-gold)] sm:text-4xl">
-              ✱
-            </span>
-          </span>
-        ))}
+          ))}
+        </div>
       </div>
+      <button
+        type="button"
+        onClick={() => setMotionPaused(!paused)}
+        aria-pressed={paused}
+        aria-label={paused ? t.playMotion : t.pauseMotion}
+        title={paused ? t.playMotion : t.pauseMotion}
+        className="absolute right-2 top-1/2 flex size-8 -translate-y-1/2 items-center justify-center rounded-full border border-background/30 bg-foreground text-background transition-colors hover:bg-background hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--logo-gold)] sm:right-4 sm:size-9"
+      >
+        {paused ? (
+          <Play className="size-3.5" aria-hidden="true" />
+        ) : (
+          <Pause className="size-3.5" aria-hidden="true" />
+        )}
+      </button>
     </div>
   );
 }
@@ -60,7 +136,7 @@ export function Hero() {
                       {line}
                     </span>
                   ))}
-                  <span className="block text-primary">{t.titleAccent}</span>
+                  <WordRotator words={[t.titleAccent, ...t.titleRotate]} className="text-primary" />
                 </span>
                 <span className="label-mono mt-6 flex items-center gap-2 text-muted-foreground">
                   <span className="size-1.5 bg-foreground" aria-hidden="true" />
@@ -91,23 +167,17 @@ export function Hero() {
                     {t.lede}
                   </p>
                   <div className="flex flex-col gap-3">
-                    <a
-                      href={`#${ids.contact}`}
-                      className="group inline-flex w-fit items-center gap-3 rounded-full bg-primary py-2 pl-2 pr-5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-foreground hover:text-background"
-                    >
-                      <span className="flex size-8 items-center justify-center rounded-full bg-primary-foreground text-primary transition-transform group-hover:translate-x-0.5">
-                        <ArrowRight className="size-4" aria-hidden="true" />
-                      </span>
-                      {t.bookCall}
+                    <a href={`#${ids.contact}`} className={rollCtaClass()}>
+                      <RollCtaInner label={t.bookCall} hoverLabel={t.bookCallHover} />
                     </a>
                     <a
                       href={locale === "en" ? whatsappLink(WHATSAPP_MESSAGE_EN) : whatsappLink()}
                       target="_blank"
                       rel="noreferrer noopener"
-                      className="inline-flex w-fit items-center gap-2 text-sm font-medium text-muted-foreground underline decoration-border underline-offset-4 transition-colors hover:text-foreground hover:decoration-foreground"
+                      className="inline-flex w-fit items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
                     >
                       <SiWhatsapp className="size-4 text-[#25D366]" aria-hidden="true" />
-                      {t.whatsapp}
+                      <span className="link-wipe">{t.whatsapp}</span>
                     </a>
                   </div>
                 </div>

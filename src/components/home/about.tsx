@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { getHomeContent } from "@/content/home";
 import { useLocale, useSectionIds, useUi } from "@/lib/i18n";
+import { ScrollWords } from "@/components/ui/scroll-words";
 import { reveal } from "@/lib/motion";
 import { SectionTitle } from "./section-title";
 
@@ -16,9 +17,9 @@ export function About() {
         <div className="mt-10 grid gap-10 lg:grid-cols-12 lg:gap-16">
           <motion.div {...reveal} className="lg:col-span-6">
             <p className="font-display text-3xl font-semibold sm:text-4xl">{t.hello}</p>
-            <div className="mt-6 max-w-2xl space-y-4 text-lg leading-relaxed text-muted-foreground">
-              <p>{t.p1}</p>
-              <p>{t.p2}</p>
+            <div className="mt-6 max-w-2xl space-y-4 text-xl leading-relaxed text-foreground sm:text-2xl">
+              <ScrollWords text={t.p1} />
+              <ScrollWords text={t.p2} />
             </div>
           </motion.div>
           {/* Konkretne činjenice umesto opštih tvrdnji. */}

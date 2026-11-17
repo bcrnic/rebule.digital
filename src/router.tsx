@@ -10,6 +10,14 @@ export const getRouter = () => {
     context: { queryClient },
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
+    // Prelaz između stranica (animacija je u styles.css). Samo kad se menja putanja,
+    // ne za skok na #sidro na istoj stranici, i nikad uz smanjeno kretanje.
+    defaultViewTransition: {
+      types: ({ pathChanged }) =>
+        pathChanged && !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? ["rise"]
+          : false,
+    },
   });
 
   return router;
