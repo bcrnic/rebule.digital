@@ -11,6 +11,7 @@ import { getSpot, spotPoster, spotSrc } from "@/content/spots";
 import { maintenancePlan, pricingPlans } from "@/content/pricing";
 import { getProject, projectSrcSet } from "@/lib/projects";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
+import { requestPackage } from "@/lib/package-request";
 import { seo } from "@/lib/seo";
 import { SITE_URL, absoluteUrl, whatsappLink } from "@/lib/site";
 
@@ -102,7 +103,7 @@ export function LandingPageView({ path }: { path: string }) {
             <div className="mt-8 flex flex-wrap gap-4">
               <Button variant="hero" size="lg" className="rounded-2xl" asChild>
                 <Link to="/" hash="kontakt">
-                  Zakaži besplatan razgovor <ArrowRight className="size-4" />
+                  Zatraži ponudu <ArrowRight className="size-4" />
                 </Link>
               </Button>
               <Button
@@ -201,7 +202,11 @@ export function LandingPageView({ path }: { path: string }) {
               </ul>
               <div className="mt-auto flex flex-wrap gap-4 pt-8">
                 <Button variant="hero" size="lg" className="rounded-2xl" asChild>
-                  <Link to="/" hash="kontakt">
+                  <Link
+                    to="/"
+                    hash="kontakt"
+                    onClick={() => requestPackage({ name: plan.name, price: plan.price })}
+                  >
                     Zatraži ponudu <ArrowRight className="size-4" />
                   </Link>
                 </Button>
@@ -305,7 +310,7 @@ export function LandingPageView({ path }: { path: string }) {
             </div>
             <Button variant="secondary" size="lg" className="rounded-2xl shadow-xl" asChild>
               <Link to="/" hash="kontakt">
-                Zakaži besplatan razgovor <ArrowRight className="size-4" />
+                Zatraži ponudu <ArrowRight className="size-4" />
               </Link>
             </Button>
           </div>

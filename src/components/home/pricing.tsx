@@ -4,6 +4,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { getPricingContent } from "@/content/pricing";
 import { useLocale, useSectionIds, useUi } from "@/lib/i18n";
 import { reveal } from "@/lib/motion";
+import { requestPackage } from "@/lib/package-request";
 import { SectionTitle } from "./section-title";
 
 type PricingProps = {
@@ -67,6 +68,7 @@ export function Pricing({ title, showMoreLink = false, number }: PricingProps) {
               <Link
                 to={home}
                 hash={ids.contact}
+                onClick={() => requestPackage({ name: plan.name, price: plan.price })}
                 className={`group mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-full text-sm font-semibold transition-colors ${
                   plan.featured
                     ? "bg-primary text-primary-foreground hover:bg-primary-bright"

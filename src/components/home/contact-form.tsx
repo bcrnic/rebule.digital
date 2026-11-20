@@ -1,10 +1,11 @@
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "motion/react";
 import { ArrowRight, Check, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { onPackageRequest } from "@/lib/package-request";
 import { useLocale, useUi } from "@/lib/i18n";
 import {
   INQUIRY_FORM_NAME,
@@ -47,11 +48,29 @@ export function ContactForm() {
     register,
     handleSubmit,
     reset,
+    setValue,
+    getValues,
     formState: { errors, isSubmitting },
   } = useForm<Inquiry>({
     resolver: zodResolver(createInquirySchema(locale)),
     defaultValues: { type: projectTypes[0] },
   });
+
+  // Klik na "Zatraži ponudu" kod paketa popunjava vrstu projekta i početak poruke.
+  useEffect(
+    () =>
+      onPackageRequest(({ name, price }) => {
+        const booking = /zakaz|booking/i.test(name);
+        setValue("type", booking ? (projectTypes[1] ?? projectTypes[0]) : projectTypes[0]);
+        const line =
+          locale === "en"
+            ? `I'm interested in the ${name} package (from ${price}). `
+            : `Zanima me paket ${name} (od ${price}). `;
+        const current = getValues("message") ?? "";
+        if (!current.includes(line.trim())) setValue("message", line + current);
+      }),
+    [locale, projectTypes, setValue, getValues],
+  );
 
   const onSubmit = handleSubmit(async (values) => {
     setStatus("idle");
