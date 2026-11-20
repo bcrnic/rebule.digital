@@ -14,29 +14,6 @@ export type ProjectTranslation = {
 };
 
 export const projectsEn: Record<string, ProjectTranslation> = {
-  badbyte: {
-    niche: "Website for a web studio",
-    description:
-      "A website for a web development studio from Novi Sad, with a clear offer, prices and a call to action.",
-    seoDescription:
-      "Case study: a website for a web development studio from Novi Sad with a clear offer, prices, client testimonials and a quote request form.",
-    problem:
-      "The studio offered several services, but had no website that presented them clearly and turned visitors into inquiries.",
-    solution:
-      "A modern website with an overview of services and prices, results, client testimonials and a quote request form.",
-    result: "A clear offer in one place and more direct inquiries for collaboration.",
-    deliverables: [
-      "UI/UX design",
-      "Front-end development",
-      "SEO optimization",
-      "Quote request form",
-    ],
-    metrics: [
-      { label: "Services and prices", value: "Clear offer", hint: "Everything on one page" },
-      { label: "Optimized website", value: "Speed", hint: "Lightweight code and images" },
-      { label: "Direct inquiries", value: "Form", hint: "Quote requests with no middleman" },
-    ],
-  },
   "modni-frizer-vojkan": {
     niche: "Website for a hair salon",
     client: "Salon Vojkan",
@@ -86,7 +63,7 @@ export const projectsEn: Record<string, ProjectTranslation> = {
     problem:
       "Buyers had nowhere to see which apartments were available, how much they cost and what they looked like.",
     solution:
-      "An overview of all apartments with prices, size, floor, galleries and a sold label, plus filters by number of rooms.",
+      "An elegant sales website for a twenty-apartment building: every apartment with price, size, floor, galleries and a sold label, plus filters by number of rooms and the move-in date.",
     result: "Interested buyers arrive prepared, with a specific apartment in mind.",
     deliverables: [
       "Apartment catalog",
@@ -122,6 +99,56 @@ export const projectsEn: Record<string, ProjectTranslation> = {
       { label: "Offer structure", value: "3 services", hint: "Clearly separated and explained" },
       { label: "Client results", value: "Case studies", hint: "Instead of a PDF brochure" },
       { label: "Business inquiries", value: "B2B form", hint: "Direct contact with the agency" },
+    ],
+  },
+  "advokat-borovac": {
+    niche: "Website for a law office",
+    client: "Attorney dr Vladimir Borovac",
+    description:
+      "A bilingual website for an attorney in Novi Sad specialising in trademark and industrial design protection.",
+    seoDescription:
+      "Case study: a bilingual website for a Novi Sad attorney specialising in trademark law, with practice areas, publications and a consultation form.",
+    problem:
+      "A lawyer with a narrow specialisation needs a website that builds trust at once and shows clearly what he is an expert in, for both local and foreign clients.",
+    solution:
+      "A calm, serious website in Serbian and English: practice areas from trademark law to litigation, an about page, publications and a form to book a consultation.",
+    result:
+      "The specialisation, published work and way of working are in one place, and foreign clients get the whole site in English.",
+    deliverables: [
+      "Serbian and English site",
+      "Practice areas",
+      "Publications",
+      "Consultation form",
+    ],
+    metrics: [
+      { label: "Languages", value: "SR + EN", hint: "For local and foreign clients" },
+      { label: "Practice areas", value: "6 areas", hint: "From trademarks to litigation" },
+      { label: "Published work", value: "Publications", hint: "Proof of specialisation" },
+    ],
+  },
+  fizioterapija: {
+    niche: "Website for a physiotherapist and massage",
+    client: "Physiotherapist Miloš Malešević",
+    description:
+      "A website for a physiotherapist in Novi Sad with online booking: patients pick a free day and time.",
+    seoDescription:
+      "Case study: a website for a Novi Sad physiotherapist with services, patient reviews and online booking with a calendar of free slots.",
+    problem:
+      "Appointments are arranged by phone during therapy sessions, and patients cannot see which slots are free.",
+    solution:
+      "A warm one-page website with services, recovery steps, reviews and FAQ, plus a booking calendar: patients pick a service, day and time, and the slot disappears from the offer at once.",
+    result:
+      "Booking works even while the therapist is with a patient, and he sees, adds and cancels appointments on a separate page.",
+    deliverables: [
+      "Online booking",
+      "Calendar of free slots",
+      "Appointment admin page",
+      "Email notifications",
+    ],
+    metrics: [
+      { label: "Booking", value: "Online", hint: "Free days and times" },
+      { label: "Appointments", value: "Admin", hint: "Add and cancel" },
+      { label: "Confirmation", value: "Email", hint: "To therapist and patient" },
     ],
   },
 };

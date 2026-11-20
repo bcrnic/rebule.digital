@@ -6,7 +6,14 @@ import { categoryLabel, getLocalizedProjects, type ProjectCategory } from "@/lib
 import { ProjectCard } from "./project-card";
 
 // Najpre radovi za glavnu publiku (saloni i majstori), pa ostali.
-const order = ["modni-frizer-vojkan", "remielectric", "residence", "misolutions", "badbyte"];
+const order = [
+  "modni-frizer-vojkan",
+  "remielectric",
+  "fizioterapija",
+  "advokat-borovac",
+  "residence",
+  "misolutions",
+];
 
 /**
  * Radovi: plakatni naslov sa brojačem, filteri po vrsti projekta i mreža kartica
