@@ -13,7 +13,7 @@ import vojkanImageSmall from "@/assets/project-vojkan-800.webp";
 import { projectsEn } from "@/content/projects.en";
 import type { Locale } from "@/lib/i18n";
 
-export type ProjectCategory = "Zakazivanje" | "Portfolio" | "E-commerce" | "Biznis";
+export type ProjectCategory = "Zakazivanje" | "Portfolio" | "Nekretnine" | "Biznis";
 
 export type ProjectMetric = {
   label: string;
@@ -36,7 +36,10 @@ export type Project = {
   seoDescription?: string;
   problem: string;
   solution: string;
+  /** Šta možemo da potvrdimo: reči klijenta ili ono što se na sajtu može isprobati, bez izmišljenih brojki. */
   result: string;
+  /** Kako sada izgleda jedna važna radnja na sajtu, u nekoliko koraka. */
+  keyAction?: { title: string; steps: string[] };
   technologies: string[];
   deliverables?: string[];
   metrics?: ProjectMetric[];
@@ -64,12 +67,21 @@ export const projects: Project[] = [
     problem:
       "Salon sa dugom tradicijom nije imao sajt - termini su se zakazivali isključivo telefonom i usmeno.",
     solution:
-      "Napravljen je elegantan sajt sa uslugama, cenovnikom, galerijom i zakazivanjem preko WhatsApp-a, Vibera i emaila.",
-    result: "Klijentkinje sada vide cene i usluge unapred i šalju zahtev za termin jednom porukom.",
+      "Napravljen je elegantan sajt sa uslugama, cenovnikom, galerijom i zahtevom za termin preko WhatsApp-a, Vibera i emaila.",
+    result:
+      "Prema rečima salona, klijentkinje sada unapred vide usluge i cene i zakazuju preko WhatsApp-a, a telefon ih mnogo ređe prekida tokom šišanja.",
+    keyAction: {
+      title: "Kako klijentkinja traži termin",
+      steps: [
+        "Otvori cenovnik na telefonu i izabere uslugu.",
+        "Klikne na WhatsApp, Viber ili email i pošalje željeni termin.",
+        "Salon potvrdi termin kad stigne, između dve klijentkinje.",
+      ],
+    },
     technologies: ["React", "TypeScript", "Tailwind CSS", "WhatsApp API"],
     deliverables: [
       "Dizajn cenovnika",
-      "Online zakazivanje",
+      "Zahtev za termin porukom",
       "Mobilna optimizacija",
       "Galerija radova",
     ],
@@ -99,7 +111,15 @@ export const projects: Project[] = [
     solution:
       "Napravljen je sajt sa pregledom svih usluga, recenzijama klijenata, čestim pitanjima i formom za zakazivanje besplatnog pregleda.",
     result:
-      "Klijenti sada šalju zahtev za besplatan pregled preko sajta, a hitni pozivi stižu direktno.",
+      "Prema rečima klijenta, ljudi ih preko sajta odmah zovu za hitne intervencije ili traže besplatan pregled.",
+    keyAction: {
+      title: "Kako klijent dolazi do električara",
+      steps: [
+        "Na telefonu je dugme za hitan poziv uvek pri ruci.",
+        "Za redovan posao klijent pregleda usluge i česta pitanja.",
+        "Pošalje zahtev za besplatan pregled kroz formu na sajtu.",
+      ],
+    },
     technologies: ["React", "TypeScript", "Tailwind CSS"],
     deliverables: [
       "Prezentacija usluga",
@@ -124,7 +144,7 @@ export const projects: Project[] = [
     id: "residence",
     title: "Residence",
     niche: "Sajt za prodaju stanova",
-    category: "E-commerce",
+    category: "Nekretnine",
     client: "Investitor Residence",
     year: "2026",
     seoDescription:
@@ -135,7 +155,16 @@ export const projects: Project[] = [
       "Kupci nisu imali gde da vide koji su stanovi slobodni, koliko koštaju i kako izgledaju.",
     solution:
       "Napravljen je elegantan prodajni sajt za zgradu od dvadeset stanova: pregled svih stanova sa cenama, kvadraturom, spratom, galerijama i oznakom „prodato“, uz filtere po broju soba i rok useljenja.",
-    result: "Zainteresovani kupci dolaze pripremljeni, sa konkretnim stanom u vidu.",
+    result:
+      "Na sajtu se može isprobati: svi stanovi sa cenom, kvadraturom, spratom i statusom su na jednom mestu, a upit se šalje za tačno određen stan.",
+    keyAction: {
+      title: "Kako kupac nalazi stan",
+      steps: [
+        "Filtrira stanove po broju soba.",
+        "Otvori stan i vidi cenu, kvadraturu, sprat, tlocrt i galeriju.",
+        "Pošalje upit baš za taj stan.",
+      ],
+    },
     technologies: ["React", "TypeScript", "Tailwind CSS", "Filter Engine"],
     deliverables: [
       "Katalog stanova",
@@ -167,7 +196,16 @@ export const projects: Project[] = [
       "Agencija je imala odlične rezultate, ali nije imala način da ih jasno predstavi novim klijentima.",
     solution:
       "Struktuiran je sajt oko tri glavne usluge, sa merljivim rezultatima, utiscima klijenata i jasnim pozivom na kontakt.",
-    result: "Ozbiljniji prvi utisak i lakše predstavljanje ponude potencijalnim klijentima.",
+    result:
+      "Prema rečima klijenta, sajt umesto PDF kataloga odmah gradi autoritet i donosi poslovne upite.",
+    keyAction: {
+      title: "Kako firma postaje klijent agencije",
+      steps: [
+        "Vidi tri glavne usluge agencije, jasno izdvojene.",
+        "Pogleda rezultate i utiske dosadašnjih klijenata.",
+        "Pošalje poslovni upit kroz posebnu B2B formu.",
+      ],
+    },
     technologies: ["React", "TypeScript", "Tailwind CSS", "Radix Primitives"],
     deliverables: [
       "Struktura ponude",
@@ -200,7 +238,15 @@ export const projects: Project[] = [
     solution:
       "Napravljen je ozbiljan, miran sajt na srpskom i engleskom: oblasti rada od prava žiga do parničnih postupaka, stranica o advokatu, publikacije i forma za zakazivanje konsultacija.",
     result:
-      "Specijalizacija, stručni radovi i način rada su na jednom mestu, a strani klijenti imaju ceo sajt na engleskom.",
+      "Ovo je koncept, pa rezultati u radu tek slede. Ceo sajt, na srpskom i engleskom, može da se pregleda uživo.",
+    keyAction: {
+      title: "Kako klijent dolazi do konsultacija",
+      steps: [
+        "Izabere oblast rada, na primer pravo žiga, i pročita šta advokat radi.",
+        "Pogleda publikacije kao dokaz specijalizacije.",
+        "Pošalje upit za konsultacije, na srpskom ili engleskom.",
+      ],
+    },
     technologies: ["TanStack Start", "React", "TypeScript", "Tailwind CSS"],
     deliverables: [
       "Sajt na srpskom i engleskom",
@@ -233,7 +279,15 @@ export const projects: Project[] = [
     solution:
       "Napravljen je topao sajt na jednoj strani sa tretmanima, tokom terapije, utiscima i pitanjima, i kalendarom za zakazivanje: pacijent bira uslugu, dan i vreme, a termin odmah nestaje iz ponude.",
     result:
-      "Zakazivanje radi i dok je terapeut sa pacijentom, a on termine vidi, dodaje i otkazuje na posebnoj stranici.",
+      "Ovo je koncept, pa rezultati u radu tek slede. Zakazivanje može da se isproba uživo: termin se rezerviše i odmah nestaje iz ponude.",
+    keyAction: {
+      title: "Kako pacijent rezerviše termin",
+      steps: [
+        "Izabere tretman i slobodan dan u kalendaru.",
+        "Izabere vreme i ostavi ime i telefon.",
+        "Termin se odmah upisuje, a terapeut i pacijent dobiju potvrdu mejlom.",
+      ],
+    },
     technologies: ["HTML", "CSS", "GSAP", "Supabase"],
     deliverables: [
       "Online zakazivanje",
@@ -282,13 +336,13 @@ const categoryLabels: Record<Locale, Record<ProjectCategory, string>> = {
   sr: {
     Zakazivanje: "Zakazivanje",
     Portfolio: "Portfolio",
-    "E-commerce": "E-commerce",
+    Nekretnine: "Nekretnine",
     Biznis: "Biznis",
   },
   en: {
     Zakazivanje: "Booking",
     Portfolio: "Portfolio",
-    "E-commerce": "E-commerce",
+    Nekretnine: "Real estate",
     Biznis: "Business",
   },
 };

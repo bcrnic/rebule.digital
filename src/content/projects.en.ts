@@ -9,6 +9,7 @@ export type ProjectTranslation = {
   problem: string;
   solution: string;
   result: string;
+  keyAction: { title: string; steps: string[] };
   deliverables: string[];
   metrics: ProjectMetric[];
 };
@@ -26,8 +27,21 @@ export const projectsEn: Record<string, ProjectTranslation> = {
     solution:
       "An elegant website with services, a price list, a gallery and booking via WhatsApp, Viber and email.",
     result:
-      "Clients now see prices and services in advance and book an appointment with one message.",
-    deliverables: ["Price list design", "Online booking", "Mobile optimization", "Work gallery"],
+      "According to the salon, clients now see services and prices in advance and book via WhatsApp, and the phone interrupts haircuts much less often.",
+    keyAction: {
+      title: "How a client requests an appointment",
+      steps: [
+        "Opens the price list on her phone and picks a service.",
+        "Taps WhatsApp, Viber or email and sends a preferred time.",
+        "The salon confirms between two clients.",
+      ],
+    },
+    deliverables: [
+      "Price list design",
+      "Appointment requests by message",
+      "Mobile optimization",
+      "Work gallery",
+    ],
     metrics: [
       { label: "Appointment booking", value: "By message", hint: "WhatsApp, Viber and email" },
       { label: "Prices upfront", value: "Price list", hint: "Clients know what they choose" },
@@ -45,7 +59,15 @@ export const projectsEn: Record<string, ProjectTranslation> = {
     solution:
       "A website with an overview of all services, client reviews, frequently asked questions and a form for booking a free inspection.",
     result:
-      "Clients now request a free inspection through the website, and emergency calls come straight in.",
+      "According to the client, people call straight from the website for emergencies or request a free inspection.",
+    keyAction: {
+      title: "How a client reaches the electricians",
+      steps: [
+        "An emergency call button is always at hand on mobile.",
+        "For regular work the client checks services and FAQ.",
+        "Requests a free inspection through the form.",
+      ],
+    },
     deliverables: ["Service presentation", "Emergency call system", "FAQ section", "Local SEO"],
     metrics: [
       { label: "Emergency button", value: "Urgent call", hint: "One tap from a phone" },
@@ -64,7 +86,16 @@ export const projectsEn: Record<string, ProjectTranslation> = {
       "Buyers had nowhere to see which apartments were available, how much they cost and what they looked like.",
     solution:
       "An elegant sales website for a twenty-apartment building: every apartment with price, size, floor, galleries and a sold label, plus filters by number of rooms and the move-in date.",
-    result: "Interested buyers arrive prepared, with a specific apartment in mind.",
+    result:
+      "You can try it on the site: every apartment with price, size, floor and status in one place, with an inquiry for a specific apartment.",
+    keyAction: {
+      title: "How a buyer finds an apartment",
+      steps: [
+        "Filters apartments by number of rooms.",
+        "Opens one and sees price, size, floor, floor plan and gallery.",
+        "Sends an inquiry for exactly that apartment.",
+      ],
+    },
     deliverables: [
       "Apartment catalog",
       "Layout filters",
@@ -88,7 +119,15 @@ export const projectsEn: Record<string, ProjectTranslation> = {
     solution:
       "A website structured around three main services, with results, client testimonials and a clear call to get in touch.",
     result:
-      "A more serious first impression and an easier way to present the offer to potential clients.",
+      "According to the client, the website builds authority right away instead of a PDF catalog and brings in business inquiries.",
+    keyAction: {
+      title: "How a company becomes a client",
+      steps: [
+        "Sees the agency's three main services, clearly separated.",
+        "Looks at results and feedback from past clients.",
+        "Sends a business inquiry through a dedicated B2B form.",
+      ],
+    },
     deliverables: [
       "Offer structure",
       "Case study presentation",
@@ -113,7 +152,15 @@ export const projectsEn: Record<string, ProjectTranslation> = {
     solution:
       "A calm, serious website in Serbian and English: practice areas from trademark law to litigation, an about page, publications and a form to book a consultation.",
     result:
-      "The specialisation, published work and way of working are in one place, and foreign clients get the whole site in English.",
+      "This is a concept, so real-world results are still to come. The whole site, in Serbian and English, can be viewed live.",
+    keyAction: {
+      title: "How a client gets to a consultation",
+      steps: [
+        "Picks a practice area, such as trademark law, and reads what the attorney does.",
+        "Checks the publications as proof of specialisation.",
+        "Sends a consultation request, in Serbian or English.",
+      ],
+    },
     deliverables: [
       "Serbian and English site",
       "Practice areas",
@@ -138,7 +185,15 @@ export const projectsEn: Record<string, ProjectTranslation> = {
     solution:
       "A warm one-page website with treatments, the course of therapy, reviews and FAQ, plus a booking calendar: patients pick a service, day and time, and the slot disappears from the offer at once.",
     result:
-      "Booking works even while the therapist is with a patient, and he sees, adds and cancels appointments on a separate page.",
+      "This is a concept, so real-world results are still to come. Booking can be tried live: a slot is reserved and disappears from the offer at once.",
+    keyAction: {
+      title: "How a patient books",
+      steps: [
+        "Picks a treatment and a free day in the calendar.",
+        "Picks a time and leaves a name and phone number.",
+        "The booking is saved and both sides get an email confirmation.",
+      ],
+    },
     deliverables: [
       "Online booking",
       "Calendar of free slots",
