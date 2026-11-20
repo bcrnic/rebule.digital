@@ -11,3 +11,10 @@
 
 /video/*
   Cache-Control: public, max-age=2592000
+
+# Ikonice se proveravaju svaki dan, da nova verzija brzo stigne do posetilaca.
+/favicon*
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/apple-touch-icon.png
+  Cache-Control: public, max-age=86400, must-revalidate
