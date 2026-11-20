@@ -75,7 +75,7 @@ export const faqs = [
   {
     question: "Koliko košta izrada i da li ima skrivenih troškova?",
     answer:
-      "Sajt kreće od 250 € (jedna strana), 490 € za sajt do 5 strana i 650 € uz zakazivanje porukom. Održavanje je 30 € mesečno. Pre početka saradnje dobijate preciznu ponudu sa fiksnom cenom - nema naknadnih iznenađenja.",
+      "Sajt kreće od 250 € (jedna strana), 490 € za sajt do 5 strana i 650 € uz formu za zahtev za termin. Održavanje je 30 € mesečno. Pre početka saradnje dobijate preciznu ponudu sa fiksnom cenom - nema naknadnih iznenađenja.",
   },
   {
     question: "Šta ako nemam spremljen tekst i fotografije?",
@@ -114,11 +114,11 @@ export const faqs = [
   },
 ];
 
-export type Stat = { value: string; label: string };
+export type Stat = { value: string; label: string; note?: string };
 
 /** Činjenice u delu "O meni" (samo tačni podaci, dobijeni od Bojana). */
 export const aboutStats: Stat[] = [
-  { value: "20+", label: "urađenih sajtova" },
+  { value: "20+", label: "urađenih sajtova", note: "za klijente, agencije i sopstvene projekte" },
   { value: "7 do 14", label: "dana do lansiranja" },
   { value: "2 runde", label: "izmena uključene u cenu" },
   { value: "1 radni dan", label: "do odgovora na upit" },

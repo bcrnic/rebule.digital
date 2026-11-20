@@ -65,7 +65,7 @@ export const faqsEn = [
   {
     question: "How much does it cost, and are there hidden costs?",
     answer:
-      "Websites start at 250 € for one page, 490 € for up to 5 pages and 650 € with booking by message. Maintenance is 30 € per month. Before we start, you get a precise fixed-price quote, so there are no surprises later.",
+      "Websites start at 250 € for one page, 490 € for up to 5 pages and 650 € with an appointment request form. Maintenance is 30 € per month. Before we start, you get a precise fixed-price quote, so there are no surprises later.",
   },
   {
     question: "Do you work with clients outside Serbia?",
@@ -100,7 +100,7 @@ export const faqsEn = [
 ];
 
 export const aboutStatsEn = [
-  { value: "20+", label: "websites built" },
+  { value: "20+", label: "websites built", note: "for clients, agencies and my own projects" },
   { value: "7 to 14", label: "days to launch" },
   { value: "2 rounds", label: "of revisions included" },
   { value: "1 business day", label: "to reply to your enquiry" },

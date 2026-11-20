@@ -35,6 +35,11 @@ export function About() {
                     {stat.value}
                   </span>
                   <span className="label-mono mt-3 block text-muted-foreground">{stat.label}</span>
+                  {"note" in stat && stat.note && (
+                    <span className="mt-1.5 block text-xs leading-snug text-muted-foreground">
+                      {stat.note}
+                    </span>
+                  )}
                 </dd>
               </div>
             ))}
