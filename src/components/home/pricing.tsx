@@ -25,6 +25,8 @@ export function Pricing({ title, showMoreLink = false, number }: PricingProps) {
     plans: pricingPlans,
     maintenance: maintenancePlan,
     notes: pricingNotes,
+    onlineBooking,
+    costs,
   } = getPricingContent(locale);
   return (
     <section id={ids.pricing} className="scroll-mt-20 py-16 sm:py-24">
@@ -57,6 +59,7 @@ export function Pricing({ title, showMoreLink = false, number }: PricingProps) {
                 </span>
               </p>
               <p className="mt-4 leading-relaxed text-muted-foreground">{plan.description}</p>
+              <p className="mt-3 text-sm font-medium text-foreground">{plan.audience}</p>
               <ul className="mt-6 grid flex-1 content-start gap-3 border-t border-foreground/15 pt-6 text-sm">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3">
@@ -89,7 +92,7 @@ export function Pricing({ title, showMoreLink = false, number }: PricingProps) {
           >
             <div className="flex items-baseline justify-between gap-4">
               <h3 className="font-display text-xl font-semibold">{t.calendarTitle}</h3>
-              <p className="label-mono shrink-0 text-foreground">{t.onRequest}</p>
+              <p className="shrink-0 font-poster text-2xl tracking-normal">{onlineBooking}</p>
             </div>
             <p className="leading-relaxed text-muted-foreground">{t.calendarText}</p>
           </motion.article>
@@ -117,6 +120,19 @@ export function Pricing({ title, showMoreLink = false, number }: PricingProps) {
             </ul>
           </motion.article>
         </div>
+
+        {/* Šta se plaća posle izrade: domen, hosting i izmene, sa i bez održavanja. */}
+        <motion.div {...reveal} className="mt-4 rounded-[var(--radius)] bg-surface p-7">
+          <h3 className="font-display text-xl font-semibold">{t.costsTitle}</h3>
+          <dl className="mt-5 grid gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-4">
+            {costs.map((item) => (
+              <div key={item.title}>
+                <dt className="text-sm font-semibold text-foreground">{item.title}</dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">{item.text}</dd>
+              </div>
+            ))}
+          </dl>
+        </motion.div>
 
         <div className="mt-6 flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
           <ul className="space-y-1 text-sm text-muted-foreground">

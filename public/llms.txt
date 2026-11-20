@@ -5,8 +5,10 @@
 Paketi (cene "od", tačna ponuda posle kratkog razgovora; domen se plaća posebno):
 - Start, od 250 €: jedna strana, kontakt forma, osnovni SEO.
 - Biznis, od 490 €: do 5 strana, galerija i cenovnik, kontakt preko WhatsApp-a, Vibera i emaila, lokalni SEO.
-- Zakazivanje, od 650 €: sve iz paketa Biznis, uz zakazivanje termina porukom.
+- Zakazivanje, od 650 €: sve iz paketa Biznis, uz formu za zahtev za termin (klijent bira uslugu, datum i deo dana, a vlasnik potvrđuje).
+- Online rezervacija, od 900 €: kalendar slobodnih termina u kom klijent sam rezerviše, uz stranicu za upravljanje terminima.
 - Održavanje, 30 € mesečno: hosting, SSL, backup, praćenje dostupnosti i oko sat vremena izmena.
+- Posle izrade: domen oko 15 € godišnje, na ime klijenta; prva godina hostinga uključena; izmene bez održavanja 20 € po satu.
 
 Saradnja: besplatan uvodni razgovor, dve runde izmena uključene u cenu, odgovor na upit u roku od jednog radnog dana. Domen se registruje na ime klijenta, a posle uplate sajt, tekstovi, slike i kod pripadaju klijentu. Do sada je urađeno više od 20 sajtova.
 
