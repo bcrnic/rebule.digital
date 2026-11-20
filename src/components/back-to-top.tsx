@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react";
 import { ArrowUp } from "lucide-react";
 import { useUi } from "@/lib/i18n";
+import { useScrollingUp } from "@/lib/use-scroll-direction";
 
 /** Dugme "nazad na vrh": pojavi se kad se skroluje niže od jednog ekrana. */
 export function BackToTop() {
   const t = useUi().footer;
-  const [visible, setVisible] = useState(false);
+  const [pastFirstScreen, setPastFirstScreen] = useState(false);
+  // Kao i traka sa pozivom: vidi se kad posetilac skroluje nagore, ne dok čita.
+  const scrollingUp = useScrollingUp();
+  const visible = pastFirstScreen && scrollingUp;
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > window.innerHeight);
+    const onScroll = () => setPastFirstScreen(window.scrollY > window.innerHeight);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);

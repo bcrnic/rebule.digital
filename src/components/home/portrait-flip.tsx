@@ -66,7 +66,8 @@ export function PortraitFlip({ alt, label }: { alt: string; label: string }) {
         />
       ))}
       <figcaption className="label-mono absolute bottom-1.5 left-1.5 z-10 whitespace-nowrap bg-foreground px-1.5 py-0.5 text-[0.5rem] text-background sm:bottom-2 sm:left-2 sm:text-[0.625rem]">
-        {label}
+        <span className="sm:hidden">{label.split(" · ")[0]}</span>
+        <span className="hidden sm:inline">{label}</span>
       </figcaption>
     </figure>
   );

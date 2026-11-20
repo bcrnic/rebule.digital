@@ -12,7 +12,7 @@ export function SiteFooter() {
   const locale = useLocale();
   const t = useUi().footer;
   return (
-    <footer className="px-5 py-10 lg:px-10">
+    <footer className="px-5 pb-28 pt-10 lg:px-10">
       <div className="glass mx-auto flex max-w-[90rem] flex-col items-center gap-8 px-6 py-10 text-center sm:px-10">
         <div className="flex flex-col items-center gap-3">
           <Link

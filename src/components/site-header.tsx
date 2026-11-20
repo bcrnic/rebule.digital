@@ -110,8 +110,8 @@ export function SiteHeader() {
       className={`fixed inset-x-0 top-0 z-50 px-3 transition-[padding] duration-300 sm:px-5 motion-reduce:transition-none ${compact ? "pt-2" : "pt-3 sm:pt-4"}`}
     >
       <div
-        className={`glass mx-auto flex items-center justify-between rounded-full px-4 transition-[height,max-width] duration-300 ease-out sm:px-6 motion-reduce:transition-none ${
-          compact ? "h-14 max-w-[80rem]" : "h-16 max-w-[86rem] sm:h-[4.25rem]"
+        className={`glass mx-auto flex items-center justify-between rounded-full px-4 transition-[height,max-width,background-color] duration-300 ease-out sm:px-6 motion-reduce:transition-none ${
+          compact ? "h-14 max-w-[80rem] !bg-card/95" : "h-16 max-w-[86rem] sm:h-[4.25rem]"
         }`}
       >
         <Link
