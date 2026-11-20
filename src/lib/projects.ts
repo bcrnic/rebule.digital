@@ -188,7 +188,7 @@ export const projects: Project[] = [
     title: "dr Vladimir Borovac",
     niche: "Sajt za advokatsku kancelariju",
     category: "Biznis",
-    client: "Advokat dr Vladimir Borovac",
+    client: "Koncept za advokata dr Vladimira Borovca",
     year: "2026",
     seoDescription:
       "Studija slučaja: dvojezični sajt advokata iz Novog Sada specijalizovanog za pravo žiga, sa oblastima rada, publikacijama i formom za konsultacije.",
@@ -214,13 +214,14 @@ export const projects: Project[] = [
     ],
     image: advokatImage,
     imageSmall: advokatImageSmall,
+    url: "https://borovac-preview.netlify.app/",
   },
   {
     id: "fizioterapija",
-    title: "Fizioterapija Malešević",
-    niche: "Sajt za fizioterapeuta i masažu",
+    title: "Fizio Pokret",
+    niche: "Sajt za fizioterapiju i masažu",
     category: "Zakazivanje",
-    client: "Fizioterapeut Miloš Malešević",
+    client: "Koncept za fizioterapeuta Miloša Maleševića",
     year: "2026",
     seoDescription:
       "Studija slučaja: sajt za fizioterapeuta iz Novog Sada sa uslugama, utiscima pacijenata i online zakazivanjem termina sa kalendarom slobodnih termina.",
@@ -229,7 +230,7 @@ export const projects: Project[] = [
     problem:
       "Termini se dogovaraju telefonom tokom terapije, a pacijent ne zna unapred koji su termini slobodni.",
     solution:
-      "Napravljen je topao sajt na jednoj strani sa uslugama, koracima oporavka, utiscima i pitanjima, i kalendarom za zakazivanje: pacijent bira uslugu, dan i vreme, a termin odmah nestaje iz ponude.",
+      "Napravljen je topao sajt na jednoj strani sa tretmanima, tokom terapije, utiscima i pitanjima, i kalendarom za zakazivanje: pacijent bira uslugu, dan i vreme, a termin odmah nestaje iz ponude.",
     result:
       "Zakazivanje radi i dok je terapeut sa pacijentom, a on termine vidi, dodaje i otkazuje na posebnoj stranici.",
     technologies: ["HTML", "CSS", "GSAP", "Supabase"],
@@ -246,6 +247,7 @@ export const projects: Project[] = [
     ],
     image: fizioImage,
     imageSmall: fizioImageSmall,
+    url: "https://fizio-malesevic-preview.netlify.app/redizajn.html",
   },
 ];
 

@@ -25,8 +25,8 @@ Kontakt: bojan@rebule.rs, +381 64 300 7002 (telefon i WhatsApp), Novi Sad, rad s
 - [REMIELECTRIC](https://rebule.rs/projekat/remielectric): elektroinstalateri iz Novog Sada, dugme za hitan poziv i zakazivanje pregleda
 - [Residence](https://rebule.rs/projekat/residence): prodajni sajt za investitora sa katalogom stanova
 - [MiSolutions](https://rebule.rs/projekat/misolutions): sajt konsultantske agencije
-- [dr Vladimir Borovac](https://rebule.rs/projekat/advokat-borovac): dvojezični sajt advokata za pravo žiga
-- [Fizioterapija Malešević](https://rebule.rs/projekat/fizioterapija): sajt fizioterapeuta sa online zakazivanjem termina
+- [dr Vladimir Borovac](https://rebule.rs/projekat/advokat-borovac): koncept dvojezičnog sajta advokata za pravo žiga
+- [Fizio Pokret](https://rebule.rs/projekat/fizioterapija): koncept sajta za fizioterapiju i masažu sa online zakazivanjem termina
 
 ## English
 - [rebule. digital in English](https://rebule.rs/en): websites for small businesses, built in Novi Sad

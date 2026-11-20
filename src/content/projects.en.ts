@@ -103,7 +103,7 @@ export const projectsEn: Record<string, ProjectTranslation> = {
   },
   "advokat-borovac": {
     niche: "Website for a law office",
-    client: "Attorney dr Vladimir Borovac",
+    client: "Concept for attorney dr Vladimir Borovac",
     description:
       "A bilingual website for an attorney in Novi Sad specialising in trademark and industrial design protection.",
     seoDescription:
@@ -127,8 +127,8 @@ export const projectsEn: Record<string, ProjectTranslation> = {
     ],
   },
   fizioterapija: {
-    niche: "Website for a physiotherapist and massage",
-    client: "Physiotherapist Miloš Malešević",
+    niche: "Website for physiotherapy and massage",
+    client: "Concept for physiotherapist Miloš Malešević",
     description:
       "A website for a physiotherapist in Novi Sad with online booking: patients pick a free day and time.",
     seoDescription:
@@ -136,7 +136,7 @@ export const projectsEn: Record<string, ProjectTranslation> = {
     problem:
       "Appointments are arranged by phone during therapy sessions, and patients cannot see which slots are free.",
     solution:
-      "A warm one-page website with services, recovery steps, reviews and FAQ, plus a booking calendar: patients pick a service, day and time, and the slot disappears from the offer at once.",
+      "A warm one-page website with treatments, the course of therapy, reviews and FAQ, plus a booking calendar: patients pick a service, day and time, and the slot disappears from the offer at once.",
     result:
       "Booking works even while the therapist is with a patient, and he sees, adds and cancels appointments on a separate page.",
     deliverables: [
