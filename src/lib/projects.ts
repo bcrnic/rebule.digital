@@ -4,8 +4,10 @@ import remiImage from "@/assets/project-remielectric.webp";
 import remiImageSmall from "@/assets/project-remielectric-800.webp";
 import residenceImage from "@/assets/project-residence.webp";
 import residenceImageSmall from "@/assets/project-residence-800.webp";
-import badbyteImage from "@/assets/project-badbyte.webp";
-import badbyteImageSmall from "@/assets/project-badbyte-800.webp";
+import advokatImage from "@/assets/project-advokat.webp";
+import advokatImageSmall from "@/assets/project-advokat-800.webp";
+import fizioImage from "@/assets/project-fizioterapija.webp";
+import fizioImageSmall from "@/assets/project-fizioterapija-800.webp";
 import vojkanImage from "@/assets/project-vojkan.webp";
 import vojkanImageSmall from "@/assets/project-vojkan-800.webp";
 import { projectsEn } from "@/content/projects.en";
@@ -47,33 +49,6 @@ export type Project = {
 };
 
 export const projects: Project[] = [
-  {
-    id: "badbyte",
-    title: "Badbyte",
-    niche: "Sajt za web studio",
-    category: "Biznis",
-    client: "Badbyte Studio",
-    year: "2026",
-    seoDescription:
-      "Studija slučaja: sajt za web development studio iz Novog Sada sa jasnom ponudom, cenama, utiscima klijenata i formom za zahtev za ponudu.",
-    description:
-      "Sajt za web development studio iz Novog Sada sa jasnom ponudom, cenama i pozivom na akciju.",
-    problem:
-      "Studio je nudio više usluga, ali bez sajta koji ih jasno predstavlja i pretvara posetioce u upite.",
-    solution:
-      "Napravljen je moderan sajt sa pregledom usluga i cena, rezultatima, utiscima klijenata i formom za ponudu.",
-    result: "Jasna ponuda na jednom mestu i više direktnih upita za saradnju.",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Motion"],
-    deliverables: ["UI/UX Dizajn", "Front-end Development", "SEO Optimizacija", "Forma za ponude"],
-    metrics: [
-      { label: "Usluge i cene", value: "Jasna ponuda", hint: "Sve na jednoj strani" },
-      { label: "Optimizovan sajt", value: "Brzina", hint: "Lagan kod i slike" },
-      { label: "Direktni upiti", value: "Forma", hint: "Zahtev za ponudu bez posrednika" },
-    ],
-    image: badbyteImage,
-    imageSmall: badbyteImageSmall,
-    url: "https://badbyte.netlify.app/",
-  },
   {
     id: "modni-frizer-vojkan",
     title: "Modni Frizer Vojkan",
@@ -158,7 +133,7 @@ export const projects: Project[] = [
     problem:
       "Kupci nisu imali gde da vide koji su stanovi slobodni, koliko koštaju i kako izgledaju.",
     solution:
-      "Napravljen je pregled svih stanova sa cenama, kvadraturom, spratom, galerijama i oznakom „prodato“, uz filtere po broju soba.",
+      "Napravljen je elegantan prodajni sajt za zgradu od dvadeset stanova: pregled svih stanova sa cenama, kvadraturom, spratom, galerijama i oznakom „prodato“, uz filtere po broju soba i rok useljenja.",
     result: "Zainteresovani kupci dolaze pripremljeni, sa konkretnim stanom u vidu.",
     technologies: ["React", "TypeScript", "Tailwind CSS", "Filter Engine"],
     deliverables: [
@@ -173,7 +148,6 @@ export const projects: Project[] = [
       { label: "Dostupnost stanova", value: "Ažurno", hint: "Oznake za prodato/slobodno" },
     ],
     image: residenceImage,
-    imageWidth: 1280,
     imageSmall: residenceImageSmall,
     url: "https://bcrnic.github.io/residence/",
   },
@@ -208,6 +182,72 @@ export const projects: Project[] = [
     image: misolutionsImage,
     imageSmall: misolutionsImageSmall,
     url: "https://bcrnic.github.io/MiSolutions/",
+  },
+  {
+    id: "advokat-borovac",
+    title: "dr Vladimir Borovac",
+    niche: "Sajt za advokatsku kancelariju",
+    category: "Biznis",
+    client: "Koncept za advokata dr Vladimira Borovca",
+    year: "2026",
+    seoDescription:
+      "Studija slučaja: dvojezični sajt advokata iz Novog Sada specijalizovanog za pravo žiga, sa oblastima rada, publikacijama i formom za konsultacije.",
+    description:
+      "Dvojezični sajt advokata iz Novog Sada, specijalizovanog za zaštitu žigova i industrijskog dizajna.",
+    problem:
+      "Advokatu sa uskom specijalizacijom treba sajt koji odmah gradi poverenje i jasno pokazuje u čemu je stručnjak, i domaćim i stranim klijentima.",
+    solution:
+      "Napravljen je ozbiljan, miran sajt na srpskom i engleskom: oblasti rada od prava žiga do parničnih postupaka, stranica o advokatu, publikacije i forma za zakazivanje konsultacija.",
+    result:
+      "Specijalizacija, stručni radovi i način rada su na jednom mestu, a strani klijenti imaju ceo sajt na engleskom.",
+    technologies: ["TanStack Start", "React", "TypeScript", "Tailwind CSS"],
+    deliverables: [
+      "Sajt na srpskom i engleskom",
+      "Oblasti rada",
+      "Publikacije",
+      "Forma za konsultacije",
+    ],
+    metrics: [
+      { label: "Jezici", value: "SR + EN", hint: "Za domaće i strane klijente" },
+      { label: "Oblasti rada", value: "6 oblasti", hint: "Od prava žiga do parnica" },
+      { label: "Stručni radovi", value: "Publikacije", hint: "Dokaz specijalizacije" },
+    ],
+    image: advokatImage,
+    imageSmall: advokatImageSmall,
+    url: "https://borovac-preview.netlify.app/",
+  },
+  {
+    id: "fizioterapija",
+    title: "Fizio Pokret",
+    niche: "Sajt za fizioterapiju i masažu",
+    category: "Zakazivanje",
+    client: "Koncept za fizioterapeuta Miloša Maleševića",
+    year: "2026",
+    seoDescription:
+      "Studija slučaja: sajt za fizioterapeuta iz Novog Sada sa uslugama, utiscima pacijenata i online zakazivanjem termina sa kalendarom slobodnih termina.",
+    description:
+      "Sajt za fizioterapeuta iz Novog Sada sa online zakazivanjem: pacijent bira slobodan dan i vreme.",
+    problem:
+      "Termini se dogovaraju telefonom tokom terapije, a pacijent ne zna unapred koji su termini slobodni.",
+    solution:
+      "Napravljen je topao sajt na jednoj strani sa tretmanima, tokom terapije, utiscima i pitanjima, i kalendarom za zakazivanje: pacijent bira uslugu, dan i vreme, a termin odmah nestaje iz ponude.",
+    result:
+      "Zakazivanje radi i dok je terapeut sa pacijentom, a on termine vidi, dodaje i otkazuje na posebnoj stranici.",
+    technologies: ["HTML", "CSS", "GSAP", "Supabase"],
+    deliverables: [
+      "Online zakazivanje",
+      "Kalendar slobodnih termina",
+      "Stranica za upravljanje terminima",
+      "Obaveštenja emailom",
+    ],
+    metrics: [
+      { label: "Zakazivanje", value: "Online", hint: "Slobodni dani i vreme" },
+      { label: "Pregled termina", value: "Admin", hint: "Dodavanje i otkazivanje" },
+      { label: "Potvrda", value: "Email", hint: "Terapeutu i pacijentu" },
+    ],
+    image: fizioImage,
+    imageSmall: fizioImageSmall,
+    url: "https://fizio-malesevic-preview.netlify.app/redizajn.html",
   },
 ];
 
