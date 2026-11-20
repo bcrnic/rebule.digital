@@ -16,14 +16,10 @@ export type Spot = {
 export const spots: Spot[] = [
   {
     id: "tisina",
-    title: "Telefon prestaje da zvoni",
-    text: "Klijenti sami biraju termin i zakazuju, i kad vi spavate.",
+    title: "Manje poziva tokom rada",
+    text: "Upiti za termine stižu porukom, na jednom mestu. Vi potvrđujete kad stignete.",
     path: "/online-zakazivanje-termina",
-    points: [
-      "Zakazivanje porukom ili kalendarom",
-      "Usluge i cene pre poziva",
-      "Vi potvrđujete termin",
-    ],
+    points: ["Zahtev za termin porukom", "Usluge i cene pre poziva", "Vi potvrđujete termin"],
   },
   {
     id: "mapa",

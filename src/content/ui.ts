@@ -81,9 +81,9 @@ const sr = {
     popular: "Najpopularnije",
     from: "od",
     requestQuote: "Zatraži ponudu",
-    calendarTitle: "Zakazivanje sa kalendarom",
+    calendarTitle: "Online rezervacija termina",
     calendarText:
-      "Klijenti biraju slobodan termin direktno na sajtu. Ovo je zaseban projekat, pa se cena određuje po ponudi prema vašim pravilima rada.",
+      "Klijent vidi slobodne termine u kalendaru i sam rezerviše, a vi termine vodite na posebnoj stranici. Ovo je zaseban projekat, pa se cena određuje po ponudi prema vašim pravilima rada.",
     onRequest: "Po ponudi",
     moreLink: "Šta je uključeno u cenu izrade sajta",
   },
@@ -297,9 +297,9 @@ const en: UiStrings = {
     popular: "Most popular",
     from: "from",
     requestQuote: "Request a quote",
-    calendarTitle: "Booking with a calendar",
+    calendarTitle: "Online appointment booking",
     calendarText:
-      "Clients pick a free slot directly on your website. This is a separate project, priced by quote based on how you work.",
+      "Clients see free slots in a calendar and book them themselves, and you manage appointments on a separate page. This is a separate project, priced by quote based on how you work.",
     onRequest: "Custom quote",
     moreLink: "What is included in the price",
   },

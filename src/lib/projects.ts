@@ -65,7 +65,7 @@ export const projects: Project[] = [
       "Salon sa dugom tradicijom nije imao sajt - termini su se zakazivali isključivo telefonom i usmeno.",
     solution:
       "Napravljen je elegantan sajt sa uslugama, cenovnikom, galerijom i zakazivanjem preko WhatsApp-a, Vibera i emaila.",
-    result: "Klijentkinje sada vide cene i usluge unapred i zakazuju termin jednom porukom.",
+    result: "Klijentkinje sada vide cene i usluge unapred i šalju zahtev za termin jednom porukom.",
     technologies: ["React", "TypeScript", "Tailwind CSS", "WhatsApp API"],
     deliverables: [
       "Dizajn cenovnika",
@@ -98,7 +98,8 @@ export const projects: Project[] = [
       "Posao je dolazio isključivo preporukom, bez mesta na kom klijenti vide usluge, cene i način da zakažu dolazak.",
     solution:
       "Napravljen je sajt sa pregledom svih usluga, recenzijama klijenata, čestim pitanjima i formom za zakazivanje besplatnog pregleda.",
-    result: "Klijenti sada sami zakazuju pregled, a hitni pozivi stižu direktno preko sajta.",
+    result:
+      "Klijenti sada šalju zahtev za besplatan pregled preko sajta, a hitni pozivi stižu direktno.",
     technologies: ["React", "TypeScript", "Tailwind CSS"],
     deliverables: [
       "Prezentacija usluga",
@@ -224,7 +225,7 @@ export const projects: Project[] = [
     client: "Koncept za fizioterapeuta Miloša Maleševića",
     year: "2026",
     seoDescription:
-      "Studija slučaja: sajt za fizioterapeuta iz Novog Sada sa uslugama, utiscima pacijenata i online zakazivanjem termina sa kalendarom slobodnih termina.",
+      "Studija slučaja: sajt za fizioterapeuta iz Novog Sada sa uslugama, utiscima pacijenata i online rezervacijom u kalendaru slobodnih termina.",
     description:
       "Sajt za fizioterapeuta iz Novog Sada sa online zakazivanjem: pacijent bira slobodan dan i vreme.",
     problem:

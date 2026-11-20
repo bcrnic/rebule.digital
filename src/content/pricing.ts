@@ -36,11 +36,12 @@ export const pricingPlans: PricingPlan[] = [
   {
     name: "Zakazivanje",
     price: "650 €",
-    description: "Sve iz paketa Biznis, uz zakazivanje termina porukom.",
+    description:
+      "Sve iz paketa Biznis, uz zahtev za termin porukom: klijent bira uslugu i željeni termin, vi potvrđujete.",
     features: [
       "Sve iz paketa Biznis",
-      "Zakazivanje preko WhatsApp-a, Vibera i emaila",
-      "Pregled usluga i cena za zakazivanje",
+      "Zahtev za termin porukom (WhatsApp, Viber, email)",
+      "Pregled usluga i cena za izbor termina",
     ],
   },
 ];
@@ -86,11 +87,12 @@ const pricingPlansEn: PricingPlan[] = [
   {
     name: "Booking",
     price: "650 €",
-    description: "Everything in Business, plus booking by message.",
+    description:
+      "Everything in Business, plus appointment requests by message: clients pick a service and a preferred time, you confirm.",
     features: [
       "Everything in Business",
-      "Booking via WhatsApp, Viber and email",
-      "Services and prices overview for booking",
+      "Appointment requests by message (WhatsApp, Viber, email)",
+      "Services and prices to choose an appointment",
     ],
   },
 ];

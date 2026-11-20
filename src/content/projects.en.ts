@@ -45,7 +45,7 @@ export const projectsEn: Record<string, ProjectTranslation> = {
     solution:
       "A website with an overview of all services, client reviews, frequently asked questions and a form for booking a free inspection.",
     result:
-      "Clients now book inspections themselves, and emergency calls come straight from the website.",
+      "Clients now request a free inspection through the website, and emergency calls come straight in.",
     deliverables: ["Service presentation", "Emergency call system", "FAQ section", "Local SEO"],
     metrics: [
       { label: "Emergency button", value: "Urgent call", hint: "One tap from a phone" },
