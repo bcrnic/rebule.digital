@@ -12,7 +12,7 @@ import { SpotsStrip } from "./spots-strip";
 const audiences = [
   {
     title: "Frizerski i kozmetički saloni",
-    text: "Cenovnik, galerija radova i zakazivanje termina porukom.",
+    text: "Cenovnik, galerija radova i zahtev za termin porukom.",
     example: "Modni Frizer Vojkan",
     link: { to: "/sajt-za-frizerski-salon" },
   },

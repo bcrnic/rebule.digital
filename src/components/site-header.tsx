@@ -46,6 +46,10 @@ export function SiteHeader() {
   const ids = useSectionIds();
   const home = locale === "en" ? "/en" : "/";
   const navItems = navKeys.map((key) => [t.nav[key], ids[key]] as const);
+  // Na telefonu kraći meni: bez "Početna" (logo vodi na vrh) i bez "Utisci".
+  const mobileNavItems = navKeys
+    .filter((key) => key !== "home" && key !== "testimonials")
+    .map((key) => [t.nav[key], ids[key]] as const);
   const [open, setOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const [compact, setCompact] = useState(false);
@@ -72,6 +76,16 @@ export function SiteHeader() {
     };
   }, []);
 
+  // Dok je meni otvoren, strana iza njega se ne skroluje.
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
+
   useEffect(() => {
     if (!open) return;
     const onKeyDown = (event: KeyboardEvent) => event.key === "Escape" && setOpen(false);
@@ -96,8 +110,8 @@ export function SiteHeader() {
       className={`fixed inset-x-0 top-0 z-50 px-3 transition-[padding] duration-300 sm:px-5 motion-reduce:transition-none ${compact ? "pt-2" : "pt-3 sm:pt-4"}`}
     >
       <div
-        className={`glass mx-auto flex items-center justify-between rounded-full px-4 transition-[height,max-width] duration-300 ease-out sm:px-6 motion-reduce:transition-none ${
-          compact ? "h-14 max-w-[80rem]" : "h-16 max-w-[86rem] sm:h-[4.25rem]"
+        className={`glass mx-auto flex items-center justify-between rounded-full px-4 transition-[height,max-width,background-color] duration-300 ease-out sm:px-6 motion-reduce:transition-none ${
+          compact ? "h-14 max-w-[80rem] !bg-card/95" : "h-16 max-w-[86rem] sm:h-[4.25rem]"
         }`}
       >
         <Link
@@ -147,16 +161,30 @@ export function SiteHeader() {
 
       <AnimatePresence>
         {open && (
+          // Zatamnjena podloga iza menija: sadržaj strane se ne vidi kroz stavke, a dodir van menija ga zatvara.
           <motion.div
+            key="mobile-nav-backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 -z-10 bg-background/85 backdrop-blur-sm xl:hidden"
+            onClick={() => setOpen(false)}
+            aria-hidden="true"
+          />
+        )}
+        {open && (
+          <motion.div
+            key="mobile-nav"
             id="mobile-nav"
             initial={{ opacity: 0, y: -10, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.98 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="glass mx-auto mt-2 max-w-[86rem] overflow-hidden rounded-3xl p-5 shadow-2xl xl:hidden"
+            className="mx-auto mt-2 max-w-[86rem] overflow-hidden rounded-3xl border border-border bg-card p-4 shadow-2xl xl:hidden"
           >
             <nav className="flex flex-col gap-1" aria-label={t.mobileNav}>
-              {navItems.map(([label, anchor]) => (
+              {mobileNavItems.map(([label, anchor]) => (
                 <Link
                   key={anchor}
                   to={home}

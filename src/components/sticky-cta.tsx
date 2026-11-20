@@ -3,6 +3,7 @@ import { ArrowRight, Mail } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import { useLocale, useSectionIds, useUi } from "@/lib/i18n";
 import { CONTACT, WHATSAPP_MESSAGE_EN, whatsappLink } from "@/lib/site";
+import { useScrollingUp } from "@/lib/use-scroll-direction";
 
 /**
  * Lepljiva traka sa jednim pozivom na akciju. Pojavi se kad hero ode sa ekrana,
@@ -34,7 +35,9 @@ export function StickyCta() {
     };
   }, [ids.contact]);
 
-  const visible = pastHero && !contactVisible;
+  // Sklanja se dok posetilac čita (skrol nadole), vraća se čim krene nagore.
+  const scrollingUp = useScrollingUp();
+  const visible = pastHero && !contactVisible && scrollingUp;
 
   const iconLink =
     "flex size-10 items-center justify-center rounded-full text-background/80 transition-colors hover:bg-background/10 hover:text-background";

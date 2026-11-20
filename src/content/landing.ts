@@ -121,7 +121,7 @@ export const landingPages: LandingPage[] = [
       },
       {
         title: "Zakazivanje",
-        text: "Zakazivanje porukom je deo paketa. Kalendar sa slobodnim terminima je poseban projekat, po ponudi.",
+        text: "Zahtev za termin porukom je deo paketa. Online rezervacija u kalendaru je poseban projekat, po ponudi.",
       },
       {
         title: "Sadržaj",
@@ -161,13 +161,13 @@ export const landingPages: LandingPage[] = [
     spot: "tisina",
     seoTitle: "Online zakazivanje termina na sajtu | rebule. digital",
     seoDescription:
-      "Sajt sa zakazivanjem termina porukom ili kalendarom slobodnih termina, za salone, ordinacije, trenere i servise. Fiksna cena dogovorena unapred.",
+      "Sajt sa zahtevom za termin porukom ili online rezervacijom u kalendaru, za salone, ordinacije, trenere i servise. Fiksna cena dogovorena unapred.",
     navLabel: "Online zakazivanje termina",
     serviceName: "Sajt sa online zakazivanjem termina",
     kicker: "Za salone, ordinacije, trenere i servise",
-    title: "Online zakazivanje termina bez stalnih poziva.",
+    title: "Manje poziva tokom rada. Upiti za termine na jednom mestu.",
     intro:
-      "Klijenti zakazuju kad im odgovara, i u deset uveče. Vi termine pregledate i potvrđujete kad stignete.",
+      "Klijenti šalju zahtev za termin kad im odgovara, i u deset uveče. Vi ga pregledate i potvrdite kad stignete. Ako želite da sami biraju slobodan termin u kalendaru, to je online rezervacija.",
     problemsTitle: "Šta rešava zakazivanje na sajtu",
     problems: [
       {
@@ -186,18 +186,18 @@ export const landingPages: LandingPage[] = [
     featuresTitle: "Šta dobijate",
     features: [
       "Pregled usluga, trajanja i cena",
-      "Zakazivanje porukom preko WhatsApp-a, Vibera ili emaila",
-      "Opciono: kalendar sa slobodnim terminima",
+      "Zahtev za termin porukom preko WhatsApp-a, Vibera ili emaila",
+      "Opciono: online rezervacija u kalendaru slobodnih termina",
       "Radi na telefonu i računaru",
       "Bez mesečne pretplate na aplikaciju",
       "Lokalni SEO",
     ],
     plan: "Zakazivanje",
     planReason:
-      "Zakazivanje porukom je najbrže rešenje i odmah radi. Ako vam treba kalendar u kom klijenti sami biraju slobodan termin, to pravim kao poseban projekat prema vašim pravilima rada, po ponudi.",
+      "Zahtev za termin porukom je najbrže rešenje i odmah radi. Ako vam treba online rezervacija, u kojoj klijenti sami biraju slobodan termin u kalendaru, to pravim kao poseban projekat prema vašim pravilima rada, po ponudi.",
     caseStudy: "modni-frizer-vojkan",
     caseStudyText:
-      "Frizerski salon je prešao sa zakazivanja telefonom na zakazivanje porukom preko sajta.",
+      "Frizerski salon je prešao sa zakazivanja telefonom na zahteve za termin porukom preko sajta.",
     faqs: [
       {
         question: "Koja je razlika između zakazivanja porukom i kalendara?",
@@ -227,9 +227,9 @@ export const landingPages: LandingPage[] = [
     navLabel: "Sajt za frizerski salon",
     serviceName: "Izrada sajta za frizerski i kozmetički salon",
     kicker: "Za frizerske i kozmetičke salone",
-    title: "Sajt za frizerski salon koji zakazuje umesto vas.",
+    title: "Sajt za frizerski salon: manje poziva tokom rada.",
     intro:
-      "Klijentkinje vide usluge i cene unapred i zakazuju termin jednom porukom. Vi radite, a telefon zvoni ređe.",
+      "Klijentkinje vide usluge i cene unapred i šalju zahtev za termin jednom porukom. Vi radite, a telefon zvoni ređe.",
     problemsTitle: "Poznato?",
     problems: [
       {
@@ -248,7 +248,7 @@ export const landingPages: LandingPage[] = [
     featuresTitle: "Šta dobija vaš salon",
     features: [
       "Usluge i cenovnik pregledni na telefonu",
-      "Zakazivanje termina porukom (WhatsApp, Viber, email)",
+      "Zahtev za termin porukom (WhatsApp, Viber, email)",
       "Galerija vaših radova",
       "Adresa, mapa i radno vreme",
       "Lokalni SEO za pretrage u vašem gradu",
@@ -259,7 +259,7 @@ export const landingPages: LandingPage[] = [
       "Uključuje sve iz paketa Biznis i zakazivanje porukom, što salonu najviše štedi vreme. Ako želite da klijentkinje same biraju slobodan termin u kalendaru, to radim kao poseban projekat po ponudi.",
     caseStudy: "modni-frizer-vojkan",
     caseStudyText:
-      "Salon sa 40 godina tradicije do sada je zakazivao samo telefonom. Danas klijentkinje unapred vide cenovnik i zakazuju porukom.",
+      "Salon sa 40 godina tradicije do sada je zakazivao samo telefonom. Danas klijentkinje unapred vide cenovnik i šalju zahtev za termin porukom.",
     faqs: [
       {
         question: "Da li klijentkinje mogu da zakažu bez poziva?",
@@ -321,7 +321,7 @@ export const landingPages: LandingPage[] = [
       "Do 5 strana je dovoljno za usluge, česta pitanja i kontakt, uz lokalni SEO da vas nađu u okolini.",
     caseStudy: "remielectric",
     caseStudyText:
-      "Elektroinstalaterski tim iz Novog Sada radio je samo preko preporuka. Sa sajtom klijenti sami zakazuju pregled, a hitni pozivi stižu direktno.",
+      "Elektroinstalaterski tim iz Novog Sada radio je samo preko preporuka. Sa sajtom klijenti šalju zahtev za besplatan pregled, a hitni pozivi stižu direktno.",
     faqs: [
       {
         question: "Da li mi treba sajt ako imam dovoljno posla?",

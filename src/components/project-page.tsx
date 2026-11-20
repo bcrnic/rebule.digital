@@ -59,7 +59,6 @@ export function ProjectPage({ project, prevProject, nextProject }: ProjectPagePr
         author: { "@type": "Person", name: FOUNDER.name, url: absoluteUrl("/") },
         creator: { "@type": "Organization", name: SITE_NAME, url: absoluteUrl("/") },
         genre: category(project),
-        keywords: project.technologies.join(", "),
       },
     ],
   };
@@ -181,94 +180,84 @@ export function ProjectPage({ project, prevProject, nextProject }: ProjectPagePr
         )}
 
         {/* Problem & Solution */}
-        <section className="relative overflow-hidden py-24 sm:py-32">
-          <div className="aurora opacity-50" aria-hidden="true" />
-          <div className="relative z-10 mx-auto grid max-w-[90rem] gap-10 px-5 md:grid-cols-2 lg:px-10">
-            <div className="glass flex flex-col justify-between p-8 sm:p-10">
-              <div>
-                <p className="section-kicker">{t.challengeKicker}</p>
-                <h2 className="mt-6 font-display text-3xl font-semibold sm:text-4xl">
-                  {t.challengeTitle}
-                </h2>
-                <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-                  {project.problem}
-                </p>
-              </div>
-              <div className="mt-8 rounded-xl border border-destructive/20 bg-destructive/5 p-4 text-xs font-medium text-foreground">
-                {t.goal}
-              </div>
+        {/* Studija u četiri pitanja: šta nije moglo, šta je promenjeno, kako radi, šta možemo da potvrdimo. */}
+        <section className="mx-auto max-w-[90rem] px-5 py-20 sm:py-24 lg:px-10">
+          <div className="grid gap-px overflow-hidden rounded-[var(--radius)] border border-border bg-border md:grid-cols-2">
+            <div className="bg-background p-8 sm:p-10">
+              <p className="section-kicker">{t.challengeKicker}</p>
+              <h2 className="mt-4 font-display text-2xl font-semibold sm:text-3xl">
+                {t.challengeTitle}
+              </h2>
+              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+                {project.problem}
+              </p>
             </div>
-
-            <div className="glass flex flex-col justify-between p-8 sm:p-10 md:mt-12">
-              <div>
-                <p className="section-kicker">{t.approachKicker}</p>
-                <h2 className="mt-6 font-display text-3xl font-semibold sm:text-4xl">
-                  {t.approachTitle}
+            <div className="bg-background p-8 sm:p-10">
+              <p className="section-kicker">{t.approachKicker}</p>
+              <h2 className="mt-4 font-display text-2xl font-semibold sm:text-3xl">
+                {t.approachTitle}
+              </h2>
+              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+                {project.solution}
+              </p>
+            </div>
+            {project.keyAction && (
+              <div className="bg-background p-8 sm:p-10">
+                <p className="section-kicker">{t.actionKicker}</p>
+                <h2 className="mt-4 font-display text-2xl font-semibold sm:text-3xl">
+                  {project.keyAction.title}
                 </h2>
-                <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-                  {project.solution}
-                </p>
+                <ol className="mt-5 grid gap-3">
+                  {project.keyAction.steps.map((step, index) => (
+                    <li key={step} className="flex items-start gap-3 text-base leading-relaxed">
+                      <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
+                        {index + 1}
+                      </span>
+                      <span className="pt-0.5">{step}</span>
+                    </li>
+                  ))}
+                </ol>
               </div>
-              <div className="mt-8 rounded-xl border border-primary/20 bg-primary/5 p-4 text-xs font-medium text-primary">
-                {t.focus}
-              </div>
+            )}
+            <div className="bg-background p-8 sm:p-10">
+              <p className="section-kicker">{t.outcomeKicker}</p>
+              <h2 className="mt-4 font-display text-2xl font-semibold sm:text-3xl">{t.outcome}</h2>
+              <p className="mt-4 flex items-start gap-3 text-lg leading-relaxed text-foreground">
+                <CheckCircle2 className="mt-1 size-5 shrink-0 text-primary" aria-hidden="true" />
+                {project.result}
+              </p>
             </div>
           </div>
         </section>
 
-        {/* Deliverables & Technologies */}
-        <section className="mx-auto max-w-[90rem] px-5 py-16 lg:px-10">
-          <div className="grid gap-12 border-t border-border pt-10 md:grid-cols-2">
-            <div>
-              <div className="flex items-center gap-2 label-mono text-primary">
-                <Layers className="size-4" />
-                <span>{t.deliverablesKicker}</span>
-              </div>
-              <h2 className="mt-4 font-display text-3xl font-semibold">{t.deliverablesTitle}</h2>
-              <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-                {(project.deliverables ?? t.defaultDeliverables).map((item) => (
-                  <li key={item} className="glass flex items-center gap-3 px-4 py-3.5 text-sm">
-                    <CheckCircle2 className="size-4 text-primary shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+        <section className="mx-auto max-w-[90rem] px-5 pb-16 lg:px-10">
+          <div className="border-t border-border pt-10">
+            <div className="flex items-center gap-2 label-mono text-primary">
+              <Layers className="size-4" aria-hidden="true" />
+              <span>{t.deliverablesKicker}</span>
             </div>
-
-            <div>
-              <p className="section-kicker">{t.toolsKicker}</p>
-              <h2 className="mt-4 font-display text-3xl font-semibold">{t.toolsTitle}</h2>
-              <div className="mt-6 flex flex-wrap gap-2.5">
-                {project.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="glass rounded-full px-4 py-2 text-sm font-medium text-foreground"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              <div className="glass-soft mt-8 p-6">
-                <p className="label-mono text-primary">{t.outcome}</p>
-                <p className="mt-3 flex items-start gap-3 text-base font-medium leading-relaxed text-foreground">
-                  <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-primary" />
-                  {project.result}
-                </p>
-              </div>
-              {project.servicePath && (
-                <Link
-                  to={project.servicePath}
-                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary underline-offset-4 hover:underline"
-                >
-                  {t.moreAbout(project.niche)} <ArrowRight className="size-4" />
-                </Link>
-              )}
-            </div>
+            <h2 className="mt-4 font-display text-2xl font-semibold sm:text-3xl">
+              {t.deliverablesTitle}
+            </h2>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {(project.deliverables ?? t.defaultDeliverables).map((item) => (
+                <li key={item} className="glass flex items-center gap-3 px-4 py-3.5 text-sm">
+                  <CheckCircle2 className="size-4 shrink-0 text-primary" aria-hidden="true" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            {project.servicePath && (
+              <Link
+                to={project.servicePath}
+                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary underline-offset-4 hover:underline"
+              >
+                {t.moreAbout(project.niche)} <ArrowRight className="size-4" />
+              </Link>
+            )}
           </div>
         </section>
 
-        {/* Adjacent Projects Navigation */}
         <section aria-label={t.adjacentAria} className="border-t border-border bg-surface/30 py-16">
           <div className="mx-auto max-w-[90rem] px-5 lg:px-10">
             <p className="mb-6 label-mono text-muted-foreground">{t.seeOthers}</p>
